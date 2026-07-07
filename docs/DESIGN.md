@@ -71,11 +71,28 @@ P1が最速で価値が出る。観劇カレンダーは既に公開・構造化
 - 実行結果はリポジトリにcommitしてサイトのダイジェストページに反映する
 - 推薦ロジック自体は単体スクリプトとして切り出し、基盤を後から変更できるようにしておく
 
-## 未確定事項（着手前に埋める）
+## 未確定事項
 
-- [ ] 松田観劇カレンダーのiCalフィードURL（P1着手に必須）
-- [ ] カレンダーIDの完全な値とタイムゾーンの確認
-- [ ] カレンダー上での「気になる/予定/済」の表現方法（色・タイトル接頭辞・別カレンダー等）
-- [ ] Notion Inbox/Home のページID（P2）
+解決済み（2026-07-07）:
+- [x] iCalフィードURL: `https://calendar.google.com/calendar/ical/ooc2a3r5b532knt1472khnrjpg%40group.calendar.google.com/public/basic.ics`（取得確認済み、872件）
+- [x] カレンダーID・タイムゾーン: `ooc2a3r5b532knt1472khnrjpg@group.calendar.google.com` / Asia/Tokyo
+- [x] ステータス表現: カレンダーには「見込まれる公演」のみ登録されており、確定/済の区別はない。ステータス管理はP2でNotion側に持たせる
+- [x] Notion InboxページID: `393020b1f16781fbab1bf6ec16b8a3b1`
+
+未解決:
 - [ ] 週次ダイジェストのGmail送信方式（P3。scheduled taskからGmail MCPが使えるか要検証、代替はSMTP）
 - [ ] 推薦の「空き日程との突合」に使う個人カレンダーへのアクセス方法（P3。秘密iCalアドレス等）
+
+## P1実装状況（2026-07-07）
+
+実装・ローカル動作確認済み:
+- scripts/build_data.py: フィード取得→site/data/events.json 生成（Python 3.9 stdlibのみ）。872件全件パース、URL抽出681件、劇団/作品分離652件
+- site/: 単一ページ（開催中・今後 / 過去アーカイブ年別 / 検索）。フレームワーク・CDN依存なし、ダークモード・モバイル対応
+- .github/workflows/build.yml: 日次（JST 6:00）+ push + 手動のPagesデプロイ。公開後に稼働
+
+## 公開前にやること（次回セッション）
+
+1. GitHub CLI導入: 公式バイナリを直接ダウンロード（Homebrew不要）し、`gh auth login` でブラウザ認証
+2. git著者の付け替え: `user.name` / `user.email` をGitHubのnoreplyアドレス（`<username>@users.noreply.github.com`）に設定し、既存commitを `git rebase --reset-author` 等で書き換え（実メール・ホスト名の公開回避）。ユーザーは「noreplyアドレス使用」を選択済み
+3. publicリポジトリ作成 → push
+4. Pages有効化（Source: GitHub Actions）→ workflow初回実行 → `https://<username>.github.io/kangeki-hub/` で表示確認

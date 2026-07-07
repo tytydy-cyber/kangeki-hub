@@ -1,0 +1,3 @@
+# デプロイ時に生成されるデータ（commitしない）
+site/data/events.json
+.DS_Store
