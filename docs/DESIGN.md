@@ -90,9 +90,12 @@ P1が最速で価値が出る。観劇カレンダーは既に公開・構造化
 - site/: 単一ページ（開催中・今後 / 過去アーカイブ年別 / 検索）。フレームワーク・CDN依存なし、ダークモード・モバイル対応
 - .github/workflows/build.yml: 日次（JST 6:00）+ push + 手動のPagesデプロイ。公開後に稼働
 
-## 公開前にやること（次回セッション）
+## 公開完了（2026-07-12）
 
-1. GitHub CLI導入: 公式バイナリを直接ダウンロード（Homebrew不要）し、`gh auth login` でブラウザ認証
-2. git著者の付け替え: `user.name` / `user.email` をGitHubのnoreplyアドレス（`<username>@users.noreply.github.com`）に設定し、既存commitを `git rebase --reset-author` 等で書き換え（実メール・ホスト名の公開回避）。ユーザーは「noreplyアドレス使用」を選択済み
-3. publicリポジトリ作成 → push
-4. Pages有効化（Source: GitHub Actions）→ workflow初回実行 → `https://<username>.github.io/kangeki-hub/` で表示確認
+- リポジトリ: https://github.com/tytydy-cyber/kangeki-hub （public）
+- 公開URL: https://tytydy-cyber.github.io/kangeki-hub/
+- git著者はGitHub noreplyアドレス（`115096152+tytydy-cyber@users.noreply.github.com`）に統一済み（全コミット書き換え済み、実メール・ホスト名は非公開）
+- `.github/workflows/build.yml` が日次（JST 6:00）でフィードを再取得・再デプロイ
+- 本番URLで開催中・今後・過去アーカイブ・検索の動作を確認済み
+
+P1完了。次はP2（Notion DB設計・飲食データ取り込み）。
