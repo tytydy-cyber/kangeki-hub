@@ -79,7 +79,7 @@ def parse_events(text):
         params = key.split(";")[1:]
         if name in ("DTSTART", "DTEND"):
             current[name] = {"value": value, "params": params}
-        elif name in ("UID", "SUMMARY", "LOCATION", "DESCRIPTION", "LAST-MODIFIED", "STATUS"):
+        elif name in ("UID", "SUMMARY", "LOCATION", "DESCRIPTION", "CREATED", "LAST-MODIFIED", "STATUS"):
             current[name] = value
     return events
 
@@ -127,6 +127,20 @@ def build_event(raw):
     if last_day < start:
         last_day = start
 
+    # カレンダーへの登録日（嗜好の時系列分析に使う）
+    created = None
+    if raw.get("CREATED"):
+        try:
+            created = (
+                datetime.strptime(raw["CREATED"].rstrip("Z"), "%Y%m%dT%H%M%S")
+                .replace(tzinfo=timezone.utc)
+                .astimezone(JST)
+                .date()
+                .isoformat()
+            )
+        except ValueError:
+            pass
+
     company, title = split_title(summary)
     url, note = extract_url_and_note(unescape(raw.get("DESCRIPTION", "")))
     location = unescape(raw.get("LOCATION", "")).strip() or None
@@ -141,6 +155,7 @@ def build_event(raw):
         "start": start.isoformat(),
         "end": last_day.isoformat(),
         "allDay": all_day,
+        "created": created,
         "venue": venue,
         "location": location,
         "url": url,

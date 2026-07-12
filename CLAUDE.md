@@ -27,9 +27,19 @@
 - アスタリスク（`*`）は使用しない
 - TODO: 他に既存チャットでの出力規約があれば追記
 
+## 週次ダイジェストの生成手順
+
+1. `python3 scripts/build_data.py && python3 scripts/analyze_trends.py` で傾向集計（頻出劇団・会場・登録ペース・今後の登録済み一覧）を出す
+2. 頻出劇団のうち「今後の公演が未登録」のものを特定し、Web検索・公式サイトで公演情報を収集（頻出会場のスケジュールページも有効。例: 本多劇場グループのスズナリ欄）
+3. 登録済みと重複しない提案5件程度 + 発表待ちウォッチリストを `site/data/digest.json` に書く（スキーマは現行ファイル参照。digest.jsonはcommit対象）
+4. `generatedAt` を更新し、commit → push（pushでActionsが自動デプロイ）
+
+定期化する場合はこの手順をscheduled taskのプロンプトにする（初回は2026-07-12に手動生成、定期化は未決定）。
+
 ## 開発メモ
 
 - データ生成: `python3 scripts/build_data.py`（`--local <ics>` でローカルファイルから）。出力は `site/data/events.json`（.gitignore対象、デプロイ時にActionsが生成）
+- 傾向分析: `python3 scripts/analyze_trends.py`（events.jsonを読んでJSONを標準出力へ）
 - ローカル確認: `cd site && python3 -m http.server 8765`
 - ビルドはPython 3.9標準ライブラリのみ。Node.jsや外部パッケージは使わない（この環境に未導入のため）
 - Claude Codeのプレビューツール（preview_start）はDesktop配下に直接アクセスできない。site/をスクラッチパッドにコピーし、getcwd()を呼ばないサーバースクリプト経由で配信する方式で回避した実績あり

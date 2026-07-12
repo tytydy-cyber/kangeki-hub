@@ -85,6 +85,15 @@ h2.section {
   color: var(--accent);
 }
 
+h3.month {
+  margin: 1.1rem 0 0.45rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.2rem;
+}
+
 h2.section .count {
   color: var(--muted);
   font-weight: normal;
@@ -125,6 +134,112 @@ h2.section .count {
   background: var(--accent-soft);
   color: var(--accent);
   vertical-align: 0.1em;
+}
+
+.info .maploc {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--muted);
+}
+
+.chip {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0 0.5rem;
+  font-size: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.company-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.company-row .name { font-weight: 600; }
+
+.company-row .meta {
+  color: var(--muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.company-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.company-head h2 { margin: 0; font-size: 1.15rem; }
+
+#back-companies {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.navlink { color: var(--accent); }
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.stat {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.stat .v { font-weight: 700; font-size: 1.05rem; }
+.stat .l { color: var(--muted); font-size: 0.75rem; }
+
+.digest-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.card .reason {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.digest-notes {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.78rem;
 }
 
 .empty, .loading {
