@@ -44,6 +44,11 @@ header h1 {
   line-height: 1.7;
 }
 
+.lead a {
+  color: var(--accent);
+  word-break: break-all;
+}
+
 .subtitle {
   margin: 0.25rem 0 1rem;
   color: var(--muted);
@@ -108,6 +113,42 @@ header h1 {
   background: var(--card);
   color: var(--muted);
   cursor: pointer;
+}
+
+.months {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.month-btns {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.month-btn {
+  flex: 1 0 auto;
+  min-width: 2.6rem;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.month-btn:hover { border-color: var(--accent); }
+
+.month-btn.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
 }
 
 #search {

@@ -9,7 +9,7 @@
 <body>
 <header>
   <h1>松田観劇カレンダー</h1>
-  <p class="lead">小劇場・アングラ・テント芝居・舞踏を中心に、気になる公演を集めた個人用の観劇カレンダーです。観に行った記録ではなく「これから／見込みの公演」を、公開Googleカレンダーから毎日自動更新して並べています。開催中・今後と過去アーカイブを、日付や劇団・会場から辿れます。</p>
+  <p class="lead">古今東西（都内中心）の気になる公演を集めた個人用の観劇カレンダーです。病的な更新頻度を誇っています。元データ（Googleカレンダー）はこちら→<a href="https://t.co/EUlUPtGV4T" target="_blank" rel="noopener">https://t.co/EUlUPtGV4T</a></p>
   <p class="subtitle"><a class="navlink" href="proposals.html">おすすめ提案</a> ・ <a class="navlink" href="digest.html">傾向ダイジェスト</a></p>
 </header>
 
@@ -22,11 +22,15 @@
 <div class="toolbar">
   <input id="search" type="search" placeholder="タイトル・劇団・会場で検索" autocomplete="off">
   <div class="datefilter">
-    <label class="datelabel">日程で逆引き</label>
+    <label class="datelabel">日程で検索</label>
     <input id="date-from" type="date" aria-label="開始日">
     <span class="datesep">〜</span>
     <input id="date-to" type="date" aria-label="終了日">
     <button id="date-clear" hidden>クリア</button>
+  </div>
+  <div class="months">
+    <span class="datelabel" id="months-year"></span>
+    <div class="month-btns" id="month-btns"></div>
   </div>
 </div>
 

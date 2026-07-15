@@ -310,14 +310,54 @@
     dateFrom = dateTo = "";
     dateFromInput.value = dateToInput.value = "";
     dateClear.hidden = true;
+    syncMonthButtons();
   }
 
   function onDateChange() {
     dateFrom = dateFromInput.value;
     dateTo = dateToInput.value;
     dateClear.hidden = !dateFrom && !dateTo;
+    syncMonthButtons();
     render();
   }
+
+  // 1〜12月のワンボタン。当年の該当月をまるごと日程検索する
+  const monthBtnsEl = document.getElementById("month-btns");
+  const monthYear = Number(todayStr.slice(0, 4));
+  document.getElementById("months-year").textContent = `${monthYear}年`;
+
+  function monthRange(m) {
+    const last = new Date(Date.UTC(monthYear, m, 0)).getUTCDate();
+    const mm = String(m).padStart(2, "0");
+    return [`${monthYear}-${mm}-01`, `${monthYear}-${mm}-${String(last).padStart(2, "0")}`];
+  }
+
+  function syncMonthButtons() {
+    for (const b of monthBtnsEl.children) {
+      const [from, to] = monthRange(Number(b.dataset.month));
+      b.classList.toggle("active", dateFrom === from && dateTo === to);
+    }
+  }
+
+  monthBtnsEl.innerHTML = Array.from(
+    { length: 12 },
+    (_, i) => `<button class="month-btn" data-month="${i + 1}">${i + 1}月</button>`
+  ).join("");
+
+  monthBtnsEl.addEventListener("click", (e) => {
+    const b = e.target.closest(".month-btn");
+    if (!b) return;
+    const [from, to] = monthRange(Number(b.dataset.month));
+    // 同じ月をもう一度押したら解除
+    if (dateFrom === from && dateTo === to) {
+      clearDates();
+      render();
+      return;
+    }
+    dateFromInput.value = from;
+    dateToInput.value = to;
+    onDateChange();
+  });
 
   dateFromInput.addEventListener("change", onDateChange);
   dateToInput.addEventListener("change", onDateChange);
