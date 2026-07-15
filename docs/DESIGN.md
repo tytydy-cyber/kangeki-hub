@@ -114,3 +114,8 @@ P1完了。次はP2（Notion DB設計・飲食データ取り込み）。
 - 提案を「おすすめ提案」ページ（proposals.html）に独立: 直近約1ヶ月の未登録公演 + 期間問わずの特筆枠
 - analyze_trends.py に年別・開催月ヒストグラムを追加
 - 既知課題: 会場名の英語表記混入（build_data.pyでの正規化が今後の改善点）
+
+## P1.7: 会場名正規化 + 提案の週次自動化（2026-07-15）
+
+- 会場名正規化: build_data.py に VENUE_ALIASES を追加し、Googleカレンダーの英語ローカライズ会場名（例: Hanazono Shrine→花園神社）を日本語の正式表記へ統一。集計・表示のみ正規化し、マップリンクに使う location（住所）は温存するため紐付けは維持
+- 提案の週次自動化: scheduled task `kangeki-weekly-proposals`（毎週金曜0時JST）を設定。手順書 docs/WEEKLY_TASK.md に従い、proposals.json / digest.json の再生成と会場名マッピングの保守を自動で行う

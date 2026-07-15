@@ -42,7 +42,12 @@
 
 登録済みと重複させないため、analyze_trends.py の `upcomingTitles` を必ず突き合わせる。生成後 commit → push（Actionsが自動デプロイ）。
 
-定期化（scheduled task）は内容確認後に判断（初回は2026-07-15に手動生成）。
+### 定期化（設定済み 2026-07-15）
+
+- scheduled task `kangeki-weekly-proposals`（cron `0 0 * * 5` = 毎週金曜0時JST）で自動更新する
+- タスクの手順は [docs/WEEKLY_TASK.md](docs/WEEKLY_TASK.md) が正。プロンプトからこのファイルを読んで実行する
+- タスクはアプリ起動中に実行される。金曜0時にアプリが閉じていれば次回起動時に走る
+- 手順を変えたい場合は docs/WEEKLY_TASK.md を編集（タスクのプロンプトは手順書を参照しているだけなので、原則プロンプト側の変更は不要）
 
 ## 既知のデータ品質課題
 
