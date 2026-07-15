@@ -30,19 +30,28 @@ def main():
     def top(counter, n):
         return [{"name": k, "count": v} for k, v in counter.most_common(n)]
 
-    companies_all = Counter(e["company"] for e in events if e["company"])
-    companies_recent = Counter(e["company"] for e in recent if e["company"])
+    def company_counts(evs):
+        # 劇団の件数は公演単位（production）で数える。日程分割は1、再演は別公演。
+        seen = {}
+        for e in evs:
+            if not e.get("company"):
+                continue
+            seen.setdefault(e["company"], set()).add(e.get("production"))
+        return Counter({name: len(prods) for name, prods in seen.items()})
+
+    companies_all = company_counts(events)
+    companies_recent = company_counts(recent)
     venues_all = Counter(e["venue"] for e in events if e["venue"])
     venues_recent = Counter(e["venue"] for e in recent if e["venue"])
 
-    # 年別（開催年ベース）の集計: 件数・上位劇団・上位会場
+    # 年別（開催年ベース）の集計: 件数・上位劇団（公演単位）・上位会場
     by_year = {}
     years = sorted({e["start"][:4] for e in events})
     for y in years:
         ye = [e for e in events if e["start"][:4] == y]
         by_year[y] = {
             "count": len(ye),
-            "topCompanies": top(Counter(e["company"] for e in ye if e["company"]), 5),
+            "topCompanies": top(company_counts(ye), 5),
             "topVenues": top(Counter(e["venue"] for e in ye if e["venue"]), 5),
         }
 

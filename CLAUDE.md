@@ -56,6 +56,12 @@
 - 概要が無い劇団は非表示（app.js の overviewBlock が空を返す）。無理に埋めない
 - 週次タスクが毎週3〜5件ずつ Web調査で追記する（手順は docs/WEEKLY_TASK.md）
 
+## 公演単位の集計（production）
+
+- build_data.py の assign_productions が各イベントに `production`（整数ID）を付与。同一（劇団, 作品）を開始日順に並べ、隣接する登録の間隔が PRODUCTION_GAP_DAYS(60日) 超で別クラスタ＝再演として分ける。日程分割された同一公演は同じIDになる
+- 劇団別の件数（app.js companyStats）と digest の topCompanies（analyze_trends.py company_counts）は、この production のユニーク数で数える（「N公演」表示）
+- 劇団詳細も collapseProductions で公演単位にまとめて表示（開始=最早/千秋楽=最遅/会場は代表+「ほか」）。一覧の「N公演」と件数が一致する
+
 ## データ正規化のメモ
 
 - 会場名: build_data.py の VENUE_ALIASES で英語ローカライズ表記→日本語へ。マップリンクは location（住所）を使うので紐付けは維持

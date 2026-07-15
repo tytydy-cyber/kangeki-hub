@@ -141,17 +141,41 @@
   }
 
   function companyStats(list) {
+    // 件数は公演単位（production）で数える。日程分割された同一公演は1、再演は別公演として2。
     const map = new Map();
     for (const e of list) {
       if (!e.company) continue;
-      if (!map.has(e.company)) map.set(e.company, { count: 0, latest: "" });
+      if (!map.has(e.company)) map.set(e.company, { productions: new Set(), latest: "" });
       const s = map.get(e.company);
-      s.count += 1;
+      s.productions.add(e.production);
       if (e.start > s.latest) s.latest = e.start;
     }
-    return [...map.entries()].sort(
-      (a, b) => b[1].count - a[1].count || b[1].latest.localeCompare(a[1].latest)
-    );
+    return [...map.entries()]
+      .map(([name, s]) => [name, { count: s.productions.size, latest: s.latest }])
+      .sort((a, b) => b[1].count - a[1].count || b[1].latest.localeCompare(a[1].latest));
+  }
+
+  // 同一公演（production）の日程分割を1件にまとめる。開始=最早、千秋楽=最遅、会場は代表1つ。
+  function collapseProductions(evs) {
+    const map = new Map();
+    for (const e of evs) {
+      const p = map.get(e.production);
+      if (!p) {
+        map.set(e.production, { ...e, _venues: new Set(e.venue ? [e.venue] : []) });
+      } else {
+        if (e.start < p.start) {
+          p.start = e.start;
+          p.location = e.location; // マップリンクは先頭公演の住所に合わせる
+        }
+        if (e.end > p.end) p.end = e.end;
+        if (e.venue) p._venues.add(e.venue);
+        if (!p.url && e.url) p.url = e.url;
+      }
+    }
+    return [...map.values()].map((p) => ({
+      ...p,
+      venue: p._venues.size > 1 ? `${[...p._venues][0]} ほか` : [...p._venues][0] || null,
+    }));
   }
 
   function overviewBlock(name) {
@@ -169,11 +193,12 @@
 
   function renderCompanies(list) {
     if (selectedCompany) {
-      const own = list.filter((e) => e.company === selectedCompany);
+      // 詳細も公演単位（日程分割をまとめる）で一覧表示し、劇団一覧の「N公演」と件数を一致させる
+      const own = collapseProductions(list.filter((e) => e.company === selectedCompany));
       const current = own
         .filter((e) => todayStr <= e.end)
         .sort((a, b) => a.start.localeCompare(b.start));
-      const past = own.filter((e) => e.end < todayStr).reverse();
+      const past = own.filter((e) => e.end < todayStr).sort((a, b) => b.start.localeCompare(a.start));
       const currentCards = current
         .map((e) =>
           card(e, e.start <= todayStr ? ongoingBadge(e) : upcomingBadge(e), { noChip: true })
@@ -198,7 +223,7 @@
         .map(
           ([name, s]) => `<button class="company-row" data-company="${esc(name)}">
             <span class="name">${esc(name)}</span>
-            <span class="meta">${s.count}件 ・ 直近 ${esc(s.latest.slice(0, 7).replace("-", "/"))}</span>
+            <span class="meta">${s.count}公演 ・ 直近 ${esc(s.latest.slice(0, 7).replace("-", "/"))}</span>
           </button>`
         )
         .join("");

@@ -38,6 +38,12 @@ header h1 {
   letter-spacing: 0.02em;
 }
 
+.lead {
+  margin: 0.4rem 0 0.5rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
 .subtitle {
   margin: 0.25rem 0 1rem;
   color: var(--muted);

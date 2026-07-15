@@ -253,6 +253,39 @@ def build_event(raw):
     }
 
 
+# 同一公演の日程分割（ツアーの複数会場・複数日程ブロック）と再演を区別する閾値。
+# 同一（劇団, 作品）で、隣り合う登録の開始日がこの日数以内なら同じ公演、超えたら別公演（再演）とみなす。
+# 観測値: 同一公演の分割は隣接gapが最大30日程度、再演は117日以上と明確に分かれている。
+PRODUCTION_GAP_DAYS = 60
+
+
+def days_between(a_iso, b_iso):
+    a = date(int(a_iso[:4]), int(a_iso[5:7]), int(a_iso[8:10]))
+    b = date(int(b_iso[:4]), int(b_iso[5:7]), int(b_iso[8:10]))
+    return abs((b - a).days)
+
+
+def assign_productions(events):
+    """各イベントに公演単位のID（production）を付与する。
+    同一（劇団, 作品）を開始日順に並べ、隣接する登録の間隔が PRODUCTION_GAP_DAYS を
+    超えたら別クラスタ（＝再演）として分ける。日程分割された同一公演は1つにまとまる。
+    """
+    groups = {}
+    for e in events:
+        key = (e.get("company") or "", e.get("work") or e.get("title") or "")
+        groups.setdefault(key, []).append(e)
+    next_id = 0
+    for _key, evs in sorted(groups.items()):
+        evs.sort(key=lambda e: (e["start"], e["end"]))
+        prev_start = None
+        for e in evs:
+            if prev_start is None or days_between(prev_start, e["start"]) > PRODUCTION_GAP_DAYS:
+                next_id += 1  # 新しい公演クラスタ
+            e["production"] = next_id
+            prev_start = e["start"]
+    return events
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--local", help="ローカルのICSファイルパス（指定時はフィードを取得しない）")
@@ -260,6 +293,7 @@ def main():
 
     text = fetch_ics(args.local)
     events = [e for e in (build_event(raw) for raw in parse_events(text)) if e]
+    assign_productions(events)
     events.sort(key=lambda e: (e["start"], e["end"], e["title"]))
 
     payload = {
