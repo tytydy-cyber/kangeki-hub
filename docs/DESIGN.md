@@ -119,3 +119,8 @@ P1完了。次はP2（Notion DB設計・飲食データ取り込み）。
 
 - 会場名正規化: build_data.py に VENUE_ALIASES を追加し、Googleカレンダーの英語ローカライズ会場名（例: Hanazono Shrine→花園神社）を日本語の正式表記へ統一。集計・表示のみ正規化し、マップリンクに使う location（住所）は温存するため紐付けは維持
 - 提案の週次自動化: scheduled task `kangeki-weekly-proposals`（毎週金曜0時JST）を設定。手順書 docs/WEEKLY_TASK.md に従い、proposals.json / digest.json の再生成と会場名マッピングの保守を自動で行う
+
+## P1.8: 劇団名プレフィックス除去 + 劇団概要（2026-07-15）
+
+- 劇団名プレフィックス除去: build_data.py の split_title で先頭の注記プレフィックス（（野外）（京都）（映像）（無料）（中止）等）を除去し、company を統合（例: （名古屋）優しい劇団→優しい劇団）。title は温存
+- 劇団概要: site/data/companies.json を新設し、劇団詳細ページに概要ブロックを表示（app.js の overviewBlock）。概要が無い劇団は非表示で degrade。初回は主要5団体をシード、以降は週次タスクが毎週数件ずつ Web調査で拡充

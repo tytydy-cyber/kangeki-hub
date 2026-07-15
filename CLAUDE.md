@@ -49,9 +49,17 @@
 - タスクはアプリ起動中に実行される。金曜0時にアプリが閉じていれば次回起動時に走る
 - 手順を変えたい場合は docs/WEEKLY_TASK.md を編集（タスクのプロンプトは手順書を参照しているだけなので、原則プロンプト側の変更は不要）
 
-## 既知のデータ品質課題
+## 劇団概要（companies.json）
 
-- 会場名にGoogleカレンダー由来の英語表記が混入（例: 花園神社 と "Hanazono Shrine"、"Kanagawa Arts Theatre" が別集計）。build_data.py 側で会場名の正規化を入れると集計・マップリンク・劇団別の精度が上がる（未対応）
+- 劇団詳細ページに表示する活動概要。`site/data/companies.json` の `companies["劇団名"] = {summary, url, updatedAt}`
+- キーは events.json の company（プレフィックス除去後の表記）と完全一致させること
+- 概要が無い劇団は非表示（app.js の overviewBlock が空を返す）。無理に埋めない
+- 週次タスクが毎週3〜5件ずつ Web調査で追記する（手順は docs/WEEKLY_TASK.md）
+
+## データ正規化のメモ
+
+- 会場名: build_data.py の VENUE_ALIASES で英語ローカライズ表記→日本語へ。マップリンクは location（住所）を使うので紐付けは維持
+- 劇団名: split_title で先頭プレフィックス（（野外）（京都）（映像）等）を除去して集計を統合
 
 ## 開発メモ
 

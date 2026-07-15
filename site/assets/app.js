@@ -7,6 +7,7 @@
   const DOW = ["日", "月", "火", "水", "木", "金", "土"];
 
   let events = [];
+  let companies = {}; // 劇団名 -> {summary, url, updatedAt}
   let view = "now"; // now | archive | companies
   let query = "";
   let selectedCompany = null;
@@ -153,6 +154,19 @@
     );
   }
 
+  function overviewBlock(name) {
+    const info = companies[name];
+    if (!info || !info.summary) return "";
+    const src = info.url
+      ? `<a class="ov-src" href="${esc(info.url)}" target="_blank" rel="noopener">出典</a>`
+      : "";
+    const updated = info.updatedAt ? `<span class="ov-date">${esc(info.updatedAt)} 時点</span>` : "";
+    return `<div class="overview">
+      <p>${esc(info.summary)}</p>
+      <div class="ov-meta">${src}${updated}</div>
+    </div>`;
+  }
+
   function renderCompanies(list) {
     if (selectedCompany) {
       const own = list.filter((e) => e.company === selectedCompany);
@@ -170,6 +184,7 @@
           <button id="back-companies">← 劇団一覧</button>
           <h2>${esc(selectedCompany)}</h2>
         </div>` +
+        overviewBlock(selectedCompany) +
         section("開催中・今後", current, currentCards) +
         section("過去", past, pastCards);
     }
@@ -290,6 +305,16 @@
     query = searchInput.value.trim().toLowerCase();
     render();
   });
+
+  // 劇団概要（任意・欠けていても動作する）。先に取得しておき、劇団詳細で使う
+  fetch("data/companies.json")
+    .then((r) => (r.ok ? r.json() : {}))
+    .then((data) => {
+      companies = data && data.companies ? data.companies : {};
+    })
+    .catch(() => {
+      companies = {};
+    });
 
   fetch("data/events.json")
     .then((r) => {

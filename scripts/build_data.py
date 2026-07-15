@@ -145,11 +145,24 @@ def to_jst_date(prop):
     return dt.date(), False
 
 
+# 先頭の注記プレフィックス（（野外）（京都）（映像）（無料）（中止）等）を除去するための正規表現。
+# 地域・上演形式・状態の注記であり劇団名の一部ではないため、集計用の company からは外す。
+COMPANY_PREFIX_RE = re.compile(r"^(?:[（(][^）)]*[）)]\s*)+")
+
+
+def strip_company_prefix(name):
+    if not name:
+        return name
+    stripped = COMPANY_PREFIX_RE.sub("", name).strip()
+    return stripped or name
+
+
 def split_title(summary):
     m = TITLE_RE.match(summary)
     if not m:
         return None, None
-    return m.group("company").strip(), (m.group("t1") or m.group("t2")).strip()
+    company = strip_company_prefix(m.group("company").strip())
+    return company, (m.group("t1") or m.group("t2")).strip()
 
 
 def extract_url_and_note(description):

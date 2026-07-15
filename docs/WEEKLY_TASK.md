@@ -36,10 +36,18 @@
    - 各項目に `reason`（なぜ嗜好に合うか、登録済みとどう違うか）を書く
    - `generatedAt` を当日に
 
-5. コミットとデプロイ
+5. 劇団概要の追記（site/data/companies.json）
+   - `companies.json` の `companies` に概要が無い劇団のうち、登録数が多い or 今後の公演がある劇団を **3〜5件** 選ぶ
+   - 各劇団を Web 検索し、公式サイト等の公開情報から2〜4文の概要を書く（主宰・結成年・拠点・作風など、確認できた事実のみ。憶測は書かない）
+   - `{ "劇団名": {"summary": "...", "url": "<出典>", "updatedAt": "<当日>"} }` の形で追記。キーは events.json の company と完全一致させる（プレフィックス除去後の表記）
+   - 情報が乏しく確実なことが書けない劇団は飛ばす（無理に埋めない）
+   - トップの `generatedAt` を当日に更新
+   - 一度に全劇団を埋めようとせず、毎週少しずつ拡充する
+
+6. コミットとデプロイ
    ```
    git add -A
-   git commit -m "Weekly update: proposals and digest (<当日>)"
+   git commit -m "Weekly update: proposals, digest, company overviews (<当日>)"
    git push origin main
    ```
    push で GitHub Actions が自動デプロイする。
