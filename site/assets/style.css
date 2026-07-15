@@ -69,6 +69,41 @@ header h1 {
 
 .toolbar { margin-bottom: 1rem; }
 
+.datefilter {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.datelabel {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.datesep { color: var(--muted); }
+
+.datefilter input[type="date"] {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--fg);
+  font-family: inherit;
+}
+
+#date-clear {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--muted);
+  cursor: pointer;
+}
+
 #search {
   width: 100%;
   padding: 0.55rem 0.75rem;
@@ -240,6 +275,65 @@ h2.section .count {
   margin-top: 1.5rem;
   color: var(--muted);
   font-size: 0.78rem;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.bar-label {
+  flex: 0 0 3.2rem;
+  color: var(--muted);
+  text-align: right;
+}
+
+.bar-track {
+  flex: 1;
+  height: 0.85rem;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+}
+
+.bar-val {
+  flex: 0 0 2.2rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ranklist {
+  margin: 0 0 0.5rem;
+  padding-left: 1.6rem;
+}
+
+.ranklist li {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ranklist .rk-count {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .empty, .loading {

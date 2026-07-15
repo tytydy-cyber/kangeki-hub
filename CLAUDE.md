@@ -27,14 +27,26 @@
 - アスタリスク（`*`）は使用しない
 - TODO: 他に既存チャットでの出力規約があれば追記
 
-## 週次ダイジェストの生成手順
+## 傾向ダイジェスト（digest.html / data/digest.json）
 
-1. `python3 scripts/build_data.py && python3 scripts/analyze_trends.py` で傾向集計（頻出劇団・会場・登録ペース・今後の登録済み一覧）を出す
-2. 頻出劇団のうち「今後の公演が未登録」のものを特定し、Web検索・公式サイトで公演情報を収集（頻出会場のスケジュールページも有効。例: 本多劇場グループのスズナリ欄）
-3. 登録済みと重複しない提案5件程度 + 発表待ちウォッチリストを `site/data/digest.json` に書く（スキーマは現行ファイル参照。digest.jsonはcommit対象）
-4. `generatedAt` を更新し、commit → push（pushでActionsが自動デプロイ）
+年次など広範囲の傾向分析ページ（提案は載せない）。生成手順:
+1. `python3 scripts/build_data.py && python3 scripts/analyze_trends.py > /tmp/trends.json`
+2. trends.json から digest.json を生成（年別件数・開催月分布・上位劇団/会場・直近180日の劇団）。`generatedAt` を当日に
+3. digest.js が横棒グラフ（bars）とランキング（ranklist）で描画
 
-定期化する場合はこの手順をscheduled taskのプロンプトにする（初回は2026-07-12に手動生成、定期化は未決定）。
+## おすすめ提案（proposals.html / data/proposals.json）
+
+ダイジェストとは別ページ。2セクション構成:
+- `nextMonth`: 今日から約1ヶ月の範囲で「カレンダー未登録」かつ嗜好傾向に近い公演。頻出会場のスケジュール（例: 本多劇場グループのスズナリ欄）や頻出劇団の公式が有力な情報源
+- `special`: 期間を問わず特筆すべき公演（遠征・早期完売が見込まれるもの等）。任意
+
+登録済みと重複させないため、analyze_trends.py の `upcomingTitles` を必ず突き合わせる。生成後 commit → push（Actionsが自動デプロイ）。
+
+定期化（scheduled task）は内容確認後に判断（初回は2026-07-15に手動生成）。
+
+## 既知のデータ品質課題
+
+- 会場名にGoogleカレンダー由来の英語表記が混入（例: 花園神社 と "Hanazono Shrine"、"Kanagawa Arts Theatre" が別集計）。build_data.py 側で会場名の正規化を入れると集計・マップリンク・劇団別の精度が上がる（未対応）
 
 ## 開発メモ
 

@@ -9,7 +9,7 @@
 <body>
 <header>
   <h1>松田観劇カレンダー</h1>
-  <p class="subtitle">気になる公演のリストです（観劇記録ではありません） ・ <a class="navlink" href="digest.html">週次ダイジェスト</a></p>
+  <p class="subtitle">気になる公演のリストです（観劇記録ではありません） ・ <a class="navlink" href="proposals.html">おすすめ提案</a> ・ <a class="navlink" href="digest.html">傾向ダイジェスト</a></p>
 </header>
 
 <nav class="tabs" role="tablist">
@@ -20,6 +20,13 @@
 
 <div class="toolbar">
   <input id="search" type="search" placeholder="タイトル・劇団・会場で検索" autocomplete="off">
+  <div class="datefilter">
+    <label class="datelabel">日程で逆引き</label>
+    <input id="date-from" type="date" aria-label="開始日">
+    <span class="datesep">〜</span>
+    <input id="date-to" type="date" aria-label="終了日">
+    <button id="date-clear" hidden>クリア</button>
+  </div>
 </div>
 
 <main id="app">

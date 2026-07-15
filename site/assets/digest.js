@@ -2,34 +2,43 @@
   "use strict";
 
   const app = document.getElementById("app");
+  const MONTHS = ["", "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
 
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
     );
 
-  function proposalCard(p) {
-    const title = p.url
-      ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
-      : esc(p.title);
-    const parts = [];
-    if (p.dates) parts.push(esc(p.dates));
-    if (p.venue) parts.push(esc(p.venue));
-    return `<div class="card">
-      <div class="title">${title}</div>
-      <div class="info">${parts.join(" ・ ")}</div>
-      <div class="reason">${esc(p.reason)}</div>
-    </div>`;
+  function statBlock(stats) {
+    return `<div class="stats">` +
+      stats
+        .map((s) => `<div class="stat"><span class="v">${esc(s.value)}</span><span class="l">${esc(s.label)}</span></div>`)
+        .join("") +
+      `</div>`;
   }
 
-  function watchCard(w) {
-    const name = w.url
-      ? `<a href="${esc(w.url)}" target="_blank" rel="noopener">${esc(w.name)}</a>`
-      : esc(w.name);
-    return `<div class="card">
-      <div class="title">${name}</div>
-      <div class="reason">${esc(w.note)}</div>
-    </div>`;
+  // 横棒グラフ（ラベル + 値 + バー）
+  function barChart(rows) {
+    const max = Math.max(1, ...rows.map((r) => r.value));
+    return `<div class="bars">` +
+      rows
+        .map(
+          (r) => `<div class="bar-row">
+            <span class="bar-label">${esc(r.label)}</span>
+            <span class="bar-track"><span class="bar-fill" style="width:${(r.value / max) * 100}%"></span></span>
+            <span class="bar-val">${esc(r.value)}</span>
+          </div>`
+        )
+        .join("") +
+      `</div>`;
+  }
+
+  function rankList(items) {
+    return `<ol class="ranklist">` +
+      items
+        .map((c) => `<li><span class="rk-name">${esc(c.name)}</span><span class="rk-count">${esc(c.count)}</span></li>`)
+        .join("") +
+      `</ol>`;
   }
 
   fetch("data/digest.json")
@@ -39,25 +48,40 @@
     })
     .then((d) => {
       let html = "";
-      if (d.summary) {
-        html += `<h2 class="section">傾向サマリ</h2>`;
-        if (d.summary.stats) {
-          html += `<div class="stats">` +
-            d.summary.stats
-              .map((s) => `<div class="stat"><span class="v">${esc(s.value)}</span><span class="l">${esc(s.label)}</span></div>`)
-              .join("") +
-            `</div>`;
-        }
-        if (d.summary.text) html += `<p class="digest-text">${esc(d.summary.text)}</p>`;
+
+      if (d.overview) {
+        html += `<h2 class="section">概観</h2>`;
+        if (d.overview.stats) html += statBlock(d.overview.stats);
+        if (d.overview.text) html += `<p class="digest-text">${esc(d.overview.text)}</p>`;
       }
-      if (d.proposals && d.proposals.length) {
-        html += `<h2 class="section">今週の提案 <span class="count">${d.proposals.length}件</span></h2>`;
-        html += d.proposals.map(proposalCard).join("");
+
+      if (d.byYear && d.byYear.length) {
+        html += `<h2 class="section">年別の登録数</h2>`;
+        html += barChart(d.byYear.map((y) => ({ label: `${y.year}年`, value: y.count })));
       }
-      if (d.watchlist && d.watchlist.length) {
-        html += `<h2 class="section">ウォッチ中（発表待ち）</h2>`;
-        html += d.watchlist.map(watchCard).join("");
+
+      if (d.monthHistogram) {
+        html += `<h2 class="section">開催月の分布 <span class="count">通算</span></h2>`;
+        html += barChart(
+          Object.keys(d.monthHistogram).map((m) => ({ label: MONTHS[Number(m)], value: d.monthHistogram[m] }))
+        );
       }
+
+      if (d.topCompanies && d.topCompanies.length) {
+        html += `<h2 class="section">よく観る劇団・団体 <span class="count">通算トップ${d.topCompanies.length}</span></h2>`;
+        html += rankList(d.topCompanies);
+      }
+
+      if (d.recentCompanies && d.recentCompanies.length) {
+        html += `<h2 class="section">直近180日で登録が多い劇団</h2>`;
+        html += rankList(d.recentCompanies);
+      }
+
+      if (d.topVenues && d.topVenues.length) {
+        html += `<h2 class="section">よく行く会場 <span class="count">通算トップ${d.topVenues.length}</span></h2>`;
+        html += rankList(d.topVenues);
+      }
+
       if (d.notes) html += `<p class="digest-notes">${esc(d.notes)}</p>`;
       app.innerHTML = html;
       document.getElementById("meta").textContent = `生成日 ${d.generatedAt}`;

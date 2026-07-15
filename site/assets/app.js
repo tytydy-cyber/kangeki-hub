@@ -10,6 +10,8 @@
   let view = "now"; // now | archive | companies
   let query = "";
   let selectedCompany = null;
+  let dateFrom = "";
+  let dateTo = "";
 
   // JSTの今日（閲覧環境のタイムゾーンに依存しない）
   const todayStr = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
@@ -187,7 +189,41 @@
         .join("");
   }
 
+  function dateRange() {
+    if (!dateFrom && !dateTo) return null;
+    // 片方だけ指定された場合は単日として扱う
+    const from = dateFrom || dateTo;
+    const to = dateTo || dateFrom;
+    return from <= to ? [from, to] : [to, from];
+  }
+
+  function renderDateResults(list, from, to) {
+    const hits = list
+      .filter((e) => e.start <= to && from <= e.end)
+      .sort((a, b) => a.start.localeCompare(b.start) || a.end.localeCompare(b.end));
+    const label =
+      from === to
+        ? `${fmtDate(from, Number(from.slice(0, 4)) !== todayYear)} の公演`
+        : `${fmtDate(from, Number(from.slice(0, 4)) !== todayYear)} 〜 ${fmtDate(to, Number(to.slice(0, 4)) !== todayYear)} の公演`;
+    const cards = hits
+      .map((e) => {
+        let badge = "";
+        if (e.end < todayStr) badge = "終了";
+        else if (e.start <= todayStr) badge = ongoingBadge(e);
+        else badge = upcomingBadge(e);
+        return card(e, badge);
+      })
+      .join("");
+    return section(label, hits, cards);
+  }
+
   function render() {
+    const range = dateRange();
+    if (range) {
+      // 日程逆引きモード: タブより優先して期間と重なる公演を表示
+      app.innerHTML = renderDateResults(events.filter(matches), range[0], range[1]);
+      return;
+    }
     if (view === "companies" && selectedCompany) {
       // 劇団詳細では検索ではなく劇団で絞る
       app.innerHTML = renderCompanies(events);
@@ -215,6 +251,7 @@
     const chip = e.target.closest("[data-company]");
     if (chip) {
       selectedCompany = chip.dataset.company;
+      clearDates(); // 逆引きモードを抜けて劇団ページへ
       setView("companies");
       window.scrollTo(0, 0);
       return;
@@ -223,6 +260,30 @@
       selectedCompany = null;
       render();
     }
+  });
+
+  const dateFromInput = document.getElementById("date-from");
+  const dateToInput = document.getElementById("date-to");
+  const dateClear = document.getElementById("date-clear");
+
+  function clearDates() {
+    dateFrom = dateTo = "";
+    dateFromInput.value = dateToInput.value = "";
+    dateClear.hidden = true;
+  }
+
+  function onDateChange() {
+    dateFrom = dateFromInput.value;
+    dateTo = dateToInput.value;
+    dateClear.hidden = !dateFrom && !dateTo;
+    render();
+  }
+
+  dateFromInput.addEventListener("change", onDateChange);
+  dateToInput.addEventListener("change", onDateChange);
+  dateClear.addEventListener("click", () => {
+    clearDates();
+    render();
   });
 
   searchInput.addEventListener("input", () => {
