@@ -30,6 +30,55 @@ URL_RE = re.compile(r"https?://[^\s<>\"]+")
 # 「劇団名「作品名」」「劇団名『作品名』」形式の分離（末尾が閉じ括弧のものだけ対象）
 TITLE_RE = re.compile(r"^(?P<company>[^「『]+?)\s*(?:「(?P<t1>.+)」|『(?P<t2>.+)』)\s*$")
 
+# 会場名の正規化: Googleカレンダーが英語ローカライズした会場名を日本語の正式表記へ寄せる。
+# 集計（上位会場・劇団別）と表示の重複を解消するのが目的。
+# 正規化するのは表示用の venue のみで、マップリンクに使う location（住所）は温存するため紐付けは維持される。
+# ラテン表記が正式名の会場（SCOOL, BUoY, WOMB 等）は対象外（キーに載せない）。
+VENUE_ALIASES = {
+    "Hanazono Shrine": "花園神社",
+    "The Suzunari": "ザ・スズナリ",
+    "Honda Theatre": "本多劇場",
+    "Theater 711": "シアター711",
+    "Za Kōenji": "座・高円寺",
+    "Kichijoji Theatre": "吉祥寺シアター",
+    "Oji Theatre": "王子小劇場",
+    "Station Square Theater": "駅前劇場",
+    "Theater Tram": "シアタートラム",
+    "Setagaya Public Theatre": "世田谷パブリックシアター",
+    "Asakusa Kyugeki": "浅草九劇",
+    "Sengawa Theatre": "調布市せんがわ劇場",
+    "Kanagawa Arts Theatre": "KAAT 神奈川芸術劇場",
+    "Ueno Storehouse": "上野ストアハウス",
+    "Sumida Park Theater Sou": "すみだパークシアター倉",
+    "Heaven's Door Company": "三軒茶屋 HEAVEN'S DOOR",
+    "Izumo Gallery": "イズモギャラリー",
+    "Shinjuku Ganka Art Gallery (Shinjuki Ganka Garō)": "新宿眼科画廊",
+    "New National Theatre": "新国立劇場",
+    "Parco Theatre": "PARCO劇場",
+    "Theatre Cocoon": "シアターコクーン",
+    "Mitaka City Arts Center": "三鷹市芸術文化センター",
+    "Kinokuniya Hall": "紀伊國屋ホール",
+    "Sunshine Theatre": "サンシャイン劇場",
+    "Theatre X": "シアターX",
+    "Waseda Mini Theatre Drama-Kan": "早稲田小劇場どらま館",
+    "Theatre Fushikaden": "シアター風姿花伝",
+    "PorePore Higashinakano": "ポレポレ東中野",
+    "Shimo-Takaido Cinema": "下高井戸シネマ",
+    "Moto Eigakan": "元映画館",
+    "Theater Green": "シアターグリーン",
+    "Theatre BONBON": "テアトルBONBON",
+    "Kamata Onsen": "蒲田温泉",
+    "BUoY Cafe & Bar": "BUoY",
+    "CLUB CITTA'": "CLUB CITTA'",
+    "Club Citta": "CLUB CITTA'",
+    "Meiji University Academy Common": "明治大学 アカデミーコモン",
+    "Theatre E9 Kyoto": "THEATRE E9 KYOTO",
+    "ROHM Theatre Kyoto": "ロームシアター京都",
+    "Kyoto Art Center": "京都芸術センター",
+    "Aichi Prefectural Art Theater": "愛知県芸術劇場",
+    "Tokyo Metropolitan Festival Hall": "東京文化会館",
+}
+
 
 def fetch_ics(local_path=None):
     if local_path:
@@ -146,6 +195,9 @@ def build_event(raw):
     location = unescape(raw.get("LOCATION", "")).strip() or None
     # Googleカレンダーの住所付き会場は「会場名, 住所」形式なので先頭部分を会場名とする
     venue = location.split(",", 1)[0].strip() if location else None
+    # 英語ローカライズ名を日本語の正式表記へ正規化（locationは温存しマップリンクを維持）
+    if venue:
+        venue = VENUE_ALIASES.get(venue, venue)
 
     return {
         "id": raw.get("UID", ""),
