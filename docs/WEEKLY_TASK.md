@@ -19,10 +19,13 @@
    python3 scripts/analyze_trends.py > /tmp/kangeki_trends.json
    ```
 
-2. 会場名の保守（正規化の維持）
-   - events.json に「英語ローカライズ表記なのに `scripts/build_data.py` の `VENUE_ALIASES` に無い会場」が新たに出ていないか確認する
-   - 日本語の正式名が明確なものだけ `VENUE_ALIASES` に追記（ラテン表記が正式名の会場 SCOOL/BUoY/WOMB 等は対象外）。判断に迷うものは触らない
-   - 追記したら build_data.py を再実行
+2. 会場名・劇団名の表記揺れ保守（正規化の維持）
+   - 会場名: events.json に「英語ローカライズ表記なのに `scripts/build_data.py` の `VENUE_ALIASES` に無い会場」が新たに出ていないか確認。日本語の正式名が明確なものだけ `VENUE_ALIASES` に追記（ラテン表記が正式名の会場 SCOOL/BUoY/WOMB 等は対象外）
+   - 劇団名: 同じ劇団が別表記で分かれていないか確認し、`COMPANY_ALIASES`（build_data.py）で**メジャーな呼び方**へ寄せる。見つけ方の例:
+     - `python3 scripts/analyze_trends.py` の topCompanies/一覧で、略称と正式名（例: ゴキコン↔ゴキブリコンビナート）、「劇団」有無（例: 不労社↔劇団不労社）、別公演名（例: 唐組若手公演↔唐組）などの重複を探す
+     - 部分文字列で片方がもう片方に含まれるペアは有力候補
+   - **同一劇団だと確実に言えるものだけ**追記する。コラボ「A×B」、大学の別企画（卒業公演/プロジェクト）、別劇団は統合しない。迷うものは触らない
+   - VENUE_ALIASES / COMPANY_ALIASES を追記したら build_data.py を再実行
 
 3. ダイジェスト更新（digest.json）
    - `/tmp/kangeki_trends.json` を基に `site/data/digest.json` を再生成（年別件数・開催月分布・上位劇団/会場・直近180日の劇団・`generatedAt`=当日）

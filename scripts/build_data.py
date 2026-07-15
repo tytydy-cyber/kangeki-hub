@@ -157,11 +157,36 @@ def strip_company_prefix(name):
     return stripped or name
 
 
+# 劇団名の表記揺れ正規化: 略称・「劇団」有無・別公演名などをメジャーな表記へ寄せる。
+# 会場名(VENUE_ALIASES)と同じく集計・表示の統合が目的。同一劇団と確実に言えるものだけ載せる
+# （コラボ「A×B」や大学の別企画など、別物になりうるものは載せない）。週次タスクで随時追記する。
+COMPANY_ALIASES = {
+    "ゴキコン": "ゴキブリコンビナート",
+    "不労社": "劇団不労社",
+    "桟敷童子": "劇団桟敷童子",
+    "唐ゼミ": "劇団唐ゼミ☆",
+    "劇団唐ゼミ": "劇団唐ゼミ☆",
+    "劇団東京乾電池": "東京乾電池",
+    "演劇実験室万有引力": "万有引力",
+    "天幕劇場深海洋燈": "深海洋燈",
+    "新宿梁山泊若衆公演": "新宿梁山泊",
+    "唐組若手公演": "唐組",
+    "コンプソンズ大宮企画": "コンプソンズ",
+    "13-平原演劇祭": "平原演劇祭",
+    "あんよはじょうず 。": "あんよはじょうず",
+    "サイコシス開座アトリエ公演": "サイコシス",
+    "少年王者館 新人公演": "少年王者館",
+    "かまどキッチン公演": "かまどキッチン",
+    "中野坂上デーモンズ上映会": "中野坂上デーモンズ",
+}
+
+
 def split_title(summary):
     m = TITLE_RE.match(summary)
     if not m:
         return None, None
     company = strip_company_prefix(m.group("company").strip())
+    company = COMPANY_ALIASES.get(company, company)
     return company, (m.group("t1") or m.group("t2")).strip()
 
 
