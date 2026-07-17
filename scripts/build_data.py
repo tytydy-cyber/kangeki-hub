@@ -77,6 +77,9 @@ VENUE_ALIASES = {
     "Kyoto Art Center": "京都芸術センター",
     "Aichi Prefectural Art Theater": "愛知県芸術劇場",
     "Tokyo Metropolitan Festival Hall": "東京文化会館",
+    "SAITAMA ARTS THEATER": "彩の国さいたま芸術劇場",
+    "Zamuza Asagaya": "ザムザ阿佐谷",
+    "Ebisu Echo Theater": "恵比寿・エコー劇場",
 }
 
 
@@ -178,6 +181,7 @@ COMPANY_ALIASES = {
     "少年王者館 新人公演": "少年王者館",
     "かまどキッチン公演": "かまどキッチン",
     "中野坂上デーモンズ上映会": "中野坂上デーモンズ",
+    "江戸糸あやつり人形結城座": "結城座",
 }
 
 
