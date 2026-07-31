@@ -82,6 +82,7 @@ VENUE_ALIASES = {
     "Ebisu Echo Theater": "恵比寿・エコー劇場",
     "Hokutopia": "北とぴあ",
     "Nissho Hall": "ニッショーホール",
+    "Euro Live": "ユーロライブ",
 }
 
 
@@ -192,6 +193,7 @@ COMPANY_ALIASES = {
     "Project Nyx": "ProjectNyx",
     "南京豆なめなめ": "南京豆NAMENAME",
     "Ｂ子": "B子",
+    "アンジー": "angie",
 }
 
 
