@@ -6,6 +6,7 @@
   --border: #e4e0d8;
   --accent: #8a2f2f;
   --accent-soft: #f3e5e5;
+  --soon: #b26a1f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,6 +18,7 @@
     --border: #35333a;
     --accent: #d98d8d;
     --accent-soft: #3a2a2a;
+    --soon: #d9a24a;
   }
 }
 
@@ -55,30 +57,87 @@ header h1 {
   font-size: 0.85rem;
 }
 
+/* スクロール追従するタブ＋検索バー */
+.sticky-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 -1rem 0.6rem;
+  padding: 0.55rem 1rem 0.5rem;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sticky-bar.stuck {
+  border-bottom-color: var(--border);
+  box-shadow: 0 4px 14px -10px rgba(0, 0, 0, 0.5);
+}
+
 .tabs {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .tab {
   flex: 1;
-  padding: 0.5rem 0.75rem;
-  font-size: 0.95rem;
+  padding: 0.5rem 0.4rem;
+  font-size: 0.92rem;
+  white-space: nowrap;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 999px;
   background: var(--card);
   color: var(--fg);
   cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
 }
+
+.tab:hover { border-color: var(--accent); }
 
 .tab.active {
   border-color: var(--accent);
   background: var(--accent-soft);
+  color: var(--accent);
   font-weight: 600;
 }
 
-.toolbar { margin-bottom: 1rem; }
+/* 日程フィルタの開閉 */
+.filter-disclosure {
+  margin-bottom: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.filter-disclosure > summary {
+  padding: 0.55rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.filter-disclosure > summary::-webkit-details-marker { display: none; }
+
+.filter-disclosure > summary::before {
+  content: "▾";
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+
+.filter-disclosure[open] > summary::before { transform: rotate(180deg); }
+
+.filter-disclosure[open] > summary { color: var(--accent); }
+
+.filter-body {
+  padding: 0 0.9rem 0.8rem;
+}
 
 .datefilter {
   display: flex;
@@ -183,12 +242,27 @@ h2.section .count {
 }
 
 .card {
+  position: relative;
   background: var(--card);
   border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
   border-radius: 10px;
   padding: 0.7rem 0.9rem;
   margin-bottom: 0.6rem;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
 }
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px -12px rgba(0, 0, 0, 0.55);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  }
+}
+
+/* 開催状態で左の色帯を変える */
+.card.status-ongoing { border-left-color: var(--accent); }
+.card.status-soon { border-left-color: var(--soon); }
 
 .card .title {
   font-weight: 600;
@@ -216,6 +290,17 @@ h2.section .count {
   background: var(--accent-soft);
   color: var(--accent);
   vertical-align: 0.1em;
+}
+
+/* 開催中は塗り、まもなく開幕はアンバーで強調 */
+.status-ongoing .badge {
+  background: #9e2b2b;
+  color: #fff;
+}
+
+.status-soon .badge {
+  background: color-mix(in srgb, var(--soon) 18%, transparent);
+  color: var(--soon);
 }
 
 .info .maploc {
@@ -412,6 +497,62 @@ h2.section .count {
   color: var(--muted);
   text-align: center;
   padding: 2rem 0;
+}
+
+/* 当月ボタンの目印（未選択でも枠でわかる） */
+.month-btn.current {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  font-weight: 600;
+}
+
+.month-btn.current.active { font-weight: 700; }
+
+/* 上へ戻る FAB */
+#to-top {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 30;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--accent);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+#to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* 検索結果の見出し */
+.result-note {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.result-note b { color: var(--fg); }
+
+/* キーボード操作時のフォーカス可視化 */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
 }
 
 footer {

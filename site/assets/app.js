@@ -49,6 +49,13 @@
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(q)}`;
   }
 
+  function cardStatus(ev) {
+    if (ev.end < todayStr) return "past";
+    if (ev.start <= todayStr) return "ongoing";
+    if (daysFromToday(ev.start) <= 7) return "soon";
+    return "upcoming";
+  }
+
   function card(ev, badge, opts) {
     const showChip = !(opts && opts.noChip);
     const title = ev.url
@@ -64,7 +71,7 @@
       showChip && ev.company
         ? `<button class="chip" data-company="${esc(ev.company)}">${esc(ev.company)}</button>`
         : "";
-    return `<div class="card">
+    return `<div class="card status-${cardStatus(ev)}">
       <div class="title">${title}${badge ? `<span class="badge">${esc(badge)}</span>` : ""}</div>
       <div class="info">${parts.join(" ・ ")}${chip}</div>
     </div>`;
@@ -270,8 +277,13 @@
       return;
     }
     const list = events.filter(matches);
+    const note =
+      query && view !== "companies"
+        ? `<p class="result-note">「<b>${esc(query)}</b>」で絞り込み中 ・ ${list.length}件</p>`
+        : "";
     app.innerHTML =
-      view === "now" ? renderNow(list) : view === "archive" ? renderArchive(list) : renderCompanies(list);
+      note +
+      (view === "now" ? renderNow(list) : view === "archive" ? renderArchive(list) : renderCompanies(list));
   }
 
   function setView(v) {
@@ -339,9 +351,11 @@
     }
   }
 
+  const currentMonth = Number(todayStr.slice(5, 7));
   monthBtnsEl.innerHTML = Array.from(
     { length: 12 },
-    (_, i) => `<button class="month-btn" data-month="${i + 1}">${i + 1}月</button>`
+    (_, i) =>
+      `<button class="month-btn${i + 1 === currentMonth ? " current" : ""}" data-month="${i + 1}">${i + 1}月</button>`
   ).join("");
 
   monthBtnsEl.addEventListener("click", (e) => {
@@ -370,6 +384,19 @@
     query = searchInput.value.trim().toLowerCase();
     render();
   });
+
+  // スクロール連動: stickyバーの影と「上へ戻る」ボタンの表示
+  const stickyBar = document.querySelector(".sticky-bar");
+  const toTop = document.getElementById("to-top");
+  toTop.hidden = false; // 以降はopacity/pointer-eventsで出し入れ
+  function onScroll() {
+    const y = window.scrollY;
+    stickyBar.classList.toggle("stuck", y > 8);
+    toTop.classList.toggle("show", y > 500);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  toTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+  onScroll();
 
   // 劇団概要（任意・欠けていても動作する）。先に取得しておき、劇団詳細で使う
   fetch("data/companies.json")
