@@ -62,6 +62,14 @@
 - 劇団別の件数（app.js companyStats）と digest の topCompanies（analyze_trends.py company_counts）は、この production のユニーク数で数える（「N公演」表示）
 - 劇団詳細も collapseProductions で公演単位にまとめて表示（開始=最早/千秋楽=最遅/会場は代表+「ほか」）。一覧の「N公演」と件数が一致する
 
+## PWA（オフライン対応・インストール可能）
+
+- site/manifest.json（standalone表示、紅テントのアイコン。maskable含む）、site/sw.js（Service Worker）、site/assets/register-sw.js（登録）で構成
+- アイコンは scripts/gen_icons.py がPython標準ライブラリのみで生成（site/assets/icons/）。デザインを変えたら再実行してコミット
+- SWのキャッシュ戦略: アプリシェルはprecache+network-first、data/*.jsonはstale-while-revalidate。インストール時に全ページ＋全データをprecacheするので初回からオフライン可
+- パスは sw.js のscope基準の相対URLで解決するため、ルート配信でも本番の /kangeki-hub/ でも動く
+- **SW（sw.js）や precache 対象を変更したら sw.js の `VERSION` を上げる**こと（古いキャッシュの掃除とシェル更新のため）。data/*.json の日次更新はSWR任せでVERSION変更不要
+
 ## データ正規化のメモ
 
 - 会場名: build_data.py の VENUE_ALIASES で英語ローカライズ表記→日本語へ。マップリンクは location（住所）を使うので紐付けは維持
