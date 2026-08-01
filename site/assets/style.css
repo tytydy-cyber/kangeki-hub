@@ -22,6 +22,29 @@
   }
 }
 
+/* 手動テーマ切替（theme.js）: data-theme が付くと端末設定より優先される */
+:root[data-theme="dark"] {
+  --bg: #17161a;
+  --fg: #eceae6;
+  --muted: #9a958c;
+  --card: #201f24;
+  --border: #35333a;
+  --accent: #d98d8d;
+  --accent-soft: #3a2a2a;
+  --soon: #d9a24a;
+}
+
+:root[data-theme="light"] {
+  --bg: #faf9f6;
+  --fg: #1f1d1a;
+  --muted: #6f6a61;
+  --card: #ffffff;
+  --border: #e4e0d8;
+  --accent: #8a2f2f;
+  --accent-soft: #f3e5e5;
+  --soon: #b26a1f;
+}
+
 * { box-sizing: border-box; }
 
 body {
@@ -34,10 +57,37 @@ body {
   line-height: 1.6;
 }
 
+header {
+  position: relative;
+  padding-right: 2.7rem;
+}
+
 header h1 {
   margin: 0;
   font-size: 1.4rem;
   letter-spacing: 0.02em;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--fg);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.45);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  transform: scale(1.05);
 }
 
 .lead {
@@ -52,9 +102,43 @@ header h1 {
 }
 
 .subtitle {
-  margin: 0.25rem 0 1rem;
+  margin: 0.25rem 0 0.6rem;
   color: var(--muted);
   font-size: 0.85rem;
+}
+
+.page-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 0 0 1rem;
+}
+
+.page-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--fg);
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.page-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.pl-icon {
+  font-size: 0.95em;
+  line-height: 1;
 }
 
 /* スクロール追従するタブ＋検索バー */
@@ -80,11 +164,17 @@ header h1 {
   display: flex;
   gap: 0.4rem;
   margin-bottom: 0.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
+.tabs::-webkit-scrollbar { display: none; }
+
 .tab {
-  flex: 1;
-  padding: 0.5rem 0.4rem;
+  flex: 1 0 auto;
+  min-width: 4.6rem;
+  padding: 0.5rem 0.6rem;
   font-size: 0.92rem;
   white-space: nowrap;
   border: 1px solid var(--border);
@@ -506,6 +596,18 @@ h2.section .count {
 }
 
 .month-btn.current.active { font-weight: 700; }
+
+.month-btn.week-btn {
+  flex: 0 0 auto;
+  min-width: 3.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
+
+.month-btn.week-btn.active {
+  color: var(--fg);
+}
 
 /* 上へ戻る FAB */
 #to-top {

@@ -4,17 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>傾向ダイジェスト ・ 松田観劇カレンダー</title>
+<script>(function(){try{var t=localStorage.getItem('kangeki-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#8a2f2f">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <script src="assets/register-sw.js" defer></script>
+<script src="assets/theme.js" defer></script>
 </head>
 <body>
 <header>
+  <button id="theme-toggle" class="theme-toggle" type="button"></button>
   <h1>傾向ダイジェスト</h1>
-  <p class="subtitle">登録データ全体の傾向分析 ・ <a class="navlink" href="./">カレンダー</a> ・ <a class="navlink" href="proposals.html">おすすめ提案</a></p>
+  <p class="subtitle">登録データ全体の傾向分析</p>
+  <nav class="page-links">
+    <a class="page-link" href="./"><span class="pl-icon">🏠</span>カレンダー</a>
+    <a class="page-link" href="proposals.html"><span class="pl-icon">💡</span>おすすめ提案</a>
+  </nav>
 </header>
 
 <main id="app">

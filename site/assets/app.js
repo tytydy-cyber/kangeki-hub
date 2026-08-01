@@ -8,9 +8,10 @@
 
   let events = [];
   let companies = {}; // 劇団名 -> {summary, url, updatedAt}
-  let view = "now"; // now | archive | companies
+  let view = "now"; // now | archive | companies | venues
   let query = "";
   let selectedCompany = null;
+  let selectedVenue = null;
   let dateFrom = "";
   let dateTo = "";
 
@@ -58,11 +59,12 @@
 
   function card(ev, badge, opts) {
     const showChip = !(opts && opts.noChip);
+    const showVenue = !(opts && opts.noVenue);
     const title = ev.url
       ? `<a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.title)}</a>`
       : esc(ev.title);
     const parts = [fmtRange(ev)];
-    if (ev.venue) {
+    if (showVenue && ev.venue) {
       parts.push(
         `<a class="maploc" href="${esc(mapsUrl(ev))}" target="_blank" rel="noopener">📍${esc(ev.venue)}</a>`
       );
@@ -162,6 +164,21 @@
       .sort((a, b) => b[1].count - a[1].count || b[1].latest.localeCompare(a[1].latest));
   }
 
+  function venueStats(list) {
+    // 劇団と同じく公演単位（production）で数える
+    const map = new Map();
+    for (const e of list) {
+      if (!e.venue) continue;
+      if (!map.has(e.venue)) map.set(e.venue, { productions: new Set(), latest: "" });
+      const s = map.get(e.venue);
+      s.productions.add(e.production);
+      if (e.start > s.latest) s.latest = e.start;
+    }
+    return [...map.entries()]
+      .map(([name, s]) => [name, { count: s.productions.size, latest: s.latest }])
+      .sort((a, b) => b[1].count - a[1].count || b[1].latest.localeCompare(a[1].latest));
+  }
+
   // 同一公演（production）の日程分割を1件にまとめる。開始=最早、千秋楽=最遅、会場は代表1つ。
   function collapseProductions(evs) {
     const map = new Map();
@@ -236,6 +253,41 @@
         .join("");
   }
 
+  function renderVenues(list) {
+    if (selectedVenue) {
+      // 会場名は表示用に「ほか」が付くことがあるため、完全一致の会場だけに絞る
+      const own = collapseProductions(list.filter((e) => e.venue === selectedVenue));
+      const current = own
+        .filter((e) => todayStr <= e.end)
+        .sort((a, b) => a.start.localeCompare(b.start));
+      const past = own.filter((e) => e.end < todayStr).sort((a, b) => b.start.localeCompare(a.start));
+      const currentCards = current
+        .map((e) =>
+          card(e, e.start <= todayStr ? ongoingBadge(e) : upcomingBadge(e), { noVenue: true })
+        )
+        .join("");
+      const pastCards = past.map((e) => card(e, "", { noVenue: true })).join("");
+      return `<div class="company-head">
+          <button id="back-venues">← 会場一覧</button>
+          <h2>${esc(selectedVenue)}</h2>
+        </div>` +
+        section("開催中・今後", current, currentCards) +
+        section("過去", past, pastCards);
+    }
+
+    const stats = venueStats(list).filter(([name]) => !query || name.toLowerCase().includes(query));
+    if (!stats.length) return `<p class="empty">該当なし</p>`;
+    return `<h2 class="section">会場 <span class="count">${stats.length}件</span></h2>` +
+      stats
+        .map(
+          ([name, s]) => `<button class="company-row" data-venue="${esc(name)}">
+            <span class="name">${esc(name)}</span>
+            <span class="meta">${s.count}公演 ・ 直近 ${esc(s.latest.slice(0, 7).replace("-", "/"))}</span>
+          </button>`
+        )
+        .join("");
+  }
+
   function dateRange() {
     if (!dateFrom && !dateTo) return null;
     // 片方だけ指定された場合は単日として扱う
@@ -276,14 +328,24 @@
       app.innerHTML = renderCompanies(events);
       return;
     }
+    if (view === "venues" && selectedVenue) {
+      app.innerHTML = renderVenues(events);
+      return;
+    }
     const list = events.filter(matches);
     const note =
-      query && view !== "companies"
+      query && view !== "companies" && view !== "venues"
         ? `<p class="result-note">「<b>${esc(query)}</b>」で絞り込み中 ・ ${list.length}件</p>`
         : "";
     app.innerHTML =
       note +
-      (view === "now" ? renderNow(list) : view === "archive" ? renderArchive(list) : renderCompanies(list));
+      (view === "now"
+        ? renderNow(list)
+        : view === "archive"
+        ? renderArchive(list)
+        : view === "companies"
+        ? renderCompanies(list)
+        : renderVenues(list));
   }
 
   function setView(v) {
@@ -295,6 +357,7 @@
   tabs.forEach((tab) =>
     tab.addEventListener("click", () => {
       if (tab.dataset.view === "companies") selectedCompany = null;
+      if (tab.dataset.view === "venues") selectedVenue = null;
       setView(tab.dataset.view);
     })
   );
@@ -308,8 +371,20 @@
       window.scrollTo(0, 0);
       return;
     }
+    const venueRow = e.target.closest("[data-venue]");
+    if (venueRow) {
+      selectedVenue = venueRow.dataset.venue;
+      clearDates();
+      setView("venues");
+      window.scrollTo(0, 0);
+      return;
+    }
     if (e.target.closest("#back-companies")) {
       selectedCompany = null;
+      render();
+    }
+    if (e.target.closest("#back-venues")) {
+      selectedVenue = null;
       render();
     }
   });
@@ -344,25 +419,44 @@
     return [`${monthYear}-${mm}-01`, `${monthYear}-${mm}-${String(last).padStart(2, "0")}`];
   }
 
+  // 今日を含む週（月曜〜日曜）
+  function thisWeekRange() {
+    const d = new Date(`${todayStr}T00:00:00Z`);
+    const dow = d.getUTCDay(); // 0=日 .. 6=土
+    const mondayOffset = (dow + 6) % 7;
+    const monday = new Date(d);
+    monday.setUTCDate(d.getUTCDate() - mondayOffset);
+    const sunday = new Date(monday);
+    sunday.setUTCDate(monday.getUTCDate() + 6);
+    const fmt = (x) => x.toISOString().slice(0, 10);
+    return [fmt(monday), fmt(sunday)];
+  }
+
+  function quickRangeFor(btn) {
+    return btn.dataset.week ? thisWeekRange() : monthRange(Number(btn.dataset.month));
+  }
+
   function syncMonthButtons() {
     for (const b of monthBtnsEl.children) {
-      const [from, to] = monthRange(Number(b.dataset.month));
+      const [from, to] = quickRangeFor(b);
       b.classList.toggle("active", dateFrom === from && dateTo === to);
     }
   }
 
   const currentMonth = Number(todayStr.slice(5, 7));
-  monthBtnsEl.innerHTML = Array.from(
-    { length: 12 },
-    (_, i) =>
-      `<button class="month-btn${i + 1 === currentMonth ? " current" : ""}" data-month="${i + 1}">${i + 1}月</button>`
-  ).join("");
+  monthBtnsEl.innerHTML =
+    `<button class="month-btn week-btn" data-week="1">今週</button>` +
+    Array.from(
+      { length: 12 },
+      (_, i) =>
+        `<button class="month-btn${i + 1 === currentMonth ? " current" : ""}" data-month="${i + 1}">${i + 1}月</button>`
+    ).join("");
 
   monthBtnsEl.addEventListener("click", (e) => {
     const b = e.target.closest(".month-btn");
     if (!b) return;
-    const [from, to] = monthRange(Number(b.dataset.month));
-    // 同じ月をもう一度押したら解除
+    const [from, to] = quickRangeFor(b);
+    // 同じものをもう一度押したら解除
     if (dateFrom === from && dateTo === to) {
       clearDates();
       render();

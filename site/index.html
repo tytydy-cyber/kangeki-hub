@@ -4,18 +4,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>松田観劇カレンダー</title>
+<script>(function(){try{var t=localStorage.getItem('kangeki-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/style.css">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#8a2f2f">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <script src="assets/register-sw.js" defer></script>
+<script src="assets/theme.js" defer></script>
 </head>
 <body>
 <header>
+  <button id="theme-toggle" class="theme-toggle" type="button"></button>
   <h1>松田観劇カレンダー</h1>
   <p class="lead">古今東西（都内中心）の気になる公演を集めた個人用の観劇カレンダーです。病的な更新頻度を誇っています。元データ（Googleカレンダー）はこちら→<a href="https://t.co/EUlUPtGV4T" target="_blank" rel="noopener">https://t.co/EUlUPtGV4T</a></p>
-  <p class="subtitle"><a class="navlink" href="proposals.html">おすすめ提案</a> ・ <a class="navlink" href="digest.html">傾向ダイジェスト</a></p>
+  <nav class="page-links">
+    <a class="page-link" href="proposals.html"><span class="pl-icon">💡</span>おすすめ提案</a>
+    <a class="page-link" href="digest.html"><span class="pl-icon">📊</span>傾向ダイジェスト</a>
+  </nav>
 </header>
 
 <div class="sticky-bar">
@@ -23,6 +29,7 @@
     <button class="tab active" data-view="now" role="tab">開催中・今後</button>
     <button class="tab" data-view="archive" role="tab">過去</button>
     <button class="tab" data-view="companies" role="tab">劇団別</button>
+    <button class="tab" data-view="venues" role="tab">会場別</button>
   </nav>
   <input id="search" type="search" placeholder="タイトル・劇団・会場で検索" autocomplete="off">
 </div>
