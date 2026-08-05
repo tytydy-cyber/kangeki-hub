@@ -40,7 +40,9 @@
 - `nextMonth`: 今日から約1ヶ月の範囲で「カレンダー未登録」かつ嗜好傾向に近い公演。頻出会場のスケジュール（例: 本多劇場グループのスズナリ欄）や頻出劇団の公式が有力な情報源
 - `special`: 期間を問わず特筆すべき公演（遠征・早期完売が見込まれるもの等）。任意
 
-登録済みと重複させないため、analyze_trends.py の `upcomingTitles` を必ず突き合わせる。生成後 commit → push（Actionsが自動デプロイ）。
+登録済みと重複させないため、analyze_trends.py の `upcomingTitles` を必ず突き合わせる（nextMonthだけでなくspecialも）。生成後 commit → push（Actionsが自動デプロイ）。
+
+**チャットでユーザーが提案の採用/却下を伝えてきた場合**: 採用分をカレンダー登録・却下分を削除した後、`nextMonth`/`special` を空のまま次の金曜まで放置しない。その場でdocs/WEEKLY_TASK.mdの手順1・4を簡易実行し、最低1件程度に補充してからcommit/push（詳細はWEEKLY_TASK.md「チャットでの採用/却下対応後の運用」参照）。
 
 ### 定期化（設定済み 2026-07-15）
 
