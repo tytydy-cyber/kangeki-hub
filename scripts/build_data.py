@@ -83,6 +83,12 @@ VENUE_ALIASES = {
     "Hokutopia": "北とぴあ",
     "Nissho Hall": "ニッショーホール",
     "Euro Live": "ユーロライブ",
+    "Suisei": "水性",
+    "Ohjo": "王城ビル",
+    "Stage Cafe": "ステージカフェ下北沢亭",
+    "Studio cavity": "スタジオ空洞",
+    "Theater Shine": "シアターシャイン",
+    "Meiji University Building No.10": "明治大学猿楽町校舎（10号館）",
 }
 
 
