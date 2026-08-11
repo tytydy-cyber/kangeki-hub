@@ -159,3 +159,9 @@ P1完了。次はP2（Notion DB設計・飲食データ取り込み）。
 - 手動テーマ切替: 全ページ右上のボタンで 自動→ライト→ダーク→自動 を循環。localStorage永続化、data-theme属性でCSS変数を上書き（:root[data-theme]がメディアクエリより高詳細度で優先）。FOUC防止のためhead先頭にインラインスクリプトで即時適用
 - ナビ改善: 「おすすめ提案」「傾向ダイジェスト」「カレンダー」のリンクをテキストリンクからアイコン付きピルボタン（.page-link）に変更
 - sw.js VERSION を v2 に更新（theme.js追加のため）
+
+## P1.14: ライトモード廃止・提案の即時補充運用（2026-08-11）
+
+- ライトモード機能を全廃止。theme.js削除、3ページのトグルボタン・inline anti-FOUCスクリプト・script tag削除、style.cssの `:root[data-theme]` / `@media (prefers-color-scheme: dark)` 分岐を撤去し、ダーク配色を唯一の `:root` に固定。端末のOS設定に関わらず常時ダーク表示。sw.js VERSION を v3 に更新（precacheからtheme.js除去）
+- 提案の運用ルール確定: チャットで採用/却下を伝えられたら、その場でカレンダー登録・proposals.jsonからの削除に加え、最低1件程度の代替候補を即座に補充してからcommit/push（次の金曜まで空欄で放置しない）
+- 教訓: 唐組「虹屋敷」をspecialに未発表として載せたが実際は登録済みだった事故があったため、special（ウォッチ枠）もnextMonthと同様にevents.jsonとの突き合わせを必須化。また劇団道学先生の提案URLが会場の月間ラインナップ一覧ページで該当公演に辿り着けなかった指摘を受け、提案のurlは公演固有の詳細ページを優先する方針に。いずれもdocs/WEEKLY_TASK.mdと定期タスクのプロンプトに反映済み

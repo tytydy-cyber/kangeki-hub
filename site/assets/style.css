@@ -1,29 +1,5 @@
+/* サイトは常時ダーク表示固定（ライトモードは意図的に廃止済み） */
 :root {
-  --bg: #faf9f6;
-  --fg: #1f1d1a;
-  --muted: #6f6a61;
-  --card: #ffffff;
-  --border: #e4e0d8;
-  --accent: #8a2f2f;
-  --accent-soft: #f3e5e5;
-  --soon: #b26a1f;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #17161a;
-    --fg: #eceae6;
-    --muted: #9a958c;
-    --card: #201f24;
-    --border: #35333a;
-    --accent: #d98d8d;
-    --accent-soft: #3a2a2a;
-    --soon: #d9a24a;
-  }
-}
-
-/* 手動テーマ切替（theme.js）: data-theme が付くと端末設定より優先される */
-:root[data-theme="dark"] {
   --bg: #17161a;
   --fg: #eceae6;
   --muted: #9a958c;
@@ -32,17 +8,6 @@
   --accent: #d98d8d;
   --accent-soft: #3a2a2a;
   --soon: #d9a24a;
-}
-
-:root[data-theme="light"] {
-  --bg: #faf9f6;
-  --fg: #1f1d1a;
-  --muted: #6f6a61;
-  --card: #ffffff;
-  --border: #e4e0d8;
-  --accent: #8a2f2f;
-  --accent-soft: #f3e5e5;
-  --soon: #b26a1f;
 }
 
 * { box-sizing: border-box; }
@@ -57,37 +22,10 @@ body {
   line-height: 1.6;
 }
 
-header {
-  position: relative;
-  padding-right: 2.7rem;
-}
-
 header h1 {
   margin: 0;
   font-size: 1.4rem;
   letter-spacing: 0.02em;
-}
-
-.theme-toggle {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 50%;
-  border: 1px solid var(--border);
-  background: var(--card);
-  color: var(--fg);
-  font-size: 1.05rem;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 4px 12px -8px rgba(0, 0, 0, 0.45);
-  transition: border-color 0.15s ease, transform 0.15s ease;
-}
-
-.theme-toggle:hover {
-  border-color: var(--accent);
-  transform: scale(1.05);
 }
 
 .lead {
