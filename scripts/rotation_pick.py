@@ -19,8 +19,8 @@ import datetime
 import json
 import sys
 
-VENUES_PER_WEEK = 3
-COMPANIES_PER_WEEK = 4
+VENUES_PER_WEEK = 5
+COMPANIES_PER_WEEK = 6
 
 
 def pick(items, n, week):
