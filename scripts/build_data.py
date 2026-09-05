@@ -75,6 +75,7 @@ VENUE_ALIASES = {
     "Theatre E9 Kyoto": "THEATRE E9 KYOTO",
     "ROHM Theatre Kyoto": "ロームシアター京都",
     "Kyoto Art Center": "京都芸術センター",
+    "Outdoor Stage Ruins": "戸山公園野外ステージ跡",
     "Aichi Prefectural Art Theater": "愛知県芸術劇場",
     "Tokyo Metropolitan Festival Hall": "東京文化会館",
     "SAITAMA ARTS THEATER": "彩の国さいたま芸術劇場",
