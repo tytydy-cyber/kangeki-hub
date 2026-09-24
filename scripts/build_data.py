@@ -89,6 +89,13 @@ VENUE_ALIASES = {
     "Stage Cafe": "ステージカフェ下北沢亭",
     "Studio cavity": "スタジオ空洞",
     "Theater Shine": "シアターシャイン",
+    "Tokyo Metropolitan Theatre": "東京芸術劇場",
+    "東京芸術劇場 Tokyo Metropolitan Theatre": "東京芸術劇場",
+    "Usagi-Tei": "兎亭",
+    "Zou-no-hana Terrace": "象の鼻テラス",
+    "The Pocket": "ザ・ポケット",
+    "Hitsuji-za Theater": "ひつじ座",
+    "Kashima Jingu Shrine": "鹿島神宮",
     "Meiji University Building No.10": "明治大学猿楽町校舎（10号館）",
     "新宿・花園神社": "花園神社",
     "雑司が谷鬼子母神堂": "雑司ヶ谷鬼子母神堂",
@@ -207,6 +214,8 @@ COMPANY_ALIASES = {
     "アンジー": "angie",
     # 登録時の誤字。作品名「エルゴノミクス胚」が一致しており同一作家と確定（正しくは花形槙）
     "花形慎": "花形槙",
+    "9PROJECT vol.25": "9PROJECT",
+    "演劇実験室◉万有引力": "万有引力",
 }
 
 
