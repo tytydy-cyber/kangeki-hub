@@ -104,6 +104,7 @@ VENUE_ALIASES = {
     "3-chōme-15-20 Zōshigaya": "雑司ヶ谷鬼子母神堂",
     "Akasaka Sacas": "赤坂サカス",
     "Roppongi": "六本木",
+    "Asagaya Art Space Plot": "阿佐ヶ谷アートスペース・プロット",
 }
 
 
