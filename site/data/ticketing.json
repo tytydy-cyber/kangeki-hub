@@ -27,8 +27,7 @@
           "label": "一般",
           "opensAt": "2026-09-05T10:00:00+09:00",
           "closesAt": "2026-10-16T23:59:00+09:00",
-          "url": "https://autumnmeteorite-2026.peatix.com",
-          "status": "open"
+          "url": "https://autumnmeteorite-2026.peatix.com"
         }
       ]
     },
@@ -58,28 +57,10 @@
       "stages": [{"label": "一般", "opensAt": "2026-08-15T10:00:00+09:00", "url": "https://ws.formzu.net/sfgen/S71697280/"}]
     },
     {
-      "eventIds": ["lq7dd88v1g5q9eaiap2dgvce30@google.com"],
-      "title": "コンプソンズ「善人はなかなかいないっぽい」",
-      "checkedAt": "2026-10-12",
-      "stages": [{"label": "一般", "url": "https://t.pia.jp/pia/event/event.do?eventBundleCd=b2669897", "status": "open"}]
-    },
-    {
       "eventIds": ["aee449s3b11ajrq7hfldkqpd78@google.com"],
       "title": "ルサンチカ「ゴドーを待ちながら」",
       "checkedAt": "2026-10-12",
       "stages": [{"label": "一般", "opensAt": "2026-09-18T10:00:00+09:00", "url": "https://www.ressenchka.com/godomachi"}]
-    },
-    {
-      "eventIds": ["jl31fbtpimtno36o0hv5fba90c@google.com"],
-      "title": "新宿駅前演劇フェスティバル -SEEFES-",
-      "checkedAt": "2026-10-12",
-      "stages": [{"label": "一般", "url": "https://stage.corich.jp/stage/507536", "status": "open"}]
-    },
-    {
-      "eventIds": ["81o722eg5knbvdnisqc5atfvuc@google.com"],
-      "title": "流山児★事務所「色は匂へど、」",
-      "checkedAt": "2026-10-12",
-      "stages": [{"label": "一般", "url": "https://ticket.corich.jp/apply/470609/016/", "status": "open"}]
     },
     {
       "eventIds": ["aask6sh1u0070ue49ct5mq0bfs@google.com"],
@@ -91,7 +72,7 @@
       "eventIds": ["to92rjgtjrglfo170cmp0dmk14@google.com", "79m37ddagagh21le8k43umtvf4@google.com", "6lv7kkccgqhkeldsiun3itdi3g@google.com"],
       "title": "優しい劇団「データラメッチを抱きしめる」",
       "checkedAt": "2026-10-12",
-      "stages": [{"label": "一般", "opensAt": "2026-08-08T18:00:00+09:00", "url": "https://yasashiigekidan.wixsite.com/official/detarame", "status": "open"}]
+      "stages": [{"label": "一般", "opensAt": "2026-08-08T18:00:00+09:00", "url": "https://yasashiigekidan.wixsite.com/official/detarame"}]
     },
     {
       "eventIds": ["7a2sn0fkkfrlnvsu9vf91dosfk@google.com", "5hag56m8idknpot2k4auamrrhs@google.com"],
@@ -118,12 +99,6 @@
       "stages": [{"label": "一般", "opensAt": "2026-10-10T10:00:00+09:00", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2637018"}]
     },
     {
-      "eventIds": ["mc7sq5rg11ofceii5v2q8f45r4@google.com"],
-      "title": "9PROJECT vol.25「かけおち」",
-      "checkedAt": "2026-10-12",
-      "stages": [{"label": "一般", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2626999", "status": "open"}]
-    },
-    {
       "eventIds": ["b8crpljse2hdhm4ouhbeareeko@google.com"],
       "title": "ヌトミック「スーパーマーケットの神話」",
       "checkedAt": "2026-10-12",
@@ -133,7 +108,7 @@
       "eventIds": ["tfl62v7lgarb94mufkeudg181s@google.com"],
       "title": "テアトル・オン・デマンド「季節のあとで」",
       "checkedAt": "2026-10-12",
-      "stages": [{"label": "一般", "opensAt": "2026-09-20T10:00:00+09:00", "url": "https://tiget.net/events/511471", "status": "open"}]
+      "stages": [{"label": "一般", "opensAt": "2026-09-20T10:00:00+09:00", "url": "https://tiget.net/events/511471"}]
     }
   ]
 }

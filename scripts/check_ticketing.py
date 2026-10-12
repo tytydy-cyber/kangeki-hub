@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parent.parent
 TICKETING = ROOT / "site" / "data" / "ticketing.json"
 EVENTS = ROOT / "site" / "data" / "events.json"
-STATUSES = {"open", "sold-out", "closed", "cancelled"}
+STATUSES = {"sold-out", "cancelled"}
 
 
 def parse_datetime(value, field):
@@ -96,13 +96,16 @@ def selftest():
             "eventIds": ["uid"], "title": "公演", "checkedAt": "2026-10-12",
             "stages": [
                 {"label": "先行", "opensAt": "2026-10-13T10:00:00+09:00", "closesAt": "2026-10-14T18:00:00+09:00"},
-                {"label": "一般", "opensAt": "2026-10-15", "status": "open"},
+                {"label": "一般", "status": "sold-out"},
             ],
         }]
     }
     assert validate(valid, {"uid"}) == []
     invalid = json.loads(json.dumps(valid))
     invalid["items"][0]["stages"][0]["closesAt"] = "2026-10-12T18:00:00+09:00"
+    assert validate(invalid, {"uid"})
+    invalid = json.loads(json.dumps(valid))
+    invalid["items"][0]["stages"][1]["status"] = "open"
     assert validate(invalid, {"uid"})
     print("selftest: ok")
 
