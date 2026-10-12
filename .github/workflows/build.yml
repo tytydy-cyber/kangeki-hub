@@ -28,6 +28,9 @@ jobs:
       - name: Build events.json from calendar feed
         run: python3 scripts/build_data.py
 
+      - name: Validate ticketing data
+        run: python3 scripts/check_ticketing.py
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

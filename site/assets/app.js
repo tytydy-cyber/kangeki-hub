@@ -9,6 +9,7 @@
 
   let events = [];
   let companies = {}; // 劇団名 -> {summary, url, updatedAt}
+  let ticketing = new Map(); // カレンダーUID -> 予約情報
   let view = "now"; // now | archive | companies | venues
   let query = "";
   let selectedCompany = null;
@@ -72,6 +73,56 @@
     return "upcoming";
   }
 
+  function fmtTicketDate(value) {
+    if (!value.includes("T")) {
+      const [, month, day] = value.split("-").map(Number);
+      return `${month}/${day}`;
+    }
+    const d = new Date(value);
+    const parts = Object.fromEntries(
+      new Intl.DateTimeFormat("ja-JP", {
+        timeZone: "Asia/Tokyo",
+        month: "numeric",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }).formatToParts(d).map((part) => [part.type, part.value])
+    );
+    return `${parts.month}/${parts.day} ${parts.hour}:${parts.minute}`;
+  }
+
+  function ticketStage(stage) {
+    const now = Date.now();
+    const opens = stage.opensAt
+      ? Date.parse(stage.opensAt.includes("T") ? stage.opensAt : `${stage.opensAt}T00:00:00+09:00`)
+      : null;
+    const closes = stage.closesAt
+      ? Date.parse(stage.closesAt.includes("T") ? stage.closesAt : `${stage.closesAt}T23:59:59+09:00`)
+      : null;
+    let state = stage.status;
+    if (!state) state = opens > now ? "upcoming" : closes && closes < now ? "closed" : "open";
+    if (state === "closed") return "";
+
+    const labels = {
+      open: "予約受付中",
+      upcoming: `${fmtTicketDate(stage.opensAt)}開始`,
+      "sold-out": "予定枚数終了",
+      cancelled: "受付中止",
+    };
+    const body = `<span>${esc(stage.label)}</span><strong>${esc(labels[state])}</strong>`;
+    return stage.url
+      ? `<a class="ticket-stage is-${state}" href="${esc(stage.url)}" target="_blank" rel="noopener">${body}</a>`
+      : `<span class="ticket-stage is-${state}">${body}</span>`;
+  }
+
+  function ticketBlock(ev) {
+    const ids = ev.eventIds || [ev.id];
+    const entries = [...new Set(ids.map((id) => ticketing.get(id)).filter(Boolean))];
+    const stages = entries.flatMap((entry) => entry.stages.map(ticketStage)).filter(Boolean);
+    return stages.length ? `<div class="ticketing" aria-label="予約情報">${stages.join("")}</div>` : "";
+  }
+
   function card(ev, badge, opts) {
     const showChip = !(opts && opts.noChip);
     const showVenue = !(opts && opts.noVenue);
@@ -91,6 +142,7 @@
     return `<div class="card status-${cardStatus(ev)}">
       <div class="title">${title}${badge ? `<span class="badge">${esc(badge)}</span>` : ""}</div>
       <div class="info">${parts.join("")}${chip}</div>
+      ${ticketBlock(ev)}
     </div>`;
   }
 
@@ -200,7 +252,11 @@
     for (const e of evs) {
       const p = map.get(e.production);
       if (!p) {
-        map.set(e.production, { ...e, _venues: new Set(e.venue ? [e.venue] : []) });
+        map.set(e.production, {
+          ...e,
+          _venues: new Set(e.venue ? [e.venue] : []),
+          _eventIds: new Set(e.id ? [e.id] : []),
+        });
       } else {
         if (e.start < p.start) {
           p.start = e.start;
@@ -208,12 +264,14 @@
         }
         if (e.end > p.end) p.end = e.end;
         if (e.venue) p._venues.add(e.venue);
+        if (e.id) p._eventIds.add(e.id);
         if (!p.url && e.url) p.url = e.url;
       }
     }
     return [...map.values()].map((p) => ({
       ...p,
       venue: p._venues.size > 1 ? `${[...p._venues][0]} ほか` : [...p._venues][0] || null,
+      eventIds: [...p._eventIds],
     }));
   }
 
@@ -521,12 +579,19 @@
       companies = {};
     });
 
-  fetch("data/events.json")
-    .then((r) => {
+  Promise.all([
+    fetch("data/events.json").then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
-    })
-    .then((data) => {
+    }),
+    fetch("data/ticketing.json")
+      .then((r) => (r.ok ? r.json() : { items: [] }))
+      .catch(() => ({ items: [] })),
+  ])
+    .then(([data, ticketData]) => {
+      ticketing = new Map(
+        (ticketData.items || []).flatMap((item) => item.eventIds.map((id) => [id, item]))
+      );
       events = data.events;
       document.getElementById("meta").textContent =
         `全${data.count}件 ・ 最終更新 ${data.generatedAt.slice(0, 16).replace("T", " ")}`;

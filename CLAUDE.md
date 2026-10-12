@@ -56,10 +56,19 @@
 - タスクはアプリ起動中に実行される。金曜0時にアプリが閉じていれば次回起動時に走る
 - 手順を変えたい場合は docs/WEEKLY_TASK.md を編集（タスクのプロンプトは手順書を参照しているだけなので、原則プロンプト側の変更は不要）
 
+## 予約情報（data/ticketing.json）
+
+- Googleカレンダーの説明文とは分離し、カレンダーUID（events.json の `id`）で公演と対応させる
+- 先行・一般・追加販売などは `stages` の別要素にし、各受付の `label` / `opensAt` / `closesAt` / `url` / `status` を個別に持つ。日付は `YYYY-MM-DD`、時刻まで判明している場合はタイムゾーン付きISO 8601形式
+- `status` は日時から判定できない `sold-out` / `cancelled` 等だけ明示し、通常は開始・終了日時から表示を切り替える
+- 週次タスクが今後8週間の登録済み公演を確認する。検証は `python3 scripts/check_ticketing.py`
+- カードには受付中・今後の段階を並べて表示する。終了済みの受付は表示しない
+
 ### 更新経路
 
 - 毎日6:00 GitHub Actions: iCal → `events.json` → Pages
 - 毎週金曜0:00 Codex: `proposals.json` / `watchlist.json` / `companies.json` → commit / push
+- 毎週金曜0:00 Codex: 上記に加えて `ticketing.json` の予約段階を確認・更新
 - 毎月最初の金曜 Codex: 上記に加えて `digest.json` を再生成
 - 静的ページはこれらのJSONを表示するだけ。別の状態を持たない
 

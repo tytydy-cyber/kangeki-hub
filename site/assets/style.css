@@ -419,6 +419,35 @@ h2.section .count {
 .card .info > * { min-width: 0; }
 .card .info > :not(.chip) + :not(.chip)::before { margin-right: 0.55rem; color: var(--border); content: "・"; }
 
+.ticketing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.55rem;
+}
+
+.ticket-stage {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: baseline;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  color: var(--fg);
+  font-size: 0.76rem;
+  text-decoration: none;
+}
+
+.ticket-stage span { color: var(--muted); }
+.ticket-stage strong { color: var(--accent); font-weight: 650; }
+.ticket-stage.is-upcoming strong { color: var(--soon); }
+.ticket-stage.is-sold-out,
+.ticket-stage.is-cancelled { border-color: var(--border); }
+.ticket-stage.is-sold-out strong,
+.ticket-stage.is-cancelled strong { color: var(--muted); }
+
+a.ticket-stage:hover,
+a.ticket-stage:focus-visible { border-color: var(--accent); }
+
 .badge {
   display: inline-block;
   margin-left: 0;

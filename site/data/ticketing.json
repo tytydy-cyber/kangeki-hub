@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-10-12",
+  "items": [
+    {
+      "eventIds": [
+        "1uf7g8a9uiph4p8b88ea09pa7s@google.com",
+        "5e5t914nkjtbkqu182eh4bnkdo@google.com"
+      ],
+      "title": "くによし組「粉瘤」",
+      "checkedAt": "2026-10-12",
+      "stages": [
+        {
+          "label": "一般",
+          "opensAt": "2026-09-07T21:00:00+09:00",
+          "url": "https://kuniyoshigumi.corich.co/hunnryu/yoyaku"
+        }
+      ]
+    },
+    {
+      "eventIds": [
+        "kjuhbsrbg66mg533p8qaga5jhk@google.com"
+      ],
+      "title": "ダダルズ「よだれ観覧車」",
+      "checkedAt": "2026-10-12",
+      "stages": [
+        {
+          "label": "一般",
+          "opensAt": "2026-09-05T10:00:00+09:00",
+          "url": "https://autumnmeteorite-2026.peatix.com",
+          "status": "sold-out"
+        }
+      ]
+    },
+    {
+      "eventIds": [
+        "cgqjgp9m68s6ab9n6pi38b9kchj3ib9o6os62bb5cos62p9nc5ij4oj2c8@google.com"
+      ],
+      "title": "庭劇団ペニノ「埋火（うずみび）」",
+      "checkedAt": "2026-10-12",
+      "stages": [
+        {
+          "label": "KAme先行",
+          "opensAt": "2026-09-05",
+          "url": "https://www.kaat.jp/d/uzumibi"
+        },
+        {
+          "label": "一般",
+          "opensAt": "2026-09-19",
+          "url": "https://www.kaat.jp/d/uzumibi"
+        }
+      ]
+    }
+  ]
+}
