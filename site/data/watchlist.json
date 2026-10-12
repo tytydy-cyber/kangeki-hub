@@ -42,6 +42,108 @@
         "summary": "2026東京は10月9日〜11月3日。個別演目を週次提案へ反映。",
         "url": "https://www.geigeki.jp/performance/theater415/"
       }
+    },
+    {
+      "id": "kabukicho-chosai",
+      "type": "イベント",
+      "name": "歌舞伎超祭",
+      "reason": "歌舞伎町の屋外空間で行われるパフォーマンスイベント。次回開催と出演者発表を追う。",
+      "url": "https://x.com/kabukicho_tmo",
+      "matchTitles": ["歌舞伎超祭"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "次回未確認",
+        "summary": "歌舞伎町タウン・マネージメントの公式発信を確認。次回開催の発表待ち。",
+        "url": "https://www.d-kabukicho.com/news/sns/"
+      }
+    },
+    {
+      "id": "benten-art-night",
+      "type": "イベント",
+      "name": "BENTEN ART NIGHT",
+      "reason": "歌舞伎町の複数会場を回遊する夜間アートイベント。次回ラインアップを追う。",
+      "url": "https://www.benten-kabukicho.com/",
+      "matchTitles": ["BENTEN", "歌舞伎町アートナイト"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "次回未確認",
+        "summary": "公式サイトはBENTEN 2（2025年）の情報を掲載。次回開催の発表待ち。",
+        "url": "https://www.benten-kabukicho.com/"
+      }
+    },
+    {
+      "id": "circo-de-sastre",
+      "type": "団体",
+      "name": "仕立て屋のサーカス",
+      "reason": "音・布・光を組み合わせる現代サーカス。新演目と各地の公演を追う。",
+      "url": "https://www.circodesastre.com/",
+      "matchCompanies": ["仕立て屋のサーカス"],
+      "matchTitles": ["仕立て屋のサーカス"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "確認済み",
+        "summary": "公式サイトの公演情報を確認。カレンダーに今後の登録なし。",
+        "url": "https://www.circodesastre.com/"
+      }
+    },
+    {
+      "id": "furosya",
+      "type": "団体",
+      "name": "劇団不労社",
+      "reason": "アンダーグラウンドとコメディ、ホラーを横断する京都拠点の劇団。新作とツアーを追う。",
+      "url": "https://www.furosya.com/",
+      "matchCompanies": ["劇団不労社"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "予定あり",
+        "summary": "『暗黒の喜劇』京都公演が10月12日までカレンダー登録済み。横浜公演は2027年2月予定。",
+        "url": "https://www.furosya.com/"
+      }
+    },
+    {
+      "id": "gokiburi-combinate",
+      "type": "団体",
+      "name": "ゴキブリコンビナート",
+      "reason": "見世物・ミュージカル・過激な身体表現を横断する劇団。本公演と見世物小屋を追う。",
+      "url": "https://goki-con.com/",
+      "matchCompanies": ["ゴキブリコンビナート"],
+      "matchTitles": ["ゴキブリコンビナート", "ゴキコン"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "予定あり",
+        "summary": "『絶倫神父イマニュエル』と11月の見世物小屋がカレンダー登録済み。",
+        "url": "https://goki-con.com/"
+      }
+    },
+    {
+      "id": "noangie",
+      "type": "団体",
+      "name": "のあんじー",
+      "reason": "街や野外を舞台に移動劇を行う二人組。自主公演と芸術祭出演を追う。",
+      "url": "https://x.com/noangie0804",
+      "matchCompanies": ["のあんじー"],
+      "matchTitles": ["のあんじー"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "確認済み",
+        "summary": "公式Xを確認。カレンダーに今後の登録なし。",
+        "url": "https://x.com/noangie0804"
+      }
+    },
+    {
+      "id": "heigen-fes",
+      "type": "団体",
+      "name": "平原演劇祭",
+      "reason": "野外・古民家など場所に応答する演劇祭。直前発表を含む次回上演を追う。",
+      "url": "https://x.com/heigenfes",
+      "matchCompanies": ["平原演劇祭"],
+      "matchTitles": ["平原演劇祭"],
+      "latest": {
+        "checkedAt": "2026-10-12",
+        "status": "確認済み",
+        "summary": "公式Xを確認。カレンダーに今後の登録なし。",
+        "url": "https://x.com/heigenfes"
+      }
     }
   ]
 }
