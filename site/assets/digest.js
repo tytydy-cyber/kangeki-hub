@@ -45,7 +45,7 @@
       return r.json();
     })
     .then((d) => {
-      let html = `<div class="page-intro"><span class="eyebrow">MONTHLY SIGNAL</span><h1>関心の変化</h1><p>累積ランキングではなく、最近何を登録し始め、何を追い続けているかを見ます。</p></div>`;
+      let html = `<div class="page-intro"><h1>関心の変化</h1><p>累積ランキングではなく、最近何を登録し始め、何を追い続けているかを見ます。</p></div>`;
 
       if (d.overview) {
         html += `<h2 class="section">概観</h2>`;

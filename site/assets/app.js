@@ -32,7 +32,7 @@
     const change = digest.comparison
       ? digest.comparison.current - digest.comparison.previous
       : null;
-    pulse.innerHTML = `<div class="pulse-head"><span class="eyebrow">WEEKLY CUE</span><span>最終更新 ${esc(proposals.generatedAt)}</span></div>
+    pulse.innerHTML = `<div class="pulse-head"><span>今週の更新</span><span>最終更新 ${esc(proposals.generatedAt)}</span></div>
       <div class="pulse-grid">
         <a href="proposals.html"><strong>${proposalCount}</strong><span>検討中の提案</span><small>未登録公演を確認</small></a>
         <a href="follows.html"><strong>${watchCount}</strong><span>フォロー対象</span><small>団体・イベント・情報源</small></a>
@@ -74,6 +74,7 @@
   }
 
   function fmtTicketDate(value) {
+    if (!value) return "";
     if (!value.includes("T")) {
       const [, month, day] = value.split("-").map(Number);
       return `${month}/${day}`;
@@ -102,7 +103,7 @@
       : null;
     let state = stage.status;
     if (!state) state = opens > now ? "upcoming" : closes && closes < now ? "closed" : "open";
-    if (state === "closed") return "";
+    if (state === "closed" || (state === "upcoming" && !stage.opensAt)) return "";
 
     const labels = {
       open: "予約受付中",

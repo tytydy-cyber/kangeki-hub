@@ -36,7 +36,7 @@
     fetch("data/watchlist.json").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
     fetch("data/events.json").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
   ]).then(([watchlist, eventData]) => {
-    app.innerHTML = `<div class="page-intro"><span class="eyebrow">WATCH DESK</span><h1>${watchlist.items.length}件を継続確認</h1><p>週次更新で新しい発表を確認し、カレンダー登録済みの予定と並べて表示します。</p></div>` +
+    app.innerHTML = `<div class="page-intro"><h1>${watchlist.items.length}件を継続確認</h1><p>週次更新で新しい発表を確認し、カレンダー登録済みの予定と並べて表示します。</p></div>` +
       `<div class="follow-grid">${watchlist.items.map((item) => itemCard(item, eventData.events)).join("")}</div>`;
     document.getElementById("meta").textContent = `最終確認 ${watchlist.generatedAt}`;
   }).catch((err) => {

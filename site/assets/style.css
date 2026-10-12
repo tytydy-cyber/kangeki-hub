@@ -47,7 +47,6 @@ body {
   word-break: keep-all;
 }
 
-.brand small,
 .eyebrow {
   display: block;
   margin-top: 0.4rem;
@@ -117,7 +116,6 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-.pulse-head .eyebrow { margin: 0; }
 .pulse-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .pulse-grid a {
   display: grid;
