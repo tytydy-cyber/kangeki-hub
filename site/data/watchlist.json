@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-10-12",
+  "items": [
+    {
+      "id": "kryuutai-monthly-note",
+      "type": "情報源",
+      "name": "公社流体力学「毎月の見たい演劇」",
+      "reason": "週次提案の主力情報源。新しい月の記事と掲載公演を追う。",
+      "url": "https://note.com/kryuutai/m/mf908c9be37ce",
+      "matchCompanies": [],
+      "latest": {
+        "checkedAt": "2026-10-09",
+        "status": "確認済み",
+        "summary": "10月号を確認し、未登録候補を週次提案へ反映。",
+        "url": "https://note.com/kryuutai/m/mf908c9be37ce"
+      }
+    },
+    {
+      "id": "karagumi",
+      "type": "団体",
+      "name": "唐組",
+      "reason": "継続して登録しているテント芝居の中核。新作・再演・地方公演を追う。",
+      "url": "https://ameblo.jp/karagumi/",
+      "matchCompanies": ["唐組"],
+      "latest": {
+        "checkedAt": "2026-10-09",
+        "status": "予定あり",
+        "summary": "『虹屋敷』がカレンダー登録済み。",
+        "url": "https://ameblo.jp/karagumi/entry-12973937461.html"
+      }
+    },
+    {
+      "id": "autumn-meteorite",
+      "type": "イベント",
+      "name": "舞台芸術祭「秋の隕石」",
+      "reason": "岡田利規が芸術監督を務める舞台芸術祭。ラインアップ全体を追う。",
+      "url": "https://autumnmeteorite.jp/ja/2026/",
+      "matchTitles": ["秋の隕石"],
+      "latest": {
+        "checkedAt": "2026-10-09",
+        "status": "開催中",
+        "summary": "2026東京は10月9日〜11月3日。個別演目を週次提案へ反映。",
+        "url": "https://www.geigeki.jp/performance/theater415/"
+      }
+    }
+  ]
+}

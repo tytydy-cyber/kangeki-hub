@@ -28,10 +28,16 @@
 
 ## 傾向ダイジェスト（digest.html / data/digest.json）
 
-年次など広範囲の傾向分析ページ（提案は載せない）。生成手順:
-1. `python3 scripts/build_data.py && python3 scripts/analyze_trends.py > /tmp/trends.json`
-2. trends.json から digest.json を生成（年別件数・開催月分布・上位劇団/会場・直近180日の劇団）。`generatedAt` を当日に
-3. digest.js が横棒グラフ（bars）とランキング（ranklist）で描画
+カレンダーは鑑賞実績ではなく「気になる公演」の登録なので、分析も鑑賞数ではなく登録行動を扱う。直近90日を前の90日と比較し、初登場・継続・関心が強まった団体を見る。週次の微差を傾向として扱わないため毎月最初の金曜だけ更新する。
+
+生成: `python3 scripts/analyze_trends.py --write-digest`
+
+## フォロー（follows.html / data/watchlist.json）
+
+- 特に見落としたくない団体・イベント・情報源を一覧化する
+- 週次タスクが全件を確認し、各項目の `latest` を更新する。Git履歴を確認履歴として使う
+- `matchCompanies` / `matchTitles` に一致するカレンダー登録済みの今後予定は、ページ側で events.json と突き合わせて表示する
+- フォロー対象の追加・削除はユーザーから依頼されたときだけ行う
 
 ## おすすめ提案（proposals.html / data/proposals.json）
 
@@ -45,10 +51,17 @@
 
 ### 定期化（設定済み 2026-07-15）
 
-- automation `kangeki-weekly-proposals`（毎週金曜0時JST）で自動更新する。通常はCodex、切り戻し時は同名のClaudeルーティンを使う
+- Codex automation `kangeki-weekly-proposals`（毎週金曜0時JST）で自動更新する。Claude側は停止済みで切り戻し先にしない
 - タスクの手順は [docs/WEEKLY_TASK.md](docs/WEEKLY_TASK.md) が正。プロンプトからこのファイルを読んで実行する
 - タスクはアプリ起動中に実行される。金曜0時にアプリが閉じていれば次回起動時に走る
 - 手順を変えたい場合は docs/WEEKLY_TASK.md を編集（タスクのプロンプトは手順書を参照しているだけなので、原則プロンプト側の変更は不要）
+
+### 更新経路
+
+- 毎日6:00 GitHub Actions: iCal → `events.json` → Pages
+- 毎週金曜0:00 Codex: `proposals.json` / `watchlist.json` / `companies.json` → commit / push
+- 毎月最初の金曜 Codex: 上記に加えて `digest.json` を再生成
+- 静的ページはこれらのJSONを表示するだけ。別の状態を持たない
 
 ## 劇団概要（companies.json）
 
@@ -79,7 +92,7 @@
 ## 開発メモ
 
 - データ生成: `python3 scripts/build_data.py`（`--local <ics>` でローカルファイルから）。出力は `site/data/events.json`（.gitignore対象、デプロイ時にActionsが生成）
-- 傾向分析: `python3 scripts/analyze_trends.py`（events.jsonを読んでJSONを標準出力へ）
+- 傾向分析: `python3 scripts/analyze_trends.py --write-digest`（events.jsonからdigest.jsonを生成）
 - ローカル確認: `cd site && python3 -m http.server 8765`
 - ビルドはPython 3.9標準ライブラリのみ。Node.jsや外部パッケージは使わない（この環境に未導入のため）
 - ローカルプレビューはプロジェクト直下の `scripts/serve.py` を使う

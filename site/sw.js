@@ -3,7 +3,7 @@
  * - データ（data/*.json）: stale-while-revalidate（即表示しつつ裏で更新）
  * パスはすべて sw.js からの相対で解決するため、ルート配信でも /kangeki-hub/ 配信でも動く。
  */
-const VERSION = "v3";
+const VERSION = "v4";
 const SHELL_CACHE = `shell-${VERSION}`;
 const DATA_CACHE = `data-${VERSION}`;
 
@@ -16,10 +16,12 @@ const SHELL = [
   "index.html",
   "digest.html",
   "proposals.html",
+  "follows.html",
   "assets/style.css",
   "assets/app.js",
   "assets/digest.js",
   "assets/proposals.js",
+  "assets/follows.js",
   "assets/register-sw.js",
   "manifest.json",
   "assets/icons/icon-192.png",
@@ -33,6 +35,7 @@ const DATA_FILES = [
   "data/digest.json",
   "data/proposals.json",
   "data/companies.json",
+  "data/watchlist.json",
 ].map(url);
 
 self.addEventListener("install", (event) => {

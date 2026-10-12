@@ -2,6 +2,7 @@
   "use strict";
 
   const app = document.getElementById("app");
+  const pulse = document.getElementById("pulse");
   const searchInput = document.getElementById("search");
   const tabs = document.querySelectorAll(".tab");
   const DOW = ["日", "月", "火", "水", "木", "金", "土"];
@@ -23,6 +24,20 @@
     String(s).replace(/[&<>"']/g, (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
     );
+
+  function renderPulse(proposals, watchlist, digest) {
+    const proposalCount = (proposals.nextMonth?.length || 0) + (proposals.special?.length || 0);
+    const watchCount = watchlist.items?.length || 0;
+    const change = digest.comparison
+      ? digest.comparison.current - digest.comparison.previous
+      : null;
+    pulse.innerHTML = `<div class="pulse-head"><span class="eyebrow">WEEKLY CUE</span><span>最終更新 ${esc(proposals.generatedAt)}</span></div>
+      <div class="pulse-grid">
+        <a href="proposals.html"><strong>${proposalCount}</strong><span>検討中の提案</span><small>未登録公演を確認</small></a>
+        <a href="follows.html"><strong>${watchCount}</strong><span>フォロー対象</span><small>団体・イベント・情報源</small></a>
+        <a href="digest.html"><strong>${change === null ? "—" : `${change > 0 ? "+" : ""}${change}`}</strong><span>登録ペース</span><small>前の90日との差</small></a>
+      </div>`;
+  }
 
   function fmtDate(iso, withYear) {
     const [y, m, d] = iso.split("-").map(Number);
@@ -350,7 +365,11 @@
 
   function setView(v) {
     view = v;
-    tabs.forEach((t) => t.classList.toggle("active", t.dataset.view === v));
+    tabs.forEach((t) => {
+      const selected = t.dataset.view === v;
+      t.classList.toggle("active", selected);
+      t.setAttribute("aria-selected", String(selected));
+    });
     render();
   }
 
@@ -516,4 +535,11 @@
     .catch((err) => {
       app.innerHTML = `<p class="empty">データを読み込めませんでした（${esc(err.message)}）</p>`;
     });
+
+  Promise.all([
+    fetch("data/proposals.json").then((r) => r.json()),
+    fetch("data/watchlist.json").then((r) => r.json()),
+    fetch("data/digest.json").then((r) => r.json()),
+  ]).then(([proposals, watchlist, digest]) => renderPulse(proposals, watchlist, digest))
+    .catch(() => { pulse.hidden = true; });
 })();

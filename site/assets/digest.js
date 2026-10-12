@@ -2,8 +2,6 @@
   "use strict";
 
   const app = document.getElementById("app");
-  const MONTHS = ["", "1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) =>
       ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])
@@ -33,10 +31,10 @@
       `</div>`;
   }
 
-  function rankList(items) {
+  function rankList(items, value) {
     return `<ol class="ranklist">` +
       items
-        .map((c) => `<li><span class="rk-name">${esc(c.name)}</span><span class="rk-count">${esc(c.count)}</span></li>`)
+        .map((c) => `<li><span class="rk-name">${esc(c.name)}</span><span class="rk-count">${esc(value ? value(c) : c.count)}</span></li>`)
         .join("") +
       `</ol>`;
   }
@@ -47,7 +45,7 @@
       return r.json();
     })
     .then((d) => {
-      let html = "";
+      let html = `<div class="page-intro"><span class="eyebrow">MONTHLY SIGNAL</span><h1>関心の変化</h1><p>累積ランキングではなく、最近何を登録し始め、何を追い続けているかを見ます。</p></div>`;
 
       if (d.overview) {
         html += `<h2 class="section">概観</h2>`;
@@ -55,36 +53,38 @@
         if (d.overview.text) html += `<p class="digest-text">${esc(d.overview.text)}</p>`;
       }
 
-      if (d.byYear && d.byYear.length) {
-        html += `<h2 class="section">年別の登録数</h2>`;
-        html += barChart(d.byYear.map((y) => ({ label: `${y.year}年`, value: y.count })));
+      if (d.comparison) {
+        html += `<h2 class="section">90日間の変化</h2>`;
+        html += barChart([
+          { label: "直近", value: d.comparison.current },
+          { label: "その前", value: d.comparison.previous },
+        ]);
+        html += `<p class="digest-notes">直近 ${esc(d.comparison.currentLabel)} ／ その前 ${esc(d.comparison.previousLabel)}</p>`;
       }
 
-      if (d.monthHistogram) {
-        html += `<h2 class="section">開催月の分布 <span class="count">通算</span></h2>`;
-        html += barChart(
-          Object.keys(d.monthHistogram).map((m) => ({ label: MONTHS[Number(m)], value: d.monthHistogram[m] }))
-        );
+      if (d.registrationPace?.length) {
+        html += `<h2 class="section">登録ペース <span class="count">直近1年</span></h2>`;
+        html += barChart(d.registrationPace.map((m) => ({ label: m.month.slice(2).replace("-", "/"), value: m.count })));
       }
 
-      if (d.topCompanies && d.topCompanies.length) {
-        html += `<h2 class="section">よく観る劇団・団体 <span class="count">通算トップ${d.topCompanies.length}</span></h2>`;
-        html += rankList(d.topCompanies);
+      if (d.momentum?.length) {
+        html += `<h2 class="section">関心が強まった団体 <span class="count">前の90日比</span></h2>`;
+        html += rankList(d.momentum, (c) => `${c.current}公演（${c.delta > 0 ? "+" : ""}${c.delta}）`);
       }
 
-      if (d.recentCompanies && d.recentCompanies.length) {
-        html += `<h2 class="section">直近180日で登録が多い劇団</h2>`;
-        html += rankList(d.recentCompanies);
+      if (d.discoveries?.length) {
+        html += `<h2 class="section">初めて登録した団体 <span class="count">直近90日</span></h2>`;
+        html += rankList(d.discoveries, (c) => `${c.count}公演`);
       }
 
-      if (d.topVenues && d.topVenues.length) {
-        html += `<h2 class="section">よく行く会場 <span class="count">通算トップ${d.topVenues.length}</span></h2>`;
-        html += rankList(d.topVenues);
+      if (d.recentTop?.length) {
+        html += `<h2 class="section">継続して追っている団体 <span class="count">直近1年</span></h2>`;
+        html += rankList(d.recentTop, (c) => `${c.count}公演`);
       }
 
       if (d.notes) html += `<p class="digest-notes">${esc(d.notes)}</p>`;
       app.innerHTML = html;
-      document.getElementById("meta").textContent = `生成日 ${d.generatedAt}`;
+      document.getElementById("meta").textContent = `${d.cadence || "更新"} ・ 最終生成 ${d.generatedAt}`;
     })
     .catch((err) => {
       app.innerHTML = `<p class="empty">ダイジェストを読み込めませんでした（${esc(err.message)}）</p>`;

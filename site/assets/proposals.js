@@ -34,9 +34,9 @@
       return r.json();
     })
     .then((d) => {
-      let html = "";
+      let html = `<div class="page-intro"><span class="eyebrow">WEEKLY PICKS</span><h1>今週の候補</h1><p>カレンダー未登録の公演だけを、公開情報で確認して掲載しています。</p></div>`;
       const winLabel = d.window ? d.window.label : "";
-      html += section("直近1ヶ月の未登録公演", winLabel, d.nextMonth);
+      html += section("これから約6週間", winLabel, d.nextMonth);
       html += section("特筆（期間を問わず）", "", d.special);
       if (!d.nextMonth?.length && !d.special?.length) {
         html += `<p class="empty">現在の提案はありません</p>`;

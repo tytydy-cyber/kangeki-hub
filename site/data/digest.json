@@ -1,242 +1,254 @@
 {
- "generatedAt": "2026-10-09",
- "coverage": {
-  "years": [
-   "2022",
-   "2030"
-  ],
-  "total": 946
+ "generatedAt": "2026-10-12",
+ "cadence": "月次更新（毎月最初の金曜）",
+ "window": {
+  "days": 90,
+  "from": "2026-07-15",
+  "to": "2026-10-12"
  },
  "overview": {
   "stats": [
    {
-    "label": "総登録",
-    "value": "946件"
+    "label": "直近90日の新規登録",
+    "value": "55公演"
    },
    {
-    "label": "対象期間",
-    "value": "2022〜2030"
+    "label": "前の90日との差",
+    "value": "-11公演"
    },
    {
-    "label": "今後の公演",
-    "value": "80件"
+    "label": "初登場の団体",
+    "value": "20団体"
    },
    {
-    "label": "直近180日の新規",
-    "value": "144件"
+    "label": "継続して追う団体",
+    "value": "22団体"
    }
   ],
-  "text": "2022年からの登録はアングラ・小劇場・テント芝居・舞踏を中心に、現代口語やポストドラマ、サイトスペシフィックな企画まで広がる。団体別では平原演劇祭が最も多く、コンプソンズ、優しい劇団、大駱駝艦が続く。会場はザ・スズナリ、花園神社、新宿シアタートップスが上位。開催月は5月が最多で、6月・7月と10月にも山がある。"
+  "text": "鑑賞実績ではなく、カレンダーへ何を登録したかを分析。直近90日を前の90日と比べ、関心の広がりと継続を捉える。"
  },
- "byYear": [
-  {
-   "year": "2022",
-   "count": 80
-  },
-  {
-   "year": "2023",
-   "count": 206
-  },
-  {
-   "year": "2024",
-   "count": 200
-  },
-  {
-   "year": "2025",
-   "count": 217
-  },
-  {
-   "year": "2026",
-   "count": 230
-  },
-  {
-   "year": "2027",
-   "count": 12
-  },
-  {
-   "year": "2030",
-   "count": 1
-  }
- ],
- "monthHistogram": {
-  "1": 64,
-  "2": 64,
-  "3": 74,
-  "4": 46,
-  "5": 103,
-  "6": 91,
-  "7": 87,
-  "8": 71,
-  "9": 86,
-  "10": 99,
-  "11": 87,
-  "12": 74
+ "comparison": {
+  "current": 55,
+  "previous": 66,
+  "currentLabel": "2026-07-15〜2026-10-12",
+  "previousLabel": "2026-04-16〜2026-07-14"
  },
- "topCompanies": [
+ "registrationPace": [
   {
-   "name": "平原演劇祭",
-   "count": 37
+   "month": "2025-10",
+   "count": 19
   },
   {
-   "name": "コンプソンズ",
-   "count": 12
-  },
-  {
-   "name": "優しい劇団",
-   "count": 12
-  },
-  {
-   "name": "大駱駝艦",
-   "count": 11
-  },
-  {
-   "name": "新宿梁山泊",
-   "count": 10
-  },
-  {
-   "name": "ゴキブリコンビナート",
-   "count": 9
-  },
-  {
-   "name": "排気口",
-   "count": 9
-  },
-  {
-   "name": "劇団不労社",
-   "count": 9
-  },
-  {
-   "name": "唐組",
-   "count": 9
-  },
-  {
-   "name": "ロロ",
-   "count": 8
-  },
-  {
-   "name": "流山児★事務所",
-   "count": 8
-  },
-  {
-   "name": "B子",
-   "count": 8
-  },
-  {
-   "name": "のあんじー",
-   "count": 7
-  },
-  {
-   "name": "果てとチーク",
-   "count": 7
-  },
-  {
-   "name": "中野坂上デーモンズ",
-   "count": 6
-  }
- ],
- "recentCompanies": [
-  {
-   "name": "コンプソンズ",
-   "count": 3
-  },
-  {
-   "name": "南京豆NAMENAME",
-   "count": 2
-  },
-  {
-   "name": "平原演劇祭",
-   "count": 2
-  },
-  {
-   "name": "くによし組",
-   "count": 2
-  },
-  {
-   "name": "ヤバイ芝居",
-   "count": 2
-  },
-  {
-   "name": "優しい劇団",
-   "count": 2
-  },
-  {
-   "name": "地点",
-   "count": 2
-  },
-  {
-   "name": "劇団どろんこプロレス",
-   "count": 2
-  },
-  {
-   "name": "大駱駝艦",
-   "count": 2
-  },
-  {
-   "name": "流山児★事務所",
-   "count": 2
-  }
- ],
- "topVenues": [
-  {
-   "name": "ザ・スズナリ",
-   "count": 26
-  },
-  {
-   "name": "花園神社",
-   "count": 23
-  },
-  {
-   "name": "新宿シアタートップス",
-   "count": 17
-  },
-  {
-   "name": "座・高円寺",
+   "month": "2025-11",
    "count": 16
   },
   {
-   "name": "駅前劇場",
-   "count": 15
-  },
-  {
-   "name": "王子小劇場",
-   "count": 15
-  },
-  {
-   "name": "オフ・オフ・シアター",
-   "count": 15
-  },
-  {
-   "name": "吉祥寺シアター",
+   "month": "2025-12",
    "count": 14
   },
   {
-   "name": "シアターイースト",
-   "count": 13
+   "month": "2026-01",
+   "count": 10
   },
   {
-   "name": "ときわ座",
-   "count": 12
+   "month": "2026-02",
+   "count": 21
   },
   {
-   "name": "浅草九劇",
-   "count": 12
+   "month": "2026-03",
+   "count": 14
   },
   {
-   "name": "こまばアゴラ劇場",
-   "count": 12
+   "month": "2026-04",
+   "count": 19
   },
   {
-   "name": "KAAT 神奈川芸術劇場",
-   "count": 12
+   "month": "2026-05",
+   "count": 23
   },
   {
-   "name": "BUoY",
-   "count": 11
+   "month": "2026-06",
+   "count": 14
   },
   {
-   "name": "本多劇場",
-   "count": 11
+   "month": "2026-07",
+   "count": 23
+  },
+  {
+   "month": "2026-08",
+   "count": 16
+  },
+  {
+   "month": "2026-09",
+   "count": 23
+  },
+  {
+   "month": "2026-10",
+   "count": 9
   }
  ],
- "notes": "開催年・開催月ベースの集計。劇団の件数は公演単位（日程分割された同一公演は1、再演は別公演）で数えている。劇団名・会場名は表記揺れを正規化済み。"
+ "momentum": [
+  {
+   "name": "大駱駝艦",
+   "current": 2,
+   "previous": 0,
+   "delta": 2
+  },
+  {
+   "name": "流山児★事務所",
+   "current": 2,
+   "previous": 0,
+   "delta": 2
+  },
+  {
+   "name": "9PROJECT",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "B子",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "PSYCHOSIS × SHINKAI LAMP",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "poco",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "いげた屋",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "ぺぺぺの会",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "ももちの世界",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
+   "name": "ウンゲツィーファ×玉田企画",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  }
+ ],
+ "discoveries": [
+  {
+   "name": "大旅軍団",
+   "count": 1
+  },
+  {
+   "name": "マタヒバチ",
+   "count": 1
+  },
+  {
+   "name": "シンビーボックス",
+   "count": 1
+  },
+  {
+   "name": "野戦之月",
+   "count": 1
+  },
+  {
+   "name": "維新派",
+   "count": 1
+  },
+  {
+   "name": "モメラス",
+   "count": 1
+  },
+  {
+   "name": "謎音研究所",
+   "count": 1
+  },
+  {
+   "name": "ウンゲツィーファ×玉田企画",
+   "count": 1
+  },
+  {
+   "name": "集金娘",
+   "count": 1
+  },
+  {
+   "name": "テアトル・オン・デマンド",
+   "count": 1
+  },
+  {
+   "name": "ぺぺぺの会",
+   "count": 1
+  },
+  {
+   "name": "poco",
+   "count": 1
+  }
+ ],
+ "recentTop": [
+  {
+   "name": "コンプソンズ",
+   "count": 6
+  },
+  {
+   "name": "大駱駝艦",
+   "count": 4
+  },
+  {
+   "name": "優しい劇団",
+   "count": 4
+  },
+  {
+   "name": "深海洋燈",
+   "count": 3
+  },
+  {
+   "name": "劇団不労社",
+   "count": 3
+  },
+  {
+   "name": "流山児★事務所",
+   "count": 3
+  },
+  {
+   "name": "スヌーヌー",
+   "count": 2
+  },
+  {
+   "name": "踊場海月",
+   "count": 2
+  },
+  {
+   "name": "東葛スポーツ",
+   "count": 2
+  },
+  {
+   "name": "立川がじら",
+   "count": 2
+  },
+  {
+   "name": "劇団アンパサンド",
+   "count": 2
+  },
+  {
+   "name": "新宿梁山泊",
+   "count": 2
+  }
+ ],
+ "upcomingCount": 78,
+ "notes": "Googleカレンダーへの登録日を基準に公演単位で集計。登録は興味・把握を示すもので、実際の鑑賞数や評価ではない。"
 }
