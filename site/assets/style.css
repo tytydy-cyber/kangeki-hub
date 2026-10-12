@@ -44,6 +44,7 @@ body {
   font-size: clamp(1.55rem, 4vw, 2.5rem);
   font-weight: 600;
   letter-spacing: 0.04em;
+  word-break: keep-all;
 }
 
 .brand small,
@@ -389,8 +390,14 @@ h2.section .count {
 .card.status-soon { border-left-color: var(--soon); }
 
 .card .title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.5rem;
   font-weight: 600;
   font-size: 1.02rem;
+  line-break: strict;
+  text-wrap: pretty;
 }
 
 .card .title a {
@@ -400,14 +407,21 @@ h2.section .count {
 }
 
 .card .info {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.55rem;
   margin-top: 0.2rem;
   font-size: 0.85rem;
   color: var(--muted);
 }
 
+.card .info > * { min-width: 0; }
+.card .info > :not(.chip) + :not(.chip)::before { margin-right: 0.55rem; color: var(--border); content: "・"; }
+
 .badge {
   display: inline-block;
-  margin-left: 0.5rem;
+  margin-left: 0;
   padding: 0 0.45rem;
   font-size: 0.75rem;
   border-radius: 999px;
@@ -435,7 +449,7 @@ h2.section .count {
 
 .chip {
   display: inline-block;
-  margin-left: 0.6rem;
+  margin-left: 0;
   padding: 0 0.5rem;
   font-size: 0.75rem;
   border: 1px solid var(--border);
@@ -716,6 +730,8 @@ footer {
 .page-intro h1 {
   margin: 0.35rem 0;
   font: 600 clamp(1.7rem, 5vw, 2.6rem) "Yu Mincho", "Hiragino Mincho ProN", serif;
+  line-break: strict;
+  text-wrap: balance;
 }
 
 .page-intro p { margin: 0; color: var(--muted); }
@@ -750,6 +766,8 @@ footer {
 .follow-card h2 {
   margin: 0.55rem 0 0.35rem;
   font: 600 1.15rem "Yu Mincho", "Hiragino Mincho ProN", serif;
+  line-break: strict;
+  text-wrap: pretty;
 }
 
 .follow-card h2 a { color: var(--fg); text-decoration-color: var(--accent); }

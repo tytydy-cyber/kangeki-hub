@@ -78,7 +78,7 @@
     const title = ev.url
       ? `<a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.title)}</a>`
       : esc(ev.title);
-    const parts = [fmtRange(ev)];
+    const parts = [`<span class="date">${esc(fmtRange(ev))}</span>`];
     if (showVenue && ev.venue) {
       parts.push(
         `<a class="maploc" href="${esc(mapsUrl(ev))}" target="_blank" rel="noopener">📍${esc(ev.venue)}</a>`
@@ -90,7 +90,7 @@
         : "";
     return `<div class="card status-${cardStatus(ev)}">
       <div class="title">${title}${badge ? `<span class="badge">${esc(badge)}</span>` : ""}</div>
-      <div class="info">${parts.join(" ・ ")}${chip}</div>
+      <div class="info">${parts.join("")}${chip}</div>
     </div>`;
   }
 

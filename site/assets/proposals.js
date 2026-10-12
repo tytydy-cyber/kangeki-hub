@@ -13,11 +13,11 @@
       ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
       : esc(p.title);
     const parts = [];
-    if (p.dates) parts.push(esc(p.dates));
-    if (p.venue) parts.push(esc(p.venue));
+    if (p.dates) parts.push(`<span class="date">${esc(p.dates)}</span>`);
+    if (p.venue) parts.push(`<span>${esc(p.venue)}</span>`);
     return `<div class="card">
       <div class="title">${title}</div>
-      <div class="info">${parts.join(" ・ ")}</div>
+      <div class="info">${parts.join("")}</div>
       <div class="reason">${esc(p.reason)}</div>
     </div>`;
   }
