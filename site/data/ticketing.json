@@ -26,8 +26,9 @@
         {
           "label": "一般",
           "opensAt": "2026-09-05T10:00:00+09:00",
+          "closesAt": "2026-10-16T23:59:00+09:00",
           "url": "https://autumnmeteorite-2026.peatix.com",
-          "status": "sold-out"
+          "status": "open"
         }
       ]
     },
@@ -49,6 +50,90 @@
           "url": "https://www.kaat.jp/d/uzumibi"
         }
       ]
+    },
+    {
+      "eventIds": ["5gtt33vnu48fu9c4vj3m4efvgc@google.com"],
+      "title": "モメラス「薄闇、そこは散漫もしくは出口」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-08-15T10:00:00+09:00", "url": "https://ws.formzu.net/sfgen/S71697280/"}]
+    },
+    {
+      "eventIds": ["lq7dd88v1g5q9eaiap2dgvce30@google.com"],
+      "title": "コンプソンズ「善人はなかなかいないっぽい」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "url": "https://t.pia.jp/pia/event/event.do?eventBundleCd=b2669897", "status": "open"}]
+    },
+    {
+      "eventIds": ["aee449s3b11ajrq7hfldkqpd78@google.com"],
+      "title": "ルサンチカ「ゴドーを待ちながら」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-09-18T10:00:00+09:00", "url": "https://www.ressenchka.com/godomachi"}]
+    },
+    {
+      "eventIds": ["jl31fbtpimtno36o0hv5fba90c@google.com"],
+      "title": "新宿駅前演劇フェスティバル -SEEFES-",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "url": "https://stage.corich.jp/stage/507536", "status": "open"}]
+    },
+    {
+      "eventIds": ["81o722eg5knbvdnisqc5atfvuc@google.com"],
+      "title": "流山児★事務所「色は匂へど、」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "url": "https://ticket.corich.jp/apply/470609/016/", "status": "open"}]
+    },
+    {
+      "eventIds": ["aask6sh1u0070ue49ct5mq0bfs@google.com"],
+      "title": "ウンゲツィーファ×玉田企画「帰りのチャイムはまだならない」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-09-05T12:00:00+09:00", "closesAt": "2026-10-24T23:59:00+09:00", "url": "https://l-tike.com/search/?lcd=35127"}]
+    },
+    {
+      "eventIds": ["to92rjgtjrglfo170cmp0dmk14@google.com", "79m37ddagagh21le8k43umtvf4@google.com", "6lv7kkccgqhkeldsiun3itdi3g@google.com"],
+      "title": "優しい劇団「データラメッチを抱きしめる」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-08-08T18:00:00+09:00", "url": "https://yasashiigekidan.wixsite.com/official/detarame", "status": "open"}]
+    },
+    {
+      "eventIds": ["7a2sn0fkkfrlnvsu9vf91dosfk@google.com", "5hag56m8idknpot2k4auamrrhs@google.com"],
+      "title": "唐組「虹屋敷」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-08-23T10:00:00+09:00", "closesAt": "2026-10-23T18:00:00+09:00", "url": "https://eplus.jp/sf/detail/0042960001-P0030153P021006?P1=0175"}]
+    },
+    {
+      "eventIds": ["fp0926g05it66hkue06frbdk0o@google.com"],
+      "title": "劇団アンパサンド「立ち止まるには近すぎる」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "東京公演", "url": "https://l-tike.com/play/mevent/?mid=789663", "status": "sold-out"}]
+    },
+    {
+      "eventIds": ["eg9b43fjjajs638akf7fnarmjg@google.com"],
+      "title": "花形槙「エルゴノミクス胚」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-08-08", "url": "https://www.geigeki.jp/performance/theater415-t415-11/"}]
+    },
+    {
+      "eventIds": ["uj2kqjrs40uf1e6o5sg5aetn6s@google.com"],
+      "title": "下谷万年町物語",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-10-10T10:00:00+09:00", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2637018"}]
+    },
+    {
+      "eventIds": ["mc7sq5rg11ofceii5v2q8f45r4@google.com"],
+      "title": "9PROJECT vol.25「かけおち」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2626999", "status": "open"}]
+    },
+    {
+      "eventIds": ["b8crpljse2hdhm4ouhbeareeko@google.com"],
+      "title": "ヌトミック「スーパーマーケットの神話」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-09-16T10:00:00+09:00", "url": "https://www.geigeki.jp/performance/theater420/"}]
+    },
+    {
+      "eventIds": ["tfl62v7lgarb94mufkeudg181s@google.com"],
+      "title": "テアトル・オン・デマンド「季節のあとで」",
+      "checkedAt": "2026-10-12",
+      "stages": [{"label": "一般", "opensAt": "2026-09-20T10:00:00+09:00", "url": "https://tiget.net/events/511471", "status": "open"}]
     }
   ]
 }
