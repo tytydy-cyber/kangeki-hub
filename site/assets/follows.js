@@ -25,7 +25,7 @@
     const latest = item.latest || {};
     const confirmed = latest.status === "確認済み";
     const status = confirmed && latest.checkedAt
-      ? `最終確認 ${esc(latest.checkedAt)}`
+      ? `${esc(latest.checkedAt.replace(/-/g, "/"))} 確認済み`
       : esc(latest.status || "未確認");
     const checkedAt = confirmed ? "" : `<span>${esc(latest.checkedAt || "未確認")}</span>`;
     return `<article class="follow-card">
