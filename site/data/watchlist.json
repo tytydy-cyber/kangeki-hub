@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-12",
+  "generatedAt": "2026-10-14",
   "items": [
     {
       "id": "kryuutai-monthly-note",
@@ -143,6 +143,120 @@
         "status": "確認済み",
         "summary": "公式Xを確認。カレンダーに今後の登録なし。",
         "url": "https://x.com/heigenfes"
+      }
+    },
+    {
+      "id": "yasashii-gekidan",
+      "type": "団体",
+      "name": "優しい劇団",
+      "reason": "野外の野性味とハートフルな青春劇を併せ持ち、今後が最も楽しみと評価している劇団。新作と各地の公演を追う。",
+      "url": "https://yasashiigekidan.wixsite.com/official/",
+      "matchCompanies": ["優しい劇団"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "予定あり",
+        "summary": "『データラメッチを抱きしめる』が12月13日まで複数日程でカレンダー登録済み。",
+        "url": "https://x.com/i/status/2053825840551755850"
+      }
+    },
+    {
+      "id": "nuthmique",
+      "type": "団体",
+      "name": "ヌトミック",
+      "reason": "音楽と演劇を横断する上演形式が、世界観や身体感覚に残る体験を重視する嗜好に重なる。",
+      "url": "https://nuthmique.com/",
+      "matchCompanies": ["ヌトミック"],
+      "matchTitles": ["ヌトミック"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "予定あり",
+        "summary": "『スーパーマーケットの神話』（11月5日〜8日）と京都新作（2027年1月15日〜17日）がカレンダー登録済み。",
+        "url": "https://nuthmique.com/post/821379447712333824/news260706"
+      }
+    },
+    {
+      "id": "niwagekidan-penino",
+      "type": "団体",
+      "name": "庭劇団ペニノ",
+      "reason": "自宅劇場や野外など、空間と緻密な舞台美術で独自の世界を立ち上げる作風を追う。",
+      "url": "https://niwagekidan.org/",
+      "matchCompanies": ["庭劇団ペニノ"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "予定あり",
+        "summary": "『埋火』が11月12日〜15日にカレンダー登録済み。",
+        "url": "https://x.com/i/status/2026954980859736432"
+      }
+    },
+    {
+      "id": "uchuu-kouza",
+      "type": "団体",
+      "name": "宇宙論☆講座",
+      "reason": "楽曲にセリフを乗せる独自の音楽劇を掲げ、音と身体に残る舞台体験を追う。",
+      "url": "https://x.com/uchuu_official",
+      "matchCompanies": ["宇宙論☆講座"],
+      "matchTitles": ["宇宙論☆講座"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "確認済み",
+        "summary": "公式発信を確認。今後のカレンダー登録はなし。",
+        "url": "https://x.com/uchuu_official"
+      }
+    },
+    {
+      "id": "strange-seed-shizuoka",
+      "type": "イベント",
+      "name": "ストレンジシード静岡",
+      "reason": "街の公共空間に上演が現れるフェスティバル。土地と舞台の境界を越える体験を追う。",
+      "url": "https://strangeseed.info/",
+      "matchTitles": ["ストレンジシード"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "次回未確認",
+        "summary": "2026年の開催は終了。次回開催の発表待ち。",
+        "url": "https://strangeseed.info/"
+      }
+    },
+    {
+      "id": "gekidan-ampersand",
+      "type": "団体",
+      "name": "劇団アンパサンド",
+      "reason": "日常の光景が不条理な世界へずれていく作風。大胆な転回と終幕の切れ味を含む新作を追う。",
+      "url": "https://gekidanampersand.wixsite.com/mysite",
+      "matchCompanies": ["劇団アンパサンド"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "予定あり",
+        "summary": "『立ち止まるには近すぎる』が10月28日〜11月1日にカレンダー登録済み。",
+        "url": "https://gekidanampersand.wixsite.com/mysite"
+      }
+    },
+    {
+      "id": "haikikou",
+      "type": "団体",
+      "name": "排気口",
+      "reason": "菊地穂波が主宰し、2014年から東京を中心に活動する演劇団体。新作の発信を追う。",
+      "url": "https://haikikou.stage.corich.jp/profile",
+      "matchCompanies": ["排気口"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "確認済み",
+        "summary": "公式情報を確認。今後のカレンダー登録はなし。",
+        "url": "https://haikikou.stage.corich.jp/profile"
+      }
+    },
+    {
+      "id": "housui-ameya",
+      "type": "人物",
+      "name": "飴屋法水",
+      "reason": "演劇と美術を横断する活動を追い、本人が出演・関与する作品も見落とさない。",
+      "url": "https://x.com/norimizua",
+      "matchTitles": ["飴屋法水"],
+      "latest": {
+        "checkedAt": "2026-10-14",
+        "status": "予定あり",
+        "summary": "モメラス『薄闇、そこは散漫もしくは出口』が10月15日〜18日にカレンダー登録済み。",
+        "url": "https://x.gd/JyB0q"
       }
     }
   ]
