@@ -23,14 +23,16 @@
         ).join("")}</div>`
       : `<p class="follow-empty">カレンダーに今後の登録なし</p>`;
     const latest = item.latest || {};
-    const checkedAt = latest.checkedAt
-      ? `${latest.status === "確認済み" ? "最終確認 " : ""}${esc(latest.checkedAt)}`
-      : "未確認";
+    const confirmed = latest.status === "確認済み";
+    const status = confirmed && latest.checkedAt
+      ? `最終確認 ${esc(latest.checkedAt)}`
+      : esc(latest.status || "未確認");
+    const checkedAt = confirmed ? "" : `<span>${esc(latest.checkedAt || "未確認")}</span>`;
     return `<article class="follow-card">
-      <div class="follow-head"><span class="eyebrow">${esc(item.type)}</span><span class="watch-status">${esc(latest.status || "未確認")}</span></div>
+      <div class="follow-head"><span class="eyebrow">${esc(item.type)}</span><span class="watch-status">${status}</span></div>
       <h2><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.name)}</a></h2>
       <p>${esc(item.reason)}</p>
-      <div class="latest-note"><span>${checkedAt}</span>${esc(latest.summary || "まだ確認結果がありません。")}${latest.url ? ` <a href="${esc(latest.url)}" target="_blank" rel="noopener">確認元</a>` : ""}</div>
+      <div class="latest-note">${checkedAt}${esc(latest.summary || "まだ確認結果がありません。")}${latest.url ? ` <a href="${esc(latest.url)}" target="_blank" rel="noopener">確認元</a>` : ""}</div>
       ${schedule}
     </article>`;
   }
