@@ -11,7 +11,7 @@
     return events.filter((event) => {
       if (event.end < today) return false;
       return item.matchCompanies?.includes(event.company) ||
-        item.matchTitles?.some((term) => event.title.includes(term));
+        item.matchTitles?.some((term) => event.title.includes(term) || event.note?.includes(term));
     });
   }
 
@@ -23,11 +23,14 @@
         ).join("")}</div>`
       : `<p class="follow-empty">カレンダーに今後の登録なし</p>`;
     const latest = item.latest || {};
+    const checkedAt = latest.checkedAt
+      ? `${latest.status === "確認済み" ? "最終確認 " : ""}${esc(latest.checkedAt)}`
+      : "未確認";
     return `<article class="follow-card">
       <div class="follow-head"><span class="eyebrow">${esc(item.type)}</span><span class="watch-status">${esc(latest.status || "未確認")}</span></div>
       <h2><a href="${esc(item.url)}" target="_blank" rel="noopener">${esc(item.name)}</a></h2>
       <p>${esc(item.reason)}</p>
-      <div class="latest-note"><span>${esc(latest.checkedAt || "未確認")}</span>${esc(latest.summary || "まだ確認結果がありません。")}${latest.url ? ` <a href="${esc(latest.url)}" target="_blank" rel="noopener">確認元</a>` : ""}</div>
+      <div class="latest-note"><span>${checkedAt}</span>${esc(latest.summary || "まだ確認結果がありません。")}${latest.url ? ` <a href="${esc(latest.url)}" target="_blank" rel="noopener">確認元</a>` : ""}</div>
       ${schedule}
     </article>`;
   }
@@ -36,7 +39,7 @@
     fetch("data/watchlist.json").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
     fetch("data/events.json").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
   ]).then(([watchlist, eventData]) => {
-    app.innerHTML = `<div class="page-intro"><h1>${watchlist.items.length}件を継続確認</h1><p>個別の団体やイベントを直接追い、点の情報を重ねながら、見落としを減らす法則を探します。</p></div>` +
+    app.innerHTML = `<div class="page-intro"><h1>${watchlist.items.length}件をフォロー</h1><p>個別の団体やイベントを直接追います。予定が決まった対象は公演終了まで週次確認を休止します。</p></div>` +
       `<div class="follow-grid">${watchlist.items.map((item) => itemCard(item, eventData.events)).join("")}</div>`;
     document.getElementById("meta").textContent = `最終確認 ${watchlist.generatedAt}`;
   }).catch((err) => {
