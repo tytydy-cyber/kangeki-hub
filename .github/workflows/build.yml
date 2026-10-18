@@ -31,6 +31,9 @@ jobs:
       - name: Validate ticketing data
         run: python3 scripts/check_ticketing.py
 
+      - name: Validate proposal decisions
+        run: python3 scripts/check_proposals.py
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

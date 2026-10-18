@@ -50,7 +50,7 @@
 
 登録済みと重複させないため、analyze_trends.py の `upcomingTitles` を必ず突き合わせる（nextMonthだけでなくspecialも）。生成後 commit → push（Actionsが自動デプロイ）。
 
-**チャットでユーザーが提案の採用/却下を伝えてきた場合**: 採用分をカレンダー登録・却下分を削除した後、`nextMonth`/`special` を空のまま次の金曜まで放置しない。その場でdocs/WEEKLY_TASK.mdの手順1・4を簡易実行し、最低1件程度に補充してからcommit/push（詳細はWEEKLY_TASK.md「チャットでの採用/却下対応後の運用」参照）。
+**チャットでユーザーが提案の採用/却下を伝えてきた場合**: 「あとは却下」は画面上の番号付き一覧にある `nextMonth` と `special` の全件を指す。採否件数を照合し、却下分を `data/rejected_proposals.json` に記録したうえで `python3 scripts/check_proposals.py` を実行し、詳細はWEEKLY_TASK.md「チャットでの採用/却下対応後の運用」に従う。
 
 ### 定期化（設定済み 2026-07-15）
 
