@@ -10,7 +10,7 @@
 
   function card(p, number) {
     const title = p.url
-      ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${esc(p.title)}</a>`
+      ? `<a href="${esc(p.url)}">${esc(p.title)}</a>`
       : esc(p.title);
     const parts = [];
     if (p.dates) parts.push(`<span class="date">${esc(p.dates)}</span>`);

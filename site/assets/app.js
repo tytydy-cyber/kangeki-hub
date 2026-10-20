@@ -113,7 +113,7 @@
     };
     const body = `<span>${esc(stage.label)}</span><strong>${esc(labels[state])}</strong>`;
     return stage.url
-      ? `<a class="ticket-stage is-${state}" href="${esc(stage.url)}" target="_blank" rel="noopener">${body}</a>`
+      ? `<a class="ticket-stage is-${state}" href="${esc(stage.url)}">${body}</a>`
       : `<span class="ticket-stage is-${state}">${body}</span>`;
   }
 
@@ -128,12 +128,12 @@
     const showChip = !(opts && opts.noChip);
     const showVenue = !(opts && opts.noVenue);
     const title = ev.url
-      ? `<a href="${esc(ev.url)}" target="_blank" rel="noopener">${esc(ev.title)}</a>`
+      ? `<a href="${esc(ev.url)}">${esc(ev.title)}</a>`
       : esc(ev.title);
     const parts = [`<span class="date">${esc(fmtRange(ev))}</span>`];
     if (showVenue && ev.venue) {
       parts.push(
-        `<a class="maploc" href="${esc(mapsUrl(ev))}" target="_blank" rel="noopener">📍${esc(ev.venue)}</a>`
+        `<a class="maploc" href="${esc(mapsUrl(ev))}">📍${esc(ev.venue)}</a>`
       );
     }
     const chip =
@@ -280,7 +280,7 @@
     const info = companies[name];
     if (!info || !info.summary) return "";
     const src = info.url
-      ? `<a class="ov-src" href="${esc(info.url)}" target="_blank" rel="noopener">出典</a>`
+      ? `<a class="ov-src" href="${esc(info.url)}">出典</a>`
       : "";
     const updated = info.updatedAt ? `<span class="ov-date">${esc(info.updatedAt)} 時点</span>` : "";
     return `<div class="overview">
