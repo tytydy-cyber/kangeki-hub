@@ -48,6 +48,7 @@ def validate(proposals, rejections):
             continue
         valid_rejections.append(rejected)
     seen = {}
+    seen_urls = {}
     for section in ("nextMonth", "special"):
         items = proposals.get(section, [])
         if not isinstance(items, list):
@@ -70,6 +71,15 @@ def validate(proposals, rejections):
                 )
             else:
                 seen[title] = f"{section}[{index}]"
+            url = normalize_url(item.get("url"))
+            if url:
+                if url in seen_urls:
+                    errors.append(
+                        f"duplicate proposal URL: {item.get('url')} "
+                        f"({seen_urls[url]} and {section}[{index}])"
+                    )
+                else:
+                    seen_urls[url] = f"{section}[{index}]"
             for rejected in valid_rejections:
                 if rejected_match(item, rejected):
                     errors.append(
@@ -103,6 +113,11 @@ def selftest():
     assert validate({"nextMonth": [same_performance], "special": []}, [rejected])
     assert not validate({"nextMonth": [revival], "special": []}, [rejected])
     assert any("duplicate" in error for error in validate({"nextMonth": [revival], "special": [revival]}, [rejected]))
+    different_title_same_url = {**revival, "title": "別の公演"}
+    assert any(
+        "duplicate proposal URL" in error
+        for error in validate({"nextMonth": [revival], "special": [different_title_same_url]}, [])
+    )
     print("selftest: OK")
 
 
