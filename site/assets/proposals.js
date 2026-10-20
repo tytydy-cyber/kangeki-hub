@@ -36,8 +36,8 @@
     .then((d) => {
       let html = `<div class="page-intro"><h1>今週の候補</h1><p>カレンダー未登録の公演だけを、公開情報で確認して掲載しています。</p></div>`;
       const winLabel = d.window ? d.window.label : "";
-      html += section("これから約6週間", winLabel, d.nextMonth, 1);
-      html += section("特筆（期間を問わず）", "", d.special, (d.nextMonth?.length || 0) + 1);
+      html += section("直近の候補", winLabel, d.nextMonth, 1);
+      html += section("先の注目作", "", d.special, (d.nextMonth?.length || 0) + 1);
       if (!d.nextMonth?.length && !d.special?.length) {
         html += `<p class="empty">現在の提案はありません</p>`;
       }
