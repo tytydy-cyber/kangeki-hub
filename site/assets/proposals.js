@@ -22,6 +22,7 @@
   }
 
   function card(p, number, followed) {
+    const displayNumber = p.number ?? number;
     const title = p.url
       ? `<a href="${esc(p.url)}">${esc(p.title)}</a>`
       : esc(p.title);
@@ -30,7 +31,7 @@
     if (p.venue) parts.push(`<span>${esc(p.venue)}</span>`);
     const flags = [p.featured ? "注目作" : "", followed ? "フォロー対象" : ""].filter(Boolean);
     return `<div class="card${p.featured ? " proposal-featured" : ""}">
-      <div class="proposal-heading"><div class="title proposal-title"><span class="proposal-number" aria-label="提案 ${number}">${String(number).padStart(2, "0")}</span>${title}</div>
+      <div class="proposal-heading"><div class="title proposal-title"><span class="proposal-number" aria-label="提案 ${displayNumber}">${String(displayNumber).padStart(2, "0")}</span>${title}</div>
       ${flags.length ? `<div class="proposal-flags">${flags.map((flag) => `<span>${esc(flag)}</span>`).join("")}</div>` : ""}</div>
       <div class="info">${parts.join("")}</div>
       <div class="reason">${esc(p.reason)}</div>

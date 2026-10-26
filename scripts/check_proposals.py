@@ -49,6 +49,7 @@ def validate(proposals, rejections):
         valid_rejections.append(rejected)
     seen = {}
     seen_urls = {}
+    seen_numbers = set()
     sections = ("items",) if "items" in proposals else ("nextMonth", "special")
     for section in sections:
         items = proposals.get(section, [])
@@ -65,6 +66,14 @@ def validate(proposals, rejections):
                 continue
             if not item.get("dates") or not item.get("url"):
                 errors.append(f"{section}[{index}] must have dates and url")
+            if section == "items":
+                number = item.get("number")
+                if not isinstance(number, int) or number < 1:
+                    errors.append(f"{section}[{index}] must have a positive integer number")
+                elif number in seen_numbers:
+                    errors.append(f"duplicate proposal number: {number}")
+                else:
+                    seen_numbers.add(number)
             if "松田さん" in str(item.get("reason") or ""):
                 errors.append(f"{section}[{index}] reason must not address Matsuda personally")
             if title in seen:
@@ -113,10 +122,12 @@ def selftest():
     assert rejected_match(same_performance, rejected)
     assert not rejected_match(revival, rejected)
     assert not rejected_match({"title": rejected["title"]}, {"title": rejected["title"]})
-    assert validate({"items": [same_performance]}, [rejected])
-    assert not validate({"items": [revival]}, [rejected])
+    assert validate({"items": [{**same_performance, "number": 1}]}, [rejected])
+    assert not validate({"items": [{**revival, "number": 1}]}, [rejected])
+    assert any("number" in error for error in validate({"items": [revival]}, []))
+    assert any("duplicate proposal number" in error for error in validate({"items": [{**revival, "number": 1}, {**revival, "number": 1, "title": "別作品", "url": "https://example.com/other"}]}, []))
     personalized = {**revival, "reason": "松田さんの関心に合う"}
-    assert any("personally" in error for error in validate({"items": [personalized]}, []))
+    assert any("personally" in error for error in validate({"items": [{**personalized, "number": 1}]}, []))
     assert validate({"nextMonth": [same_performance], "special": []}, [rejected])
     assert not validate({"nextMonth": [revival], "special": []}, [rejected])
     assert any("duplicate" in error for error in validate({"nextMonth": [revival], "special": [revival]}, [rejected]))
