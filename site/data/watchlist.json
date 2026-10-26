@@ -23,9 +23,9 @@
       "url": "https://note.com/kryuutai/m/mf908c9be37ce",
       "matchCompanies": [],
       "latest": {
-        "checkedAt": "2026-10-09",
+        "checkedAt": "2026-10-26",
         "status": "確認済み",
-        "summary": "10月号を確認し、未登録候補を週次提案へ反映。",
+        "summary": "10月号と11月号の記事を確認。11月号掲載の公演は公式情報とカレンダーを照合し、未登録の有力候補を個別提案へ反映。",
         "url": "https://note.com/kryuutai/m/mf908c9be37ce"
       }
     },
@@ -65,10 +65,10 @@
       "url": "https://x.com/kabukicho_tmo",
       "matchTitles": ["歌舞伎超祭"],
       "latest": {
-        "checkedAt": "2026-10-12",
+        "checkedAt": "2026-10-26",
         "status": "次回未確認",
-        "summary": "歌舞伎町タウン・マネージメントの公式発信を確認。次回開催の発表待ち。",
-        "url": "https://www.d-kabukicho.com/news/sns/"
+        "summary": "歌舞伎町タウン・マネージメントの10月のお知らせを確認。直近発信は街区イベントの案内で、次回開催の告知は見当たらない。",
+        "url": "https://www.d-kabukicho.com/news/"
       }
     },
     {
@@ -79,9 +79,9 @@
       "url": "https://www.benten-kabukicho.com/",
       "matchTitles": ["BENTEN", "歌舞伎町アートナイト"],
       "latest": {
-        "checkedAt": "2026-10-12",
+        "checkedAt": "2026-10-26",
         "status": "次回未確認",
-        "summary": "公式サイトはBENTEN 2（2025年）の情報を掲載。次回開催の発表待ち。",
+        "summary": "公式サイトはBENTEN2（2025年11月）の情報のみ掲載。次回開催の告知は確認できない。",
         "url": "https://www.benten-kabukicho.com/"
       }
     },
@@ -94,10 +94,10 @@
       "matchCompanies": ["仕立て屋のサーカス"],
       "matchTitles": ["仕立て屋のサーカス"],
       "latest": {
-        "checkedAt": "2026-10-12",
-        "status": "確認済み",
-        "summary": "公式サイトの公演情報を確認。カレンダーに今後の登録なし。",
-        "url": "https://www.circodesastre.com/"
+        "checkedAt": "2026-10-26",
+        "status": "予定あり",
+        "summary": "公式サイトで11月14・15日の北杜市公演を確認。森のホールでの音・空間・写真の共同企画を未登録候補として提案へ反映。",
+        "url": "https://www.circodesastre.com/single-post/2026-10-09"
       }
     },
     {
@@ -138,9 +138,9 @@
       "matchCompanies": ["のあんじー"],
       "matchTitles": ["のあんじー"],
       "latest": {
-        "checkedAt": "2026-10-12",
-        "status": "確認済み",
-        "summary": "公式Xを確認。カレンダーに今後の登録なし。",
+        "checkedAt": "2026-10-26",
+        "status": "要再確認",
+        "summary": "公式X本文の取得が403で失敗。検索でも公式発信による次回公演の詳細を確認できず、開催状況は未判定。",
         "url": "https://x.com/noangie0804"
       }
     },
@@ -153,9 +153,9 @@
       "matchCompanies": ["平原演劇祭"],
       "matchTitles": ["平原演劇祭"],
       "latest": {
-        "checkedAt": "2026-10-12",
-        "status": "確認済み",
-        "summary": "公式Xを確認。カレンダーに今後の登録なし。",
+        "checkedAt": "2026-10-26",
+        "status": "要再確認",
+        "summary": "公式Xを開いたが本文を取得できず、検索でも次回公演の公式詳細を確認できなかった。開催状況は未判定。",
         "url": "https://x.com/heigenfes"
       }
     },
@@ -211,10 +211,10 @@
       "matchCompanies": ["宇宙論☆講座"],
       "matchTitles": ["宇宙論☆講座"],
       "latest": {
-        "checkedAt": "2026-10-14",
-        "status": "確認済み",
-        "summary": "公式発信を確認。今後のカレンダー登録はなし。",
-        "url": "https://x.com/uchuu_official"
+        "checkedAt": "2026-10-26",
+        "status": "次回未確認",
+        "summary": "公式公演サイトを確認。『ラーメン』は2026年8月13・14日公演で終了しており、具体的な次回日程の発表は確認できない。",
+        "url": "https://uchuuronkouza.wixsite.com/ramen"
       }
     },
     {
@@ -225,9 +225,9 @@
       "url": "https://strangeseed.info/",
       "matchTitles": ["ストレンジシード"],
       "latest": {
-        "checkedAt": "2026-10-14",
+        "checkedAt": "2026-10-26",
         "status": "次回未確認",
-        "summary": "2026年の開催は終了。次回開催の発表待ち。",
+        "summary": "公式サイトを確認。2026年フェスティバルは終了し、次回開催の発表は見当たらない。",
         "url": "https://strangeseed.info/"
       }
     },
@@ -253,9 +253,9 @@
       "url": "https://haikikou.stage.corich.jp/profile",
       "matchCompanies": ["排気口"],
       "latest": {
-        "checkedAt": "2026-10-14",
-        "status": "確認済み",
-        "summary": "公式情報を確認。今後のカレンダー登録はなし。",
+        "checkedAt": "2026-10-26",
+        "status": "次回未確認",
+        "summary": "公式CoRichプロフィールを確認。最新掲載は2025年8月の『ウルトラマリンたち』で、次回公演の詳細は見当たらない。",
         "url": "https://haikikou.stage.corich.jp/profile"
       }
     },
