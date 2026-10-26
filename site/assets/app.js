@@ -27,7 +27,7 @@
     );
 
   function renderPulse(proposals, watchlist, digest) {
-    const proposalCount = (proposals.nextMonth?.length || 0) + (proposals.special?.length || 0);
+    const proposalCount = proposals.items?.length ?? ((proposals.nextMonth?.length || 0) + (proposals.special?.length || 0));
     const watchCount = watchlist.items?.length || 0;
     const change = digest.comparison
       ? digest.comparison.current - digest.comparison.previous

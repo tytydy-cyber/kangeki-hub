@@ -49,7 +49,8 @@ def validate(proposals, rejections):
         valid_rejections.append(rejected)
     seen = {}
     seen_urls = {}
-    for section in ("nextMonth", "special"):
+    sections = ("items",) if "items" in proposals else ("nextMonth", "special")
+    for section in sections:
         items = proposals.get(section, [])
         if not isinstance(items, list):
             errors.append(f"{section} must be an array")
@@ -110,6 +111,8 @@ def selftest():
     assert rejected_match(same_performance, rejected)
     assert not rejected_match(revival, rejected)
     assert not rejected_match({"title": rejected["title"]}, {"title": rejected["title"]})
+    assert validate({"items": [same_performance]}, [rejected])
+    assert not validate({"items": [revival]}, [rejected])
     assert validate({"nextMonth": [same_performance], "special": []}, [rejected])
     assert not validate({"nextMonth": [revival], "special": []}, [rejected])
     assert any("duplicate" in error for error in validate({"nextMonth": [revival], "special": [revival]}, [rejected]))
@@ -140,7 +143,7 @@ def main():
         for error in errors:
             print(f"error: {error}", file=sys.stderr)
         return 1
-    active_count = len(proposals.get("nextMonth", [])) + len(proposals.get("special", []))
+    active_count = len(proposals.get("items", [])) if "items" in proposals else len(proposals.get("nextMonth", [])) + len(proposals.get("special", []))
     print(f"proposals: OK ({active_count} active, {len(rejections)} rejected records)")
     return 0
 

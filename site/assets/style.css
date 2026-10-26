@@ -404,6 +404,36 @@ h2.section .count {
   gap: 0.65rem;
 }
 
+.proposal-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.proposal-featured { border-left-color: var(--soon); }
+
+.proposal-flags {
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.3rem;
+}
+
+.proposal-flags span {
+  padding: 0.14rem 0.45rem;
+  color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  font: 700 0.65rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.04em;
+}
+
+.proposal-featured .proposal-flags span:first-child {
+  color: var(--soon);
+  border-color: color-mix(in srgb, var(--soon) 60%, var(--border));
+}
+
 .proposal-number {
   flex: 0 0 auto;
   margin-top: 0.18rem;
@@ -839,4 +869,6 @@ footer {
   .pulse-grid a { border-right: 0; border-bottom: 1px solid var(--border); }
   .pulse-grid a:last-child { border-bottom: 0; }
   .follow-grid { grid-template-columns: 1fr; }
+  .proposal-heading { display: block; }
+  .proposal-flags { justify-content: flex-start; margin: 0.55rem 0 0 1.5rem; }
 }

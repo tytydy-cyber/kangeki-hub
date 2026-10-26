@@ -48,7 +48,7 @@ def history():
             data = json.loads(subprocess.run(["git", "show", f"{sha}:{PROPOSALS}"], cwd=ROOT, capture_output=True, text=True, check=True).stdout)
         except (subprocess.CalledProcessError, json.JSONDecodeError):
             continue
-        for section in ("nextMonth", "special"):
+        for section in ("items", "nextMonth", "special"):
             for prop in data.get(section) or []:
                 key = norm(prop.get("company")) + "|" + work_of(prop.get("title"), prop.get("company"))
                 if key and key not in seen:
