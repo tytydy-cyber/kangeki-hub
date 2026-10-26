@@ -48,8 +48,6 @@
 
 特に強く勧める根拠がある候補だけ `featured: true` とし、「注目作」を表示する。フォロー対象の印はページ側で `watchlist.json` の `matchCompanies` / `matchTitles` と照合して表示し、提案データへ重複保持しない。
 
-各候補の `number` は画面上の採否指定に使う。一部を採用・却下して削除しても、残った候補の番号は次の週次全面更新まで詰め直さない。
-
 登録済みと重複させないため、analyze_trends.py の `upcomingTitles` を全候補と突き合わせる。生成後 commit → push（Actionsが自動デプロイ）。
 
 **チャットでユーザーが提案の採用/却下を伝えてきた場合**: 「あとは却下」は画面上の番号付き `items` 全件を指す。採否件数を照合し、却下分を `data/rejected_proposals.json` に記録したうえで `python3 scripts/check_proposals.py` を実行し、詳細はWEEKLY_TASK.md「チャットでの採用/却下対応後の運用」に従う。
