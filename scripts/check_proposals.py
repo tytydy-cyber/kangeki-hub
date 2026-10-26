@@ -65,6 +65,8 @@ def validate(proposals, rejections):
                 continue
             if not item.get("dates") or not item.get("url"):
                 errors.append(f"{section}[{index}] must have dates and url")
+            if "松田さん" in str(item.get("reason") or ""):
+                errors.append(f"{section}[{index}] reason must not address Matsuda personally")
             if title in seen:
                 errors.append(
                     f"duplicate proposal title: {item.get('title')} "
@@ -113,6 +115,8 @@ def selftest():
     assert not rejected_match({"title": rejected["title"]}, {"title": rejected["title"]})
     assert validate({"items": [same_performance]}, [rejected])
     assert not validate({"items": [revival]}, [rejected])
+    personalized = {**revival, "reason": "松田さんの関心に合う"}
+    assert any("personally" in error for error in validate({"items": [personalized]}, []))
     assert validate({"nextMonth": [same_performance], "special": []}, [rejected])
     assert not validate({"nextMonth": [revival], "special": []}, [rejected])
     assert any("duplicate" in error for error in validate({"nextMonth": [revival], "special": [revival]}, [rejected]))
