@@ -1,6 +1,20 @@
 {
-  "generatedAt": "2026-10-14",
+  "generatedAt": "2026-10-26",
   "items": [
+    {
+      "id": "ypam-2027-program",
+      "type": "イベント",
+      "name": "YPAM2027プログラム",
+      "reason": "検索に現れる公開前データではなく、正式に公開されたラインアップから候補を選び直す。",
+      "url": "https://ypam.jp/2027/news/newsroom/detail_1775971621.html",
+      "matchTitles": ["YPAM2027", "YPAM 2027"],
+      "latest": {
+        "checkedAt": "2026-10-26",
+        "status": "発表待ち",
+        "summary": "公式発表は2026年11月上旬予定。正式な公演詳細ページが公開された後に再確認する。",
+        "url": "https://ypam.jp/2027/news/newsroom/detail_1775971621.html"
+      }
+    },
     {
       "id": "kryuutai-monthly-note",
       "type": "情報源",
