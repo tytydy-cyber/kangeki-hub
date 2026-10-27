@@ -19,7 +19,9 @@
     const matches = matchingEvents(item, events);
     const schedule = matches.length
       ? `<div class="follow-schedule"><strong>登録済み</strong>${matches.slice(0, 3).map((event) =>
-          `<a href="${esc(event.url || "#")}">${esc(event.title)} <span>${esc(event.start)}</span></a>`
+          event.url
+            ? `<a href="${esc(event.url)}" target="_blank" rel="noopener noreferrer">${esc(event.title)} <span>${esc(event.start)}</span></a>`
+            : `<span>${esc(event.title)} <span>${esc(event.start)}</span></span>`
         ).join("")}</div>`
       : `<p class="follow-empty">カレンダーに今後の登録なし</p>`;
     const latest = item.latest || {};
@@ -30,9 +32,9 @@
     const checkedAt = confirmed ? "" : `<span>${esc(latest.checkedAt || "未確認")}</span>`;
     return `<article class="follow-card">
       <div class="follow-head"><span class="eyebrow">${esc(item.type)}</span><span class="watch-status">${status}</span></div>
-      <h2><a href="${esc(item.url)}">${esc(item.name)}</a></h2>
+      <h2><a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${esc(item.name)}</a></h2>
       <p>${esc(item.reason)}</p>
-      <div class="latest-note">${checkedAt}${esc(latest.summary || "まだ確認結果がありません。")}${latest.url ? ` <a href="${esc(latest.url)}">確認元</a>` : ""}</div>
+      <div class="latest-note">${checkedAt}${esc(latest.summary || "まだ確認結果がありません。")}${latest.url ? ` <a href="${esc(latest.url)}" target="_blank" rel="noopener noreferrer">確認元</a>` : ""}</div>
       ${schedule}
     </article>`;
   }
