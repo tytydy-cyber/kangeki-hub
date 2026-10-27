@@ -43,7 +43,7 @@
       items.map((item, index) => card(item, index + 1, isFollowTarget(item, watchlist))).join("");
   }
 
-  Promise.all([fetch("data/proposals.json"), fetch("data/watchlist.json")])
+  Promise.all([fetch("data/proposals.json?v=21"), fetch("data/watchlist.json?v=21")])
     .then(async ([proposals, watchlist]) => {
       if (!proposals.ok || !watchlist.ok) throw new Error(`HTTP ${proposals.status}/${watchlist.status}`);
       return [await proposals.json(), await watchlist.json()];

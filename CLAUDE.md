@@ -94,9 +94,9 @@
 
 - site/manifest.json（standalone表示、紅テントのアイコン。maskable含む）、site/sw.js（Service Worker）、site/assets/register-sw.js（登録）で構成
 - アイコンは scripts/gen_icons.py がPython標準ライブラリのみで生成（site/assets/icons/）。デザインを変えたら再実行してコミット
-- SWのキャッシュ戦略: アプリシェルはprecache+network-first、data/*.jsonはstale-while-revalidate。インストール時に全ページ＋全データをprecacheするので初回からオフライン可
+- SWのキャッシュ戦略: アプリシェルとdata/*.jsonはいずれもnetwork-first。オンライン時は最新データを表示し、通信失敗時だけキャッシュへ戻る。インストール時に全ページ＋全データをprecacheするので初回からオフライン可
 - パスは sw.js のscope基準の相対URLで解決するため、ルート配信でも本番の /kangeki-hub/ でも動く
-- **SW（sw.js）や precache 対象を変更したら sw.js の `VERSION` を上げる**こと（古いキャッシュの掃除とシェル更新のため）。data/*.json の日次更新はSWR任せでVERSION変更不要
+- **SW（sw.js）や precache 対象を変更したら sw.js の `VERSION` を上げる**こと（古いキャッシュの掃除とシェル更新のため）。data/*.json の日次更新はnetwork-firstで取得するためVERSION変更不要
 
 ## データ正規化のメモ
 

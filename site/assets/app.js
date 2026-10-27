@@ -571,7 +571,7 @@
   onScroll();
 
   // 劇団概要（任意・欠けていても動作する）。先に取得しておき、劇団詳細で使う
-  fetch("data/companies.json")
+  fetch("data/companies.json?v=21")
     .then((r) => (r.ok ? r.json() : {}))
     .then((data) => {
       companies = data && data.companies ? data.companies : {};
@@ -581,11 +581,11 @@
     });
 
   Promise.all([
-    fetch("data/events.json").then((r) => {
+    fetch("data/events.json?v=21").then((r) => {
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     }),
-    fetch("data/ticketing.json")
+    fetch("data/ticketing.json?v=21")
       .then((r) => (r.ok ? r.json() : { items: [] }))
       .catch(() => ({ items: [] })),
   ])
@@ -603,9 +603,9 @@
     });
 
   Promise.all([
-    fetch("data/proposals.json").then((r) => r.json()),
-    fetch("data/watchlist.json").then((r) => r.json()),
-    fetch("data/digest.json").then((r) => r.json()),
+    fetch("data/proposals.json?v=21").then((r) => r.json()),
+    fetch("data/watchlist.json?v=21").then((r) => r.json()),
+    fetch("data/digest.json?v=21").then((r) => r.json()),
   ]).then(([proposals, watchlist, digest]) => renderPulse(proposals, watchlist, digest))
     .catch(() => { pulse.hidden = true; });
 })();

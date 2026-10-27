@@ -1,9 +1,9 @@
 /* 松田観劇カレンダー Service Worker
  * - アプリシェル（HTML/CSS/JS/アイコン）: precache + network-first（オンライン時は最新、オフライン時はキャッシュ）
- * - データ（data/*.json）: stale-while-revalidate（即表示しつつ裏で更新）
+ * - データ（data/*.json）: network-first（オンライン時は最新、オフライン時はキャッシュ）
  * パスはすべて sw.js からの相対で解決するため、ルート配信でも /kangeki-hub/ 配信でも動く。
  */
-const VERSION = "v20";
+const VERSION = "v21";
 const SHELL_CACHE = `shell-${VERSION}`;
 const DATA_CACHE = `data-${VERSION}`;
 
@@ -81,17 +81,18 @@ self.addEventListener("fetch", (event) => {
   if (reqUrl.origin !== self.location.origin) return; // 外部（Google Maps等）は素通し
 
   if (isData(reqUrl)) {
-    // stale-while-revalidate: キャッシュを即返しつつ裏で更新
+    // 採否や予約状況を古いまま表示しない。クエリは除いたキーでオフライン用に保存する。
     event.respondWith(
       caches.open(DATA_CACHE).then(async (cache) => {
-        const cached = await cache.match(req);
-        const network = fetch(req)
-          .then((res) => {
-            if (res && res.ok) cache.put(req, res.clone());
-            return res;
-          })
-          .catch(() => cached);
-        return cached || network;
+        const cacheKey = new Request(`${reqUrl.origin}${reqUrl.pathname}`);
+        try {
+          const res = await fetch(req, { cache: "no-store" });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          await cache.put(cacheKey, res.clone());
+          return res;
+        } catch {
+          return (await cache.match(cacheKey)) || Response.error();
+        }
       })
     );
     return;

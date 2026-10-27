@@ -40,8 +40,8 @@
   }
 
   Promise.all([
-    fetch("data/watchlist.json").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
-    fetch("data/events.json").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
+    fetch("data/watchlist.json?v=21").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
+    fetch("data/events.json?v=21").then((r) => r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))),
   ]).then(([watchlist, eventData]) => {
     app.innerHTML = `<div class="page-intro"><h1>${watchlist.items.length}件をフォロー</h1><p>個別の団体やイベントを直接追います。予定が決まった対象は公演終了まで週次確認を休止します。</p></div>` +
       `<div class="follow-grid">${watchlist.items.map((item) => itemCard(item, eventData.events)).join("")}</div>`;
