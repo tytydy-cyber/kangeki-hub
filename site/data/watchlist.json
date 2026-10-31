@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26",
+  "generatedAt": "2026-10-31",
   "items": [
     {
       "id": "ypam-2027-program",
@@ -9,9 +9,9 @@
       "url": "https://ypam.jp/2027/news/newsroom/detail_1775971621.html",
       "matchTitles": ["YPAM2027", "YPAM 2027"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "発表待ち",
-        "summary": "公式発表は2026年11月上旬予定。正式な公演詳細ページが公開された後に再確認する。",
+        "summary": "公式告知は2027年2月5〜14日の開催と、プログラム発表を11月上旬予定としている。公演ラインアップの発表はまだ確認できない。",
         "url": "https://ypam.jp/2027/news/newsroom/detail_1775971621.html"
       }
     },
@@ -23,9 +23,9 @@
       "url": "https://note.com/kryuutai/m/mf908c9be37ce",
       "matchCompanies": [],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "確認済み",
-        "summary": "10月号と11月号の記事を確認。11月号掲載の公演は公式情報とカレンダーを照合し、未登録の有力候補を個別提案へ反映。",
+        "summary": "10月号・11月号の記事と掲載公演の確認を継続。11月号掲載分は公式情報・カレンダー照合済みで、新しい12月号は確認できず。",
         "url": "https://note.com/kryuutai/m/mf908c9be37ce"
       }
     },
@@ -65,9 +65,9 @@
       "url": "https://x.com/kabukicho_tmo",
       "matchTitles": ["歌舞伎超祭"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "次回未確認",
-        "summary": "歌舞伎町タウン・マネージメントの10月のお知らせを確認。直近発信は街区イベントの案内で、次回開催の告知は見当たらない。",
+        "summary": "10月29日までの歌舞伎町タウン・マネージメント公式告知を確認。街区のライブやイルミネーション等はあるが、歌舞伎超祭の次回開催告知は見当たらない。",
         "url": "https://www.d-kabukicho.com/news/"
       }
     },
@@ -79,9 +79,9 @@
       "url": "https://www.benten-kabukicho.com/",
       "matchTitles": ["BENTEN", "歌舞伎町アートナイト"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "次回未確認",
-        "summary": "公式サイトはBENTEN2（2025年11月）の情報のみ掲載。次回開催の告知は確認できない。",
+        "summary": "公式サイトに掲載されているのは2025年11月開催のBENTEN2。次回開催の告知は確認できない。",
         "url": "https://www.benten-kabukicho.com/"
       }
     },
@@ -94,9 +94,9 @@
       "matchCompanies": ["仕立て屋のサーカス"],
       "matchTitles": ["仕立て屋のサーカス"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "予定あり",
-        "summary": "公式サイトで11月14・15日の北杜市公演を確認。森のホールでの音・空間・写真の共同企画を未登録候補として提案へ反映。",
+        "summary": "公式サイトで11月14・15日の北杜市公演を確認。森のホールで音・空間・写真が交わる企画を未登録候補として提案へ反映。",
         "url": "https://www.circodesastre.com/single-post/2026-10-09"
       }
     },
@@ -108,9 +108,9 @@
       "url": "https://www.furosya.com/",
       "matchCompanies": ["劇団不労社"],
       "latest": {
-        "checkedAt": "2026-10-12",
+        "checkedAt": "2026-10-31",
         "status": "予定あり",
-        "summary": "『暗黒の喜劇』京都公演が10月12日までカレンダー登録済み。横浜公演は2027年2月予定。",
+        "summary": "公式サイトで『暗黒の喜劇』横浜公演を2027年2月と告知。日付・会場の詳細は未発表で、詳細ページを確認後に再判定する。",
         "url": "https://www.furosya.com/"
       }
     },
@@ -138,9 +138,9 @@
       "matchCompanies": ["のあんじー"],
       "matchTitles": ["のあんじー"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "要再確認",
-        "summary": "公式X本文の取得が403で失敗。検索でも公式発信による次回公演の詳細を確認できず、開催状況は未判定。",
+        "summary": "公式X本文は取得できず、検索でも公式発信による新しい次回公演の詳細を確認できない。開催状況は未判定。",
         "url": "https://x.com/noangie0804"
       }
     },
@@ -153,9 +153,9 @@
       "matchCompanies": ["平原演劇祭"],
       "matchTitles": ["平原演劇祭"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "要再確認",
-        "summary": "公式Xを開いたが本文を取得できず、検索でも次回公演の公式詳細を確認できなかった。開催状況は未判定。",
+        "summary": "公式X本文は取得できず、検索でも公式発信による次回公演の詳細を確認できない。開催状況は未判定。",
         "url": "https://x.com/heigenfes"
       }
     },
@@ -211,9 +211,9 @@
       "matchCompanies": ["宇宙論☆講座"],
       "matchTitles": ["宇宙論☆講座"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "次回未確認",
-        "summary": "公式公演サイトを確認。『ラーメン』は2026年8月13・14日公演で終了しており、具体的な次回日程の発表は確認できない。",
+        "summary": "公式サイトの最新公演情報は8月13・14日の音楽劇『ラーメン』。次回公演の具体的な日程発表は確認できない。",
         "url": "https://uchuuronkouza.wixsite.com/ramen"
       }
     },
@@ -225,9 +225,9 @@
       "url": "https://strangeseed.info/",
       "matchTitles": ["ストレンジシード"],
       "latest": {
-        "checkedAt": "2026-10-26",
+        "checkedAt": "2026-10-31",
         "status": "次回未確認",
-        "summary": "公式サイトを確認。2026年フェスティバルは終了し、次回開催の発表は見当たらない。",
+        "summary": "公式サイトと2026年開催情報を確認。2026年開催は終了しており、次回開催の発表は見当たらない。",
         "url": "https://strangeseed.info/"
       }
     },
@@ -253,9 +253,9 @@
       "url": "https://haikikou.stage.corich.jp/profile",
       "matchCompanies": ["排気口"],
       "latest": {
-        "checkedAt": "2026-10-26",
-        "status": "次回未確認",
-        "summary": "公式CoRichプロフィールを確認。最新掲載は2025年8月の『ウルトラマリンたち』で、次回公演の詳細は見当たらない。",
+        "checkedAt": "2026-10-31",
+        "status": "予定あり",
+        "summary": "排気口の菊地穂波が脚本を担当するpoco「隣家」が11月21〜23日に登録済み。団体公式の告知でも脚本参加を確認。",
         "url": "https://haikikou.stage.corich.jp/profile"
       }
     },
@@ -267,10 +267,10 @@
       "url": "https://x.com/norimizua",
       "matchTitles": ["飴屋法水"],
       "latest": {
-        "checkedAt": "2026-10-14",
-        "status": "予定あり",
-        "summary": "モメラス『薄闇、そこは散漫もしくは出口』が10月15日〜18日にカレンダー登録済み。",
-        "url": "https://x.gd/JyB0q"
+        "checkedAt": "2026-10-31",
+        "status": "次回未確認",
+        "summary": "公式X・公開検索で新たな出演・参加公演の詳細を確認できない。既登録のモメラス公演は10月18日に終了。",
+        "url": "https://x.com/norimizua"
       }
     }
   ]
