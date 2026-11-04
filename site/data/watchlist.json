@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31",
+  "generatedAt": "2026-11-05",
   "items": [
     {
       "id": "ypam-2027-program",
@@ -243,6 +243,21 @@
         "status": "予定あり",
         "summary": "『立ち止まるには近すぎる』が10月28日〜11月1日にカレンダー登録済み。",
         "url": "https://gekidanampersand.wixsite.com/mysite"
+      }
+    },
+    {
+      "id": "nylon-100c",
+      "type": "団体",
+      "name": "ナイロン100℃",
+      "reason": "ケラリーノ・サンドロヴィッチ主宰の劇団。新作・再演と各地の公演を追う。",
+      "url": "https://www.sillywalk.com/nylon/",
+      "matchCompanies": ["ナイロン100℃"],
+      "matchTitles": ["ナイロン100℃", "NYLON100℃"],
+      "latest": {
+        "checkedAt": "2026-11-05",
+        "status": "次回未確認",
+        "summary": "50th SESSION『管理人ご夫妻』は10月11日に全公演を終了。次回の劇団公演は確認できない。",
+        "url": "https://www.sillywalk.com/nylon/"
       }
     },
     {
