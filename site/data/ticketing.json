@@ -1,83 +1,47 @@
 {
-  "generatedAt": "2026-10-31",
+  "generatedAt": "2026-11-06",
   "items": [
     {
-      "eventIds": [
-        "1uf7g8a9uiph4p8b88ea09pa7s@google.com",
-        "5e5t914nkjtbkqu182eh4bnkdo@google.com"
-      ],
-      "title": "くによし組「粉瘤」",
-      "checkedAt": "2026-10-31",
-      "stages": [
-        {
-          "label": "一般",
-          "opensAt": "2026-09-07T21:00:00+09:00",
-          "url": "https://kuniyoshigumi.corich.co/hunnryu/yoyaku"
-        }
-      ]
-    },
-    {
-      "eventIds": [
-        "cgqjgp9m68s6ab9n6pi38b9kchj3ib9o6os62bb5cos62p9nc5ij4oj2c8@google.com"
-      ],
+      "eventIds": ["cgqjgp9m68s6ab9n6pi38b9kchj3ib9o6os62bb5cos62p9nc5ij4oj2c8@google.com"],
       "title": "庭劇団ペニノ「埋火（うずみび）」",
-      "checkedAt": "2026-10-31",
-      "stages": [
-        {
-          "label": "KAme先行",
-          "opensAt": "2026-09-05",
-          "url": "https://www.kaat.jp/d/uzumibi"
-        },
-        {
-          "label": "一般",
-          "opensAt": "2026-09-19",
-          "url": "https://www.kaat.jp/d/uzumibi", "closesAt": "2026-11-11T23:59:00+09:00"
-        }
-      ]
+      "checkedAt": "2026-11-06",
+      "stages": [{"label": "KAme先行", "opensAt": "2026-09-05", "url": "https://www.kaat.jp/d/uzumibi"}, {"label": "一般", "opensAt": "2026-09-19", "url": "https://www.kaat.jp/d/uzumibi", "closesAt": "2026-11-11T23:59:00+09:00"}]
     },
     {
       "eventIds": ["to92rjgtjrglfo170cmp0dmk14@google.com", "79m37ddagagh21le8k43umtvf4@google.com", "6lv7kkccgqhkeldsiun3itdi3g@google.com"],
       "title": "優しい劇団「データラメッチを抱きしめる」",
-      "checkedAt": "2026-10-31",
+      "checkedAt": "2026-11-06",
       "stages": [{"label": "一般", "opensAt": "2026-08-08T18:00:00+09:00", "url": "https://yasashiigekidan.wixsite.com/official/detarame", "closesAt": "2026-12-09T23:59:00+09:00"}]
-    },
-    {
-      "eventIds": ["7a2sn0fkkfrlnvsu9vf91dosfk@google.com", "5hag56m8idknpot2k4auamrrhs@google.com"],
-      "title": "唐組「虹屋敷」",
-      "checkedAt": "2026-10-31",
-      "stages": [{"label": "一般", "opensAt": "2026-08-23T10:00:00+09:00", "closesAt": "2026-11-01T18:00:00+09:00", "url": "https://eplus.jp/sf/detail/0042960001-P0030153P021006?P1=0175"}]
-    },
-    {
-      "eventIds": ["fp0926g05it66hkue06frbdk0o@google.com"],
-      "title": "劇団アンパサンド「立ち止まるには近すぎる」",
-      "checkedAt": "2026-10-31",
-      "stages": [{"label": "東京公演", "url": "https://l-tike.com/play/mevent/?mid=789663", "status": "sold-out"}]
-    },
-    {
-      "eventIds": ["eg9b43fjjajs638akf7fnarmjg@google.com"],
-      "title": "花形槙「エルゴノミクス胚」",
-      "checkedAt": "2026-10-31",
-      "stages": [{"label": "一般", "opensAt": "2026-08-08", "url": "https://www.geigeki.jp/performance/theater415-t415-11/", "closesAt": "2026-10-28T18:00:00+09:00"}]
     },
     {
       "eventIds": ["uj2kqjrs40uf1e6o5sg5aetn6s@google.com"],
       "title": "下谷万年町物語",
-      "checkedAt": "2026-10-31",
+      "checkedAt": "2026-11-06",
       "stages": [{"label": "一般", "opensAt": "2026-10-10T10:00:00+09:00", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2637018"}]
     },
     {
       "eventIds": ["b8crpljse2hdhm4ouhbeareeko@google.com"],
       "title": "ヌトミック「スーパーマーケットの神話」",
-      "checkedAt": "2026-10-31",
+      "checkedAt": "2026-11-06",
       "stages": [{"label": "一般", "opensAt": "2026-09-16T10:00:00+09:00", "url": "https://www.geigeki.jp/performance/theater420/"}]
     },
     {
       "eventIds": ["tfl62v7lgarb94mufkeudg181s@google.com"],
       "title": "テアトル・オン・デマンド「季節のあとで」",
-      "checkedAt": "2026-10-31",
+      "checkedAt": "2026-11-06",
       "stages": [{"label": "一般", "opensAt": "2026-09-20T10:00:00+09:00", "url": "https://tiget.net/events/511471"}]
     },
-    {"eventIds": ["mc7sq5rg11ofceii5v2q8f45r4@google.com"], "title": "9PROJECT vol.25「かけおち」", "checkedAt": "2026-10-31", "stages": [{"label": "一般", "opensAt": "2026-09-26T10:00:00+09:00", "closesAt": "2026-11-07T23:59:00+09:00", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2626999"}]}
-
+    {
+      "eventIds": ["mc7sq5rg11ofceii5v2q8f45r4@google.com"],
+      "title": "9PROJECT vol.25「かけおち」",
+      "checkedAt": "2026-11-06",
+      "stages": [{"label": "一般", "opensAt": "2026-09-26T10:00:00+09:00", "closesAt": "2026-11-07T23:59:00+09:00", "url": "https://t.pia.jp/pia/event/event.do?eventCd=2626999"}]
+    },
+    {
+      "eventIds": ["1bstku4f7geb3g1smvq584372k@google.com"],
+      "title": "ぺぺぺの会『破恩 -pa-own-』東京公演",
+      "checkedAt": "2026-11-06",
+      "stages": [{"label": "一般", "opensAt": "2026-09-01T10:00:00+09:00", "url": "https://pepepe.corich.co/pa-own-tokyo/common"}]
+    }
   ]
 }

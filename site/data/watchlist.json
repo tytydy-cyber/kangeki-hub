@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05",
+  "generatedAt": "2026-11-06",
   "items": [
     {
       "id": "ypam-2027-program",
@@ -9,10 +9,10 @@
       "url": "https://ypam.jp/2027/news/newsroom/detail_1775971621.html",
       "matchTitles": ["YPAM2027", "YPAM 2027"],
       "latest": {
-        "checkedAt": "2026-10-31",
-        "status": "発表待ち",
-        "summary": "公式告知は2027年2月5〜14日の開催と、プログラム発表を11月上旬予定としている。公演ラインアップの発表はまだ確認できない。",
-        "url": "https://ypam.jp/2027/news/newsroom/detail_1775971621.html"
+        "checkedAt": "2026-11-06",
+        "status": "予定あり",
+        "summary": "公式プログラムが公開済み。2月5〜14日の会期に、フジサワ名店ビルで記憶をたどるサイトスペシフィック作品などが並ぶ。個別演目はカレンダーと照合して選別する。",
+        "url": "https://ypam.jp/2027/program/index.html"
       }
     },
     {
@@ -23,10 +23,10 @@
       "url": "https://note.com/kryuutai/m/mf908c9be37ce",
       "matchCompanies": [],
       "latest": {
-        "checkedAt": "2026-10-31",
-        "status": "確認済み",
-        "summary": "10月号・11月号の記事と掲載公演の確認を継続。11月号掲載分は公式情報・カレンダー照合済みで、新しい12月号は確認できず。",
-        "url": "https://note.com/kryuutai/m/mf908c9be37ce"
+        "checkedAt": "2026-11-06",
+        "status": "要再確認",
+        "summary": "11月記事は検索結果で確認したが、記事本文を取得できず掲載公演を照合できなかった。本文を確認できる状態で再確認する。",
+        "url": "https://note.com/kryuutai/n/nfeb7b3021b3d"
       }
     },
     {
@@ -37,10 +37,10 @@
       "url": "https://ameblo.jp/karagumi/",
       "matchCompanies": ["唐組"],
       "latest": {
-        "checkedAt": "2026-10-09",
-        "status": "予定あり",
-        "summary": "『虹屋敷』がカレンダー登録済み。",
-        "url": "https://ameblo.jp/karagumi/entry-12973937461.html"
+        "checkedAt": "2026-11-06",
+        "status": "次回未確認",
+        "summary": "公式サイトで確認。秋公演『虹屋敷』は11月2日までで終了し、次回日程の告知は見当たらない。",
+        "url": "https://karagumi.or.jp/"
       }
     },
     {
@@ -51,10 +51,10 @@
       "url": "https://autumnmeteorite.jp/ja/2026/",
       "matchTitles": ["秋の隕石"],
       "latest": {
-        "checkedAt": "2026-10-09",
-        "status": "開催中",
-        "summary": "2026東京は10月9日〜11月3日。個別演目を週次提案へ反映。",
-        "url": "https://www.geigeki.jp/performance/theater415/"
+        "checkedAt": "2026-11-06",
+        "status": "次回未確認",
+        "summary": "2026年東京会期は11月3日まで。公式サイトで次回開催の告知は確認できず。",
+        "url": "https://autumnmeteorite.jp/ja/2026/"
       }
     },
     {
@@ -65,9 +65,9 @@
       "url": "https://x.com/kabukicho_tmo",
       "matchTitles": ["歌舞伎超祭"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "次回未確認",
-        "summary": "10月29日までの歌舞伎町タウン・マネージメント公式告知を確認。街区のライブやイルミネーション等はあるが、歌舞伎超祭の次回開催告知は見当たらない。",
+        "summary": "歌舞伎町タウン・マネージメントの公式ニュースを確認したが、歌舞伎超祭の次回開催告知は確認できず。",
         "url": "https://www.d-kabukicho.com/news/"
       }
     },
@@ -79,10 +79,10 @@
       "url": "https://www.benten-kabukicho.com/",
       "matchTitles": ["BENTEN", "歌舞伎町アートナイト"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "次回未確認",
-        "summary": "公式サイトに掲載されているのは2025年11月開催のBENTEN2。次回開催の告知は確認できない。",
-        "url": "https://www.benten-kabukicho.com/"
+        "summary": "公式サイトで確認。掲載されているのは2025年開催のBENTEN 2で、2026年の次回開催告知は見当たらない。",
+        "url": "https://www.benten-kabukicho.com/program"
       }
     },
     {
@@ -94,10 +94,10 @@
       "matchCompanies": ["仕立て屋のサーカス"],
       "matchTitles": ["仕立て屋のサーカス"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "予定あり",
-        "summary": "公式サイトで11月14・15日の北杜市公演を確認。森のホールで音・空間・写真が交わる企画を未登録候補として提案へ反映。",
-        "url": "https://www.circodesastre.com/single-post/2026-10-09"
+        "summary": "公式公演ページで11月14・15日のlistude山梨公演を再確認。Forest Hall、各日70席。",
+        "url": "https://www.circodesastre.com/live-schedule"
       }
     },
     {
@@ -138,10 +138,10 @@
       "matchCompanies": ["のあんじー"],
       "matchTitles": ["のあんじー"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "要再確認",
-        "summary": "公式X本文は取得できず、検索でも公式発信による新しい次回公演の詳細を確認できない。開催状況は未判定。",
-        "url": "https://x.com/noangie0804"
+        "summary": "公式SNSの投稿本文を取得できず、新しい公演情報を確認できなかった。公式サイト・SNSを継続確認する。",
+        "url": "https://x.com/noangie_theater"
       }
     },
     {
@@ -153,9 +153,9 @@
       "matchCompanies": ["平原演劇祭"],
       "matchTitles": ["平原演劇祭"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "要再確認",
-        "summary": "公式X本文は取得できず、検索でも公式発信による次回公演の詳細を確認できない。開催状況は未判定。",
+        "summary": "公式SNSの最新投稿本文を取得できず、次回上演情報を確認できなかった。公式SNSを継続確認する。",
         "url": "https://x.com/heigenfes"
       }
     },
@@ -211,10 +211,10 @@
       "matchCompanies": ["宇宙論☆講座"],
       "matchTitles": ["宇宙論☆講座"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "次回未確認",
-        "summary": "公式サイトの最新公演情報は8月13・14日の音楽劇『ラーメン』。次回公演の具体的な日程発表は確認できない。",
-        "url": "https://uchuuronkouza.wixsite.com/ramen"
+        "summary": "公式情報を検索したが、今後の公演告知を確認できなかった。",
+        "url": "https://uchu-kouza.com/"
       }
     },
     {
@@ -225,9 +225,9 @@
       "url": "https://strangeseed.info/",
       "matchTitles": ["ストレンジシード"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "次回未確認",
-        "summary": "公式サイトと2026年開催情報を確認。2026年開催は終了しており、次回開催の発表は見当たらない。",
+        "summary": "公式情報を検索したが、2026年開催後の次回日程は確認できなかった。",
         "url": "https://strangeseed.info/"
       }
     },
@@ -239,9 +239,9 @@
       "url": "https://gekidanampersand.wixsite.com/mysite",
       "matchCompanies": ["劇団アンパサンド"],
       "latest": {
-        "checkedAt": "2026-10-14",
+        "checkedAt": "2026-11-06",
         "status": "予定あり",
-        "summary": "『立ち止まるには近すぎる』が10月28日〜11月1日にカレンダー登録済み。",
+        "summary": "公式サイトで三都市ツアーを確認。東京公演は終了、三重11月8日・札幌11月14〜15日。確認時点で各回の一般販売は予定枚数終了と案内。",
         "url": "https://gekidanampersand.wixsite.com/mysite"
       }
     },
@@ -282,10 +282,10 @@
       "url": "https://x.com/norimizua",
       "matchTitles": ["飴屋法水"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-06",
         "status": "次回未確認",
-        "summary": "公式X・公開検索で新たな出演・参加公演の詳細を確認できない。既登録のモメラス公演は10月18日に終了。",
-        "url": "https://x.com/norimizua"
+        "summary": "公式サイト・SNSの公開情報を検索したが、次回公演は確認できなかった。",
+        "url": "https://x.com/housuiameya"
       }
     }
   ]

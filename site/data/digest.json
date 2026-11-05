@@ -1,10 +1,10 @@
 {
- "generatedAt": "2026-10-12",
+ "generatedAt": "2026-11-06",
  "cadence": "月次更新（毎月最初の金曜）",
  "window": {
   "days": 90,
-  "from": "2026-07-15",
-  "to": "2026-10-12"
+  "from": "2026-08-09",
+  "to": "2026-11-06"
  },
  "overview": {
   "stats": [
@@ -14,30 +14,26 @@
    },
    {
     "label": "前の90日との差",
-    "value": "-11公演"
+    "value": "-4公演"
    },
    {
     "label": "初登場の団体",
-    "value": "20団体"
+    "value": "26団体"
    },
    {
     "label": "継続して追う団体",
-    "value": "22団体"
+    "value": "19団体"
    }
   ],
   "text": "鑑賞実績ではなく、カレンダーへ何を登録したかを分析。直近90日を前の90日と比べ、関心の広がりと継続を捉える。"
  },
  "comparison": {
   "current": 55,
-  "previous": 66,
-  "currentLabel": "2026-07-15〜2026-10-12",
-  "previousLabel": "2026-04-16〜2026-07-14"
+  "previous": 59,
+  "currentLabel": "2026-08-09〜2026-11-06",
+  "previousLabel": "2026-05-11〜2026-08-08"
  },
  "registrationPace": [
-  {
-   "month": "2025-10",
-   "count": 19
-  },
   {
    "month": "2025-11",
    "count": 16
@@ -84,18 +80,18 @@
   },
   {
    "month": "2026-10",
-   "count": 9
+   "count": 20
   }
  ],
  "momentum": [
   {
-   "name": "大駱駝艦",
+   "name": "ヌトミック",
    "current": 2,
    "previous": 0,
    "delta": 2
   },
   {
-   "name": "流山児★事務所",
+   "name": "南京豆NAMENAME",
    "current": 2,
    "previous": 0,
    "delta": 2
@@ -131,6 +127,12 @@
    "delta": 1
   },
   {
+   "name": "くによし組",
+   "current": 1,
+   "previous": 0,
+   "delta": 1
+  },
+  {
    "name": "ぺぺぺの会",
    "current": 1,
    "previous": 0,
@@ -141,23 +143,9 @@
    "current": 1,
    "previous": 0,
    "delta": 1
-  },
-  {
-   "name": "ウンゲツィーファ×玉田企画",
-   "current": 1,
-   "previous": 0,
-   "delta": 1
   }
  ],
  "discoveries": [
-  {
-   "name": "大旅軍団",
-   "count": 1
-  },
-  {
-   "name": "マタヒバチ",
-   "count": 1
-  },
   {
    "name": "シンビーボックス",
    "count": 1
@@ -183,19 +171,27 @@
    "count": 1
   },
   {
+   "name": "ナディア・ブグレ",
+   "count": 1
+  },
+  {
+   "name": "岡田利規＆山田和樹",
+   "count": 1
+  },
+  {
+   "name": "麿赤兒×エリック=マリア・クテュリエ",
+   "count": 1
+  },
+  {
+   "name": "山城知佳子",
+   "count": 1
+  },
+  {
    "name": "集金娘",
    "count": 1
   },
   {
    "name": "テアトル・オン・デマンド",
-   "count": 1
-  },
-  {
-   "name": "ぺぺぺの会",
-   "count": 1
-  },
-  {
-   "name": "poco",
    "count": 1
   }
  ],
@@ -203,10 +199,6 @@
   {
    "name": "コンプソンズ",
    "count": 6
-  },
-  {
-   "name": "大駱駝艦",
-   "count": 4
   },
   {
    "name": "優しい劇団",
@@ -221,34 +213,38 @@
    "count": 3
   },
   {
+   "name": "大駱駝艦",
+   "count": 3
+  },
+  {
    "name": "流山児★事務所",
    "count": 3
   },
   {
-   "name": "スヌーヌー",
-   "count": 2
-  },
-  {
-   "name": "踊場海月",
-   "count": 2
-  },
-  {
-   "name": "東葛スポーツ",
-   "count": 2
+   "name": "南京豆NAMENAME",
+   "count": 3
   },
   {
    "name": "立川がじら",
    "count": 2
   },
   {
-   "name": "劇団アンパサンド",
+   "name": "新宿梁山泊",
    "count": 2
   },
   {
-   "name": "新宿梁山泊",
+   "name": "唐組",
+   "count": 2
+  },
+  {
+   "name": "ロロ",
+   "count": 2
+  },
+  {
+   "name": "ダダルズ",
    "count": 2
   }
  ],
- "upcomingCount": 78,
+ "upcomingCount": 60,
  "notes": "Googleカレンダーへの登録日を基準に公演単位で集計。登録は興味・把握を示すもので、実際の鑑賞数や評価ではない。"
 }
