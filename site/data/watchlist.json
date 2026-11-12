@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12",
+  "generatedAt": "2026-11-13",
   "items": [
     {
       "id": "ypam-2027-program",
@@ -23,9 +23,9 @@
       "url": "https://note.com/kryuutai/m/mf908c9be37ce",
       "matchCompanies": [],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "要再確認",
-        "summary": "11月記事は検索結果で確認したが、記事本文を取得できず掲載公演を照合できなかった。本文を確認できる状態で再確認する。",
+        "summary": "記事ページ本文を取得できず、掲載公演を確認できなかった。次回は本文を開いて再確認する。",
         "url": "https://note.com/kryuutai/n/nfeb7b3021b3d"
       }
     },
@@ -37,10 +37,10 @@
       "url": "https://ameblo.jp/karagumi/",
       "matchCompanies": ["唐組"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "公式サイトで確認。秋公演『虹屋敷』は11月2日までで終了し、次回日程の告知は見当たらない。",
-        "url": "https://karagumi.or.jp/"
+        "summary": "秋公演『虹屋敷』は11月2日までで終了。公式サイトで次回日程の告知は確認できなかった。",
+        "url": "https://ameblo.jp/karagumi/"
       }
     },
     {
@@ -51,9 +51,9 @@
       "url": "https://autumnmeteorite.jp/ja/2026/",
       "matchTitles": ["秋の隕石"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "2026年東京会期は11月3日まで。公式サイトで次回開催の告知は確認できず。",
+        "summary": "2026年東京会期は11月3日まで。公式サイトで次回開催の告知は確認できなかった。",
         "url": "https://autumnmeteorite.jp/ja/2026/"
       }
     },
@@ -65,9 +65,9 @@
       "url": "https://x.com/kabukicho_tmo",
       "matchTitles": ["歌舞伎超祭"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "歌舞伎町タウン・マネージメントの公式ニュースを確認したが、歌舞伎超祭の次回開催告知は確認できず。",
+        "summary": "11月3日の開催後、主催者の公式情報で次回開催の告知は確認できなかった。",
         "url": "https://www.d-kabukicho.com/news/"
       }
     },
@@ -79,9 +79,9 @@
       "url": "https://www.benten-kabukicho.com/",
       "matchTitles": ["BENTEN", "歌舞伎町アートナイト"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "公式サイトで確認。掲載されているのは2025年開催のBENTEN 2で、2026年の次回開催告知は見当たらない。",
+        "summary": "公式サイトに掲載されているのは2025年開催分で、2026年の次回開催告知は確認できなかった。",
         "url": "https://www.benten-kabukicho.com/program"
       }
     },
@@ -94,9 +94,9 @@
       "matchCompanies": ["仕立て屋のサーカス"],
       "matchTitles": ["仕立て屋のサーカス"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "予定あり",
-        "summary": "公式公演ページで11月14・15日のlistude山梨公演を再確認。Forest Hall、各日70席。",
+        "summary": "11月14・15日に山梨のForest Hallで公演。listudeの音響インスタレーションや写真家・石川直樹との協働を含む公演として公式ページで確認。",
         "url": "https://www.circodesastre.com/live-schedule"
       }
     },
@@ -108,9 +108,9 @@
       "url": "https://www.furosya.com/",
       "matchCompanies": ["劇団不労社"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-13",
         "status": "予定あり",
-        "summary": "公式サイトで『暗黒の喜劇』横浜公演を2027年2月と告知。日付・会場の詳細は未発表で、詳細ページを確認後に再判定する。",
+        "summary": "『暗黒の喜劇』横浜公演は2027年2月予定。公式告知に日付・会場の詳細はまだなく、詳細発表後に再確認する。",
         "url": "https://www.furosya.com/"
       }
     },
@@ -138,9 +138,9 @@
       "matchCompanies": ["のあんじー"],
       "matchTitles": ["のあんじー"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "要再確認",
-        "summary": "公式SNSの投稿本文を取得できず、新しい公演情報を確認できなかった。公式サイト・SNSを継続確認する。",
+        "summary": "公式SNSの投稿本文を取得できず、新しい公演情報を確認できなかった。",
         "url": "https://x.com/noangie_theater"
       }
     },
@@ -153,9 +153,9 @@
       "matchCompanies": ["平原演劇祭"],
       "matchTitles": ["平原演劇祭"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "要再確認",
-        "summary": "公式SNSの最新投稿本文を取得できず、次回上演情報を確認できなかった。公式SNSを継続確認する。",
+        "summary": "公式SNSの最新投稿本文を取得できず、次回上演を確認できなかった。",
         "url": "https://x.com/heigenfes"
       }
     },
@@ -182,10 +182,10 @@
       "matchCompanies": ["ヌトミック"],
       "matchTitles": ["ヌトミック"],
       "latest": {
-        "checkedAt": "2026-10-14",
+        "checkedAt": "2026-11-13",
         "status": "予定あり",
-        "summary": "『スーパーマーケットの神話』（11月5日〜8日）と京都新作（2027年1月15日〜17日）がカレンダー登録済み。",
-        "url": "https://nuthmique.com/post/821379447712333824/news260706"
+        "summary": "2027年1月に北海道・京都、1月末に沖縄で巡回公演を発表。確認した公式情報に東京公演の日程はない。",
+        "url": "https://nuthmique.com/"
       }
     },
     {
@@ -211,10 +211,10 @@
       "matchCompanies": ["宇宙論☆講座"],
       "matchTitles": ["宇宙論☆講座"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "公式情報を検索したが、今後の公演告知を確認できなかった。",
-        "url": "https://uchu-kouza.com/"
+        "summary": "公式サイトに過去の告知はあるが、現在以降の日付が確定した公演は確認できなかった。",
+        "url": "https://uchuuronkouza.wixsite.com/musical-top-of-japan"
       }
     },
     {
@@ -225,10 +225,10 @@
       "url": "https://strangeseed.info/",
       "matchTitles": ["ストレンジシード"],
       "latest": {
-        "checkedAt": "2026-11-06",
-        "status": "次回未確認",
-        "summary": "公式情報を検索したが、2026年開催後の次回日程は確認できなかった。",
-        "url": "https://strangeseed.info/"
+        "checkedAt": "2026-11-13",
+        "status": "予定あり",
+        "summary": "2027年5月2〜4日の静岡開催を公式発表で確認。",
+        "url": "https://project.strangeseed.info/news/post-2370/"
       }
     },
     {
@@ -239,9 +239,9 @@
       "url": "https://gekidanampersand.wixsite.com/mysite",
       "matchCompanies": ["劇団アンパサンド"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "予定あり",
-        "summary": "公式サイトで三都市ツアーを確認。東京公演は終了、三重11月8日・札幌11月14〜15日。確認時点で各回の一般販売は予定枚数終了と案内。",
+        "summary": "11月14・15日に札幌公演。東京公演は終了しており、今回確認できた日程に東京公演はない。",
         "url": "https://gekidanampersand.wixsite.com/mysite"
       }
     },
@@ -254,9 +254,9 @@
       "matchCompanies": ["ナイロン100℃"],
       "matchTitles": ["ナイロン100℃", "NYLON100℃"],
       "latest": {
-        "checkedAt": "2026-11-05",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "50th SESSION『管理人ご夫妻』は10月11日に全公演を終了。次回の劇団公演は確認できない。",
+        "summary": "劇団本公演の次回日程は公式サイトで確認できなかった。劇団員の外部出演情報は本公演と区別して扱う。",
         "url": "https://www.sillywalk.com/nylon/"
       }
     },
@@ -268,9 +268,9 @@
       "url": "https://haikikou.stage.corich.jp/profile",
       "matchCompanies": ["排気口"],
       "latest": {
-        "checkedAt": "2026-10-31",
+        "checkedAt": "2026-11-13",
         "status": "予定あり",
-        "summary": "排気口の菊地穂波が脚本を担当するpoco「隣家」が11月21〜23日に登録済み。団体公式の告知でも脚本参加を確認。",
+        "summary": "主宰・作演出が参加するpoco『隣家』はカレンダー登録済み。団体名義の新作告知とは区別して追跡する。",
         "url": "https://haikikou.stage.corich.jp/profile"
       }
     },
@@ -282,9 +282,9 @@
       "url": "https://x.com/norimizua",
       "matchTitles": ["飴屋法水"],
       "latest": {
-        "checkedAt": "2026-11-06",
+        "checkedAt": "2026-11-13",
         "status": "次回未確認",
-        "summary": "公式サイト・SNSの公開情報を検索したが、次回公演は確認できなかった。",
+        "summary": "公式SNSの投稿本文を取得できず、新しい公演情報を確認できなかった。",
         "url": "https://x.com/housuiameya"
       }
     },
