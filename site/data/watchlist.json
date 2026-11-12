@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06",
+  "generatedAt": "2026-11-12",
   "items": [
     {
       "id": "ypam-2027-program",
@@ -286,6 +286,20 @@
         "status": "次回未確認",
         "summary": "公式サイト・SNSの公開情報を検索したが、次回公演は確認できなかった。",
         "url": "https://x.com/housuiameya"
+      }
+    },
+    {
+      "id": "dokutoku-na-hito",
+      "type": "イベント",
+      "name": "川谷絵音「独特な人」",
+      "reason": "川谷絵音が手がける舞台企画。シリーズの新作と関連公演を追う。",
+      "url": "https://eplus.jp/sf/detail/2833420001",
+      "matchTitles": ["独特な人", "独特な演説会", "アレト"],
+      "latest": {
+        "checkedAt": "2026-11-12",
+        "status": "予定あり",
+        "summary": "2027年1月22日『独特な演説会』、1月23〜24日 第九回公演『アレト』。いずれも大手町三井ホール。",
+        "url": "https://eplus.jp/sf/detail/2833420001"
       }
     }
   ]

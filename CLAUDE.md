@@ -9,6 +9,8 @@
 
 ## 観劇カレンダー
 
+登録・変更は [docs/CALENDAR_RULES.md](docs/CALENDAR_RULES.md) に従う。2026-11-10に本人のv4原文を確認して復元済み。旧連携固有の日時形式と現ツールの形式を区別する。参加者情報の削除は本人依頼済みで、公演本体は残す。
+
 - カレンダーID: `ooc2a3r5b532knt1472khnrjpg@group.calendar.google.com`（確認済み）
 - 公開iCalフィード: `https://calendar.google.com/calendar/ical/ooc2a3r5b532knt1472khnrjpg%40group.calendar.google.com/public/basic.ics`
 - タイムゾーン: Asia/Tokyo（確認済み）
