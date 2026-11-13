@@ -166,5 +166,19 @@
     "url": "https://tokyoimmersivedining.com/TOP",
     "rejectedAt": "2026-11-13",
     "reason": "日程都合"
+  },
+  {
+    "title": "テアトロ コメディア・デラルテ「ディア王」",
+    "dates": "2026/12/10(木)〜12/13(日)",
+    "url": "https://hirota-tcd.com/performance/",
+    "rejectedAt": "2026-11-13",
+    "reason": "センスがない（本人評価）"
+  },
+  {
+    "title": "room. Onaya Rion『前夜』",
+    "dates": "2026/12/11(金)〜12/13(日)",
+    "url": "https://setagaya-pt.jp/stage/36893/",
+    "rejectedAt": "2026-11-13",
+    "reason": "センスがない（本人評価）"
   }
 ]
